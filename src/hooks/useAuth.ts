@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN, SPOTIFY_WEB_API, VINYLIFY_TOKEN } from '@/constants';
-import { API, PAGE } from '@/constants/url';
+import { PAGE } from '@/constants/url';
 import { useCallback, useEffect, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -30,9 +30,10 @@ export const useAuth = () => {
         SPOTIFY_WEB_API.setAccessToken(access_token);
         navigate(PAGE.MAIN);
         return access_token;
-      } else {
-        window.location.replace(API.LOGIN);
       }
+      //  else {
+      // window.location.replace(API.LOGIN);
+      // }
     } else {
       return SPOTIFY_WEB_API.getAccessToken();
     }
