@@ -11,7 +11,7 @@ export default function Recommendations() {
     return (
       <>
         <AnimatedTitle>Recommendations</AnimatedTitle>
-        return <Table.Skeleton />
+        <Table.Skeleton />
       </>
     );
   }
