@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/genius/api",
-      "destination": "https://api.genius.com"
+      "source": "/genius/api/:path",
+      "destination": "https://api.genius.com/:path"
     },
     {
       "source": "/lyrics",
