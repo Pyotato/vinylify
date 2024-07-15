@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/genius/api/(.*)",
-      "destination": "https://api.genius.com/(.*)"
+      "destination": "https://api.genius.com/"
     },
     {
       "source": "/(.*)",
