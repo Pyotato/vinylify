@@ -35,7 +35,6 @@ export async function geniusSearchUrl({
       },
     })
     .json();
-  console.log('lyrics response', res);
 
   const resUrlSortedArray = res.response?.hits
     .filter(searchResult =>

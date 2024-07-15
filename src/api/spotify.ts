@@ -24,7 +24,6 @@ const api = ky.extend({
     ],
     afterResponse: [
       (_, __, res) => {
-        console.log(res?.status);
         if (res?.status === 401) {
           console.log('invalid token');
           SPOTIFY_WEB_API.setAccessToken(null);
