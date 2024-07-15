@@ -8,6 +8,19 @@ import ky from 'ky';
 const api = ky.extend({
   prefixUrl: API.GENIUS,
   hooks: {
+    beforeRequest: [
+      req => {
+        req.headers.set(
+          'Access-Control-Allow-Headers',
+          `Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Content-Type, Accept, X-Auth-Token, Authorization`,
+        );
+        req.headers.set(
+          'Access-Control-Allow-Methods',
+          `GET, PUT, POST, OPTIONS, DELETE`,
+        );
+        req.headers.set('Content-Type', `application/json`);
+      },
+    ],
     afterResponse: [
       (_, __, res) => {
         console.log(res?.status);
