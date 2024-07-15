@@ -29,7 +29,7 @@ const api = ky.extend({
         } else if (res?.status === 429) {
           console.log('too many requests..');
         }
-        console.log(res);
+        console.log('geniusLyricsUrl', res);
       },
     ],
   },
@@ -48,6 +48,7 @@ export async function geniusSearchUrl({
       },
     })
     .json();
+  console.log('lyrics response', res);
 
   const resUrlSortedArray = res.response?.hits
     .filter(searchResult =>
