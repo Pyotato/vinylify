@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/genius/api/(.*)",
-      "destination": "https://api.genius.com/search"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
