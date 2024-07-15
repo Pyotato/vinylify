@@ -6,7 +6,7 @@ import { isValidLyrics } from '@/utils/lyrics';
 
 import ky from 'ky';
 const api = ky.extend({
-  prefixUrl: API.GENIUS,
+  prefixUrl: API._GENIUS,
   hooks: {
     afterResponse: [
       (_, __, res) => {
