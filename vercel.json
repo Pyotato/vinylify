@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/genius/api/:path",
+      "destination": "https://api.genius.com/:path"
+    },
+    {
       "source": "/lyrics",
       "destination": "https://vinylify-express.vercel.app/lyrics"
     },
