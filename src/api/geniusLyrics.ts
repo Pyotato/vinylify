@@ -30,6 +30,7 @@ export async function geniusSearch({
   term,
 }: CurrentTrackSearchParam) {
   const url = await geniusSearchUrl({ search_artist_term, artist, term });
+  console.log('geniusSearch', url);
   if (url == null) return null;
   const res: LyricsSearchResponse = await api
     .get(`lyrics`, {
