@@ -1,4 +1,16 @@
-# React + TypeScript + Vite
+# Vinylify 🎶 
+
+<div style="display:block;text-align:center;">
+<a href="https://vinylify-tau.vercel.app/" style="margin:0 auto;" >
+<img width="168" alt="image"  src="https://github.com/user-attachments/assets/23090b17-17ea-4aa4-a826-238a1398bb96"/></a>
+</div>
+<div>
+
+
+
+
+
+<!---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -28,3 +40,4 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+->
