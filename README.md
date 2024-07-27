@@ -16,12 +16,12 @@
 | Description | Techs |
 | ----- | ----------------------- |
 |Front| ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white) ![Reactjs](https://shields.io/badge/react-black?logo=react&style=flat)|
-|State management & data fetching|![Tanstack Query](https://img.shields.io/badge/-tanstack%20Query-FF4154?style=flat&logo=react%20query&logoColor=white)|
+|State management & data fetching|![Tanstack Query](https://img.shields.io/badge/-tanstack%20Query-FF4154?style=flat&logo=react%20query&logoColor=white) ![ky badge](https://img.shields.io/badge/ky-red.svg)|
 |Build & Deployment|![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=flat&logo=vercel&logoColor=white)|
 |Code Quality & Version Control|![Commitlint](https://img.shields.io/badge/commitlint-0352fc.svg?style=flat&logo=commitlint&logoColor=fc4103) ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=flat&logo=yarn&logoColor=white) ![vite](https://img.shields.io/badge/-Vite-B73BFE?style=flat&logo=vite&logoColor=white&style=flat)|
 |Error tracking & Monitoring|![Sentry Badge](https://img.shields.io/badge/Sentry-362D59?logo=sentry&logoColor=fff&style=for-the-badge&style=flat) |
 |Styling|![Sass Badge](https://img.shields.io/badge/Sass-C69?logo=sass&logoColor=fff&style=for-the-badge&style=flat)|
-|APIs|![Spotify Badge](https://img.shields.io/badge/Spotify-1DB954?logo=spotify&logoColor=fff&style=flat) ![ky badge](https://img.shields.io/badge/ky-red.svg) ![Genius Badge](https://img.shields.io/badge/Genius-FFFF64?logo=genius&logoColor=000&style=flat)|
+|APIs|![Spotify Badge](https://img.shields.io/badge/Spotify-1DB954?logo=spotify&logoColor=fff&style=flat)  ![Genius Badge](https://img.shields.io/badge/Genius-FFFF64?logo=genius&logoColor=000&style=flat)|
 
 
 <b>vinlyify(바이닐리파이)는 스포티파이 프리미엄 구독 시 아래의 기능을 제공합니다.</b>
