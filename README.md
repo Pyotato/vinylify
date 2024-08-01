@@ -54,8 +54,8 @@
 <img width="100%" src="https://github.com/user-attachments/assets/d6416dfe-971b-4bc0-be3f-60b33568a170"/>
 
 - 검색 페이지
-  - 디폴트 :최근 최다 재생곡 아티스트, albums 탭으로 설정되어 있습니다.
-      <img width="100%" src="https://github.com/user-attachments/assets/ce97a35e-3098-4736-b32e-3446b9fdd47c"/>
+  - 디폴트 : 최근 최다 재생곡 아티스트, albums 탭으로 설정되어 있습니다.
+<img width="100%" src="https://github.com/user-attachments/assets/ce97a35e-3098-4736-b32e-3446b9fdd47c"/>
      - albums/ artists / tracks / playists
   <div width="100%" style="display:inline-flex;">
     <img width="24.25%" alt="image" src="https://github.com/user-attachments/assets/f79d51e0-6720-4200-9a04-8b1fe7420c51">
@@ -63,11 +63,9 @@
     <img width="24.25%" alt="image" src="https://github.com/user-attachments/assets/45472dab-b5aa-46b5-be23-dbe96aaa08e5"/>
     <img width="24.25%" alt="image" src="https://github.com/user-attachments/assets/0e1d456b-5c66-4e8b-9d7d-b4ea6a2f2b51">
   </div>
-
-
-
-
+  - 검색어 
+<img width="100%" src="https://github.com/user-attachments/assets/ab0b385f-3f08-4742-b8ec-6a4ba959dc61"/>
 
 ### Development Process
 
-- 자세한 구현 과정은 [블로그](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)에서 살펴보실 수 있습니다. (업데이트 중!)
+- 자세한 구현 과정은 [블로그](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)에서 살펴보실 수 있습니다. (업데이트 중, COMING SOON!)
