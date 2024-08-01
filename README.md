@@ -12,7 +12,7 @@
 - [Features](https://github.com/Pyotato/vinylify?tab=readme-ov-file#features)
 - [Demo](https://github.com/Pyotato/vinylify?tab=readme-ov-file#-%EB%8D%B0%EB%AA%A8-%EC%98%81%EC%83%81-%EB%B3%B4%EA%B8%B0)
 - [Screenshots](https://github.com/Pyotato/vinylify?tab=readme-ov-file#screenshots)
-- [Development Process](https://github.com/Pyotato/vinylify?tab=readme-ov-file#screenshots)
+- [Development Process](https://github.com/Pyotato/vinylify?tab=readme-ov-file#development-process)
 
 ### Introduction
 
