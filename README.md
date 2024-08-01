@@ -35,12 +35,24 @@
 
 ### Features
 
-📼 데모 영상 보기
+#### 📼 데모 영상 보기
 
 [![Watch the video](https://github.com/user-attachments/assets/19ddf60c-8c43-4ef0-9761-53caab4d8752)](https://www.youtube.com/watch?v=1u26NxKxHNQ)
 
+#### Screenshots
 
+- 로그인 페이지
 
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/02007e97-6a49-48ed-aaf8-c20170f37321"/>
 
+- 메인 페이지
 
-### 
+<img width="100%" src="https://github.com/user-attachments/assets/ad161279-98f4-4cb1-832d-6890049a3cd8"/>
+
+- 현재 재생 곡 페이지
+
+<img width="100%" src="https://github.com/user-attachments/assets/d6416dfe-971b-4bc0-be3f-60b33568a170"/>
+
+### Development Process
+
+- 자세한 구현 과정은 [블로그](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)에서 살펴보실 수 있습니다.
