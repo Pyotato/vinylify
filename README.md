@@ -76,6 +76,8 @@
 - [2탄 : spotify api authorization 담당 서버(1) vercel로 배포](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B82-%EC%A4%80%EB%B9%84%EB%AC%BC-authorization%EC%9D%84-%EB%8B%B4%EB%8B%B9%ED%95%A0-%EC%84%9C%EB%B2%84)
 - [3탄 : spotify api authorization 담당 서버(2) 코드 작성](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B83-%EC%A4%80%EB%B9%84%EB%AC%BC-authorization%EC%9D%84-%EB%8B%B4%EB%8B%B9%ED%95%A0-%EC%84%9C%EB%B2%84-%EC%BD%94%EB%93%9C)
 - [4탄 : eslint + prettier + commitlint 설정 (+husky)](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B84-eslint-prettier-commitlint-%EC%84%A4%EC%A0%95-husky)
+- [5탄 : react router 설정](https://pyotato-dev.tistory.com/entry/spotify-api-VINYLIFY-%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4-api%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B2%80%EC%83%89-%EC%9E%AC%EC%83%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B85-react-router-%EC%84%A4%EC%A0%95)
+
 
 
 
