@@ -1,5 +1,5 @@
 @use '@/utils/mixins';
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 @use '@/utils/skeleton';
 
 .table {
@@ -24,19 +24,19 @@
   img {
     width: 6rem;
     aspect-ratio: 1/1;
-    border-radius: variables.$border-radius-main;
+    border-radius: $border-radius-main;
   }
   margin-bottom: 1rem;
 }
 .table-item-description {
   width: 90%;
-  color: variables.$light-grey-white;
+  color: $light-grey-white;
 }
 
 .skeleton-image {
   width: 6rem;
   aspect-ratio: 1/1;
-  border-radius: variables.$border-radius-main;
+  border-radius: $border-radius-main;
 }
 
 .top-track-name {
@@ -54,7 +54,7 @@
 
 .description {
   display: inline-block;
-  color: variables.$white;
+  color: $white;
   font-size: 0.8rem;
 }
 
@@ -64,14 +64,14 @@
 }
 
 .link {
-  color: variables.$white-grey;
+  color: $white-grey;
 }
 
 .artist-name {
   margin: 0.4rem 0;
   text-decoration: none;
   &:hover {
-    color: variables.$pale-white-grey;
+    color: $pale-white-grey;
   }
 }
 

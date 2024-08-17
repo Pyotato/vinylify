@@ -1,11 +1,11 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 
 .button {
   border: none;
   background-color: inherit;
   :hover {
     cursor: pointer;
-    fill: variables.$grey;
+    fill: $grey;
   }
   display: inline-block;
   padding: 0;

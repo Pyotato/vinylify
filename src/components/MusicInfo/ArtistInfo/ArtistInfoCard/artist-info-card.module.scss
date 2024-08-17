@@ -1,4 +1,4 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 @use '@/utils/mixins';
 
 .artist-info-card {
@@ -7,8 +7,8 @@
   margin-bottom: 1rem;
   border-radius: 4px;
   padding: 1rem 2rem;
-  background-color: variables.$tan-black;
-  color: variables.$white;
+  background-color: $tan-black;
+  color: $white;
   justify-content: center;
 
   ul {
@@ -19,7 +19,7 @@
 
   li {
     overflow-wrap: break-word;
-    color: variables.$light-grey-white;
+    color: $light-grey-white;
     margin-bottom: 1rem;
   }
 
@@ -66,7 +66,7 @@
 .followers {
   font-size: 0.8rem;
   text-wrap: nowrap;
-  color: variables.$light-grey-white;
+  color: $light-grey-white;
 }
 .artist-profile {
   border-radius: 4px;

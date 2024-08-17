@@ -1,4 +1,4 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 
 .button {
   border: none;
@@ -10,14 +10,14 @@
     height: 1rem;
     padding: 0.3rem 0.2rem 0.4rem;
     border-radius: 2px;
-    background-color: variables.$white;
-    color: variables.$raisin-black;
-    box-shadow: variables.$button-shadow;
+    background-color: $white;
+    color: $raisin-black;
+    box-shadow: $button-shadow;
   }
 }
 .button:hover {
   svg {
-    color: variables.$pale-white-grey;
+    color: $pale-white-grey;
   }
   cursor: pointer;
 }

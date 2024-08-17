@@ -1,15 +1,15 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 
 .progress-bar {
   height: 0.5rem;
   width: 60%;
-  background-color: variables.$pale-white-grey;
+  background-color: $pale-white-grey;
   border-radius: 3rem;
   margin: 1rem 0;
 
   .filt {
     height: '100%';
-    background-color: variables.$grey;
+    background-color: $grey;
     border-radius: 3rem;
     text-align: right;
     transition: width 1s ease-in-out;

@@ -1,5 +1,5 @@
 @use '@/utils/mixins';
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 
 .playlist-description {
   font-size: 0.86rem !important;
@@ -7,6 +7,6 @@
   word-break: break-all;
 
   a:hover {
-    color: variables.$raisin-black;
+    color: $raisin-black;
   }
 }

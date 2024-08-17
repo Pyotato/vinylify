@@ -1,4 +1,4 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 @use '../skeleton.scss';
 
 .profile {
@@ -38,7 +38,7 @@
   height: 100%;
   overflow: hidden;
   display: block;
-  background-color: variables.$white-grey;
+  background-color: $white-grey;
   border-radius: 50%;
 }
 

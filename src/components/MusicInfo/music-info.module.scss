@@ -1,7 +1,7 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 .wrap {
-  color: variables.$white;
-  background-color: variables.$white-grey;
+  color: $white;
+  background-color: $white-grey;
   padding: 1.2rem;
 }
 
@@ -12,12 +12,12 @@
 
   button {
     svg {
-      color: variables.$white !important;
+      color: $white !important;
     }
   }
 }
 .nothing-wrap {
-  color: variables.$white;
-  background-color: variables.$raisin-black;
+  color: $white;
+  background-color: $raisin-black;
   padding: 1rem;
 }

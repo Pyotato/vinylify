@@ -1,4 +1,4 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 .header {
   width: -moz-available;
   width: -webkit-fill-available;

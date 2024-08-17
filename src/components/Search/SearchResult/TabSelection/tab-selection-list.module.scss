@@ -1,8 +1,8 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 
 .tab-selection-list {
-  background-color: variables.$light-grey-white;
-  color: variables.$light-grey-white;
+  background-color: $light-grey-white;
+  color: $light-grey-white;
 
   display: inline-flex;
   flex-direction: row;
@@ -27,18 +27,18 @@
     height: 1.2rem;
     font-weight: bold;
     background-color: inherit;
-    color: variables.$tan-black;
+    color: $tan-black;
     &:hover {
       cursor: pointer;
-      color: variables.$white-grey;
+      color: $white-grey;
     }
     padding: 0;
     text-transform: uppercase;
   }
 
   .focused {
-    background-color: variables.$white;
-    color: variables.$dark-black;
+    background-color: $white;
+    color: $dark-black;
   }
 
   & div.desc {

@@ -1,4 +1,4 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 @use '@/utils/mixins';
 
 $badge-black: #000000;
@@ -20,7 +20,7 @@ $badge-shiny-nickel: #ccd2d7;
   text-align: center;
   text-wrap: nowrap;
   width: max-content !important;
-  box-shadow: variables.$button-shadow;
+  box-shadow: $button-shadow;
 
   &.badge-1 {
     background-color: $badge-silver-sand;

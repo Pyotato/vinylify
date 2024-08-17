@@ -1,6 +1,6 @@
 // !! utils 로 옮겨지면 삭제
 @use '@/utils/mixins';
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 
 .skeleton {
   display: inline-block;
@@ -33,7 +33,7 @@
     }
   }
 
-  color: variables.$light-grey;
+  color: $light-grey;
 }
 .wrap {
   width: 100%;
