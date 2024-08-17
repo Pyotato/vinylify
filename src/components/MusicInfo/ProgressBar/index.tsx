@@ -1,5 +1,7 @@
 import classNames from 'classnames/bind';
-import './progress-bar.scss';
+import Style from './progress-bar.module.scss';
+
+const cx = classNames.bind(Style);
 
 const ProgressBar = ({
   progress,
@@ -9,19 +11,11 @@ const ProgressBar = ({
   duration: number;
 }) => {
   return (
-    <div className={classNames('progress-bar')}>
-      <div
-        className={classNames('filt')}
-        style={{ width: `${Math.round((progress / duration) * 100)}%` }}
-      >
-        <span
-          role="progressbar"
-          aria-valuemax={100}
-          aria-valuemin={0}
-          aria-valuenow={Math.round((progress / duration) * 100)}
-        ></span>
-      </div>
-    </div>
+    <progress
+      max={100}
+      className={cx('progress-bar')}
+      value={Math.round((progress / duration) * 100)}
+    ></progress>
   );
 };
 

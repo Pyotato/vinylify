@@ -1,0 +1,28 @@
+@use '@/utils/style/variables' as *;
+
+.progress-bar {
+  height: 0.5rem;
+  width: 60%;
+  background-color: $pale-white-grey;
+  border-radius: 3rem;
+  margin: 1rem 0;
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 60%;
+  background-color: $grey;
+  border-radius: 3rem;
+  text-align: right;
+  transition: width 1s ease-in-out;
+}
+
+.progress-bar::-webkit-progress-value {
+  height: '100%';
+  background-color: $grey;
+  border-radius: 3rem;
+  text-align: right;
+  transition: width 1s ease-in-out;
+}
