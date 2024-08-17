@@ -1,5 +1,5 @@
 import Spotify from '@/assets/spotifyLogo.svg';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { HtmlHTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
 import './logo.scss';

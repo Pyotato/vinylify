@@ -3,9 +3,9 @@ import PlayIcon from '@/assets/playIcon.svg';
 import { useDebounce } from '@/hooks/useDebounce';
 import { MetaInfo } from '@/models/MetaInfo';
 import { CurrentlyPlayingTrack } from '@/models/Track';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { HtmlHTMLAttributes } from 'react';
-import '../button.scss';
+import Style from '../button.module.scss';
 
 export interface PlayButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
   imgUrl?: string;
@@ -13,6 +13,8 @@ export interface PlayButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
   uri?: CurrentlyPlayingTrack['item']['uri'];
   position_ms: CurrentlyPlayingTrack['progress_ms'];
 }
+
+const cx = classNames.bind(Style);
 
 const PlayButton = ({ context, uri, position_ms }: PlayButtonProps) => {
   const onPlayDebounceHandler = useDebounce(() => {
@@ -25,7 +27,7 @@ const PlayButton = ({ context, uri, position_ms }: PlayButtonProps) => {
 
   return (
     <button
-      className={classNames('play-button', 'button')}
+      className={cx('play-button', 'button')}
       onClick={onPlayDebounceHandler}
     >
       <PlayIcon />

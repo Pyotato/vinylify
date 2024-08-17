@@ -39,7 +39,7 @@ const Profile = ({ profile }: { profile: ProfileInfo }) => {
         aria-disabled={profile?.link == null}
       >
         <div className={cx('mask')}>
-          <Image url={profile.img} classNameArr={[]} />
+          <Image url={profile.img} />
         </div>
       </Link>
     </div>

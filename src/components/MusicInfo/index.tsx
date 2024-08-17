@@ -12,7 +12,7 @@ import { useRecommendations } from '@/hooks/query/useRecommendations';
 import Table from '../Main/Recommendations/Table';
 import NothingToShow from '../Main/_shared/NothingToShow/NothingToShow';
 import AnimatedTitle from '../_shared/AnimatedTitle';
-import Vinyl from './Vinyl/Vinyl';
+import Vinyl from './Vinyl/Vinyl/Vinyl';
 
 const cx = classNames.bind(Style);
 

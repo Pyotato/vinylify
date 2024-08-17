@@ -1,5 +1,5 @@
 @use '@/utils/style/variables' as *;
-@use '../skeleton.scss';
+@use '@/utils/style/skeleton';
 
 .profile {
   display: inline-block;

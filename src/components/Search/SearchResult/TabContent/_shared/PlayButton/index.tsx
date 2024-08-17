@@ -1,7 +1,7 @@
 import { playTrack } from '@/api/spotify';
 import PlayIcon from '@/assets/playIcon.svg';
 import { MetaInfo } from '@/models/MetaInfo';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { HtmlHTMLAttributes } from 'react';
 import './play-button.scss';
 

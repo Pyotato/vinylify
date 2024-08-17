@@ -1,6 +1,5 @@
 import NothingToShow from '@/components/Main/_shared/NothingToShow/NothingToShow';
 import { useCurrentPlayingTrackLyrics } from '@/hooks/query/useCurrentPlayingTrackLyrics';
-import '@/style/music-info/album.scss';
 import classNames from 'classnames/bind';
 import Style from './lyrics.module.scss';
 

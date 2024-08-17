@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import Card from '../Card';
 import './grid.scss';
