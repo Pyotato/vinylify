@@ -1,5 +1,5 @@
-@use '@/utils/variables' as *;
-@use '@/utils/mixins';
+@use '@/utils/style/variables' as *;
+@use '@/utils/style/mixins' as *;
 
 .grid {
   display: inline-grid;
@@ -12,15 +12,15 @@
   width: -moz-available;
   width: fill-available;
 
-  @include mixins.mobile {
+  @include mobile {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include mixins.tablet {
+  @include tablet {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @include mixins.desktop {
+  @include desktop {
     grid-template-columns: repeat(4, 1fr);
   }
 }

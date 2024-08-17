@@ -1,5 +1,5 @@
-@use '@/utils/variables' as *;
-@use '@/utils/mixins';
+@use '@/utils/style/variables' as *;
+@use '@/utils/style/mixins' as *;
 
 $badge-black: #000000;
 $badge-night: #0e0d0d;
@@ -43,15 +43,15 @@ $badge-shiny-nickel: #ccd2d7;
     color: $badge-silver;
   }
 
-  @include mixins.mobile {
+  @include mobile {
     font-size: 0.6rem !important;
   }
 
-  @include mixins.tablet {
+  @include tablet {
     font-size: 0.6rem;
   }
 
-  @include mixins.desktop {
+  @include desktop {
     font-size: 1rem;
   }
 }

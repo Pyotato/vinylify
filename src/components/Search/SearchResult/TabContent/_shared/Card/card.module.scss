@@ -1,5 +1,5 @@
-@use '@/utils/variables' as *;
-@use '@/utils/mixins';
+@use '@/utils/style/variables' as *;
+@use '@/utils/style/mixins' as *;
 @use '../skeleton.scss';
 
 $title: 1.2rem;
@@ -40,16 +40,16 @@ $sm-font: 0.9rem;
   display: inline-block;
   width: 100%;
 
-  @include mixins.mobile {
+  @include mobile {
     width: 9rem;
     font-size: $sm-title;
   }
 
-  @include mixins.tablet {
+  @include tablet {
     width: 15rem;
   }
 
-  @include mixins.desktop {
+  @include desktop {
     width: 21rem;
   }
 

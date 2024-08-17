@@ -1,5 +1,5 @@
-@use '@/utils/variables' as *;
-@use '@/utils/skeleton';
+@use '@/utils/style/variables' as *;
+@use '@/utils/style/skeleton';
 
 .lyrics-body {
   white-space: pre-wrap;

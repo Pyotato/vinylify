@@ -1,6 +1,6 @@
 // !! utils 로 옮겨지면 삭제
-@use '@/utils/mixins';
-@use '@/utils/variables' as *;
+@use '@/utils/style/mixins' as *;
+@use '@/utils/style/variables' as *;
 
 .skeleton {
   display: inline-block;

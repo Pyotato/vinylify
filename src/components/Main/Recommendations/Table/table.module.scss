@@ -1,17 +1,17 @@
-@use '@/utils/mixins';
-@use '@/utils/variables' as *;
-@use '@/utils/skeleton';
+@use '@/utils/style/mixins' as *;
+@use '@/utils/style/variables' as *;
+@use '@/utils/style/skeleton' as *;
 
 .table {
   width: 100%;
   padding: 0;
   list-style: none;
   margin-top: 0;
-  @include mixins.tablet {
+  @include tablet {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  @include mixins.desktop {
+  @include desktop {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }

@@ -1,5 +1,5 @@
-@use '@/utils/mixins';
-@use '@/utils/variables' as *;
+@use '@/utils/style/mixins' as *;
+@use '@/utils/style/variables' as *;
 
 .playlist-description {
   font-size: 0.86rem !important;

@@ -1,5 +1,5 @@
-@use '@/utils/variables' as *;
-@use '@/utils/mixins';
+@use '@/utils/style/variables' as *;
+@use '@/utils/style/mixins' as *;
 
 .artist-info-card {
   list-style: none;
@@ -27,19 +27,19 @@
     cursor: pointer;
   }
 
-  @include mixins.mobile {
+  @include mobile {
     ul {
       flex-wrap: wrap;
       min-width: 18rem;
     }
   }
-  @include mixins.tablet {
+  @include tablet {
     min-width: 18rem;
     a {
       width: 40%;
     }
   }
-  @include mixins.desktop {
+  @include desktop {
     min-width: 24rem;
   }
 }
@@ -54,7 +54,7 @@
   margin-bottom: 1.8rem;
   justify-content: center;
 
-  @include mixins.desktop {
+  @include desktop {
     min-width: 24rem;
 
     justify-content: normal;
@@ -75,10 +75,10 @@
   width: fill-available;
   opacity: 0.8;
 
-  @include mixins.mobile {
+  @include mobile {
     width: 18rem;
   }
-  @include mixins.desktop {
+  @include desktop {
     width: 18rem;
   }
 }

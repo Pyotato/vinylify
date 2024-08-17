@@ -1,5 +1,5 @@
-@use '@/utils/variables' as *;
-@use '@/utils/mixins';
+@use '@/utils/style/variables' as *;
+@use '@/utils/style/mixins' as *;
 
 .logo {
   text-decoration: none;
