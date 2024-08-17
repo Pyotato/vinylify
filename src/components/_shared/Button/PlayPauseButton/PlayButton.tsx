@@ -7,7 +7,7 @@ import classNames from 'classnames/bind';
 import { HtmlHTMLAttributes } from 'react';
 import Style from '../button.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 export interface PlayButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
   context: MetaInfo['uri'];
@@ -26,7 +26,7 @@ const PlayButton = ({ context, uri, position_ms }: PlayButtonProps) => {
 
   return (
     <button
-      className={style('play-button', 'button')}
+      className={cx('play-button', 'button')}
       onClick={onPlayDebounceHandler}
     >
       <PlayIcon />

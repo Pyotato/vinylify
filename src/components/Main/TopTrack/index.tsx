@@ -1,6 +1,6 @@
+import AnimatedTitle from '@/components/_shared/AnimatedTitle';
 import { PAGE } from '@/constants/url';
 import { useTopTracks } from '@/hooks/query/useTopTracks';
-import AnimatedTitle from '../_shared/AnimatedTitle';
 import NothingToShow from '../_shared/NothingToShow/NothingToShow';
 import Carousel from './Carousel';
 

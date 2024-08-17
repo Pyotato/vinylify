@@ -6,7 +6,7 @@ import Logo from '../Logo';
 import PlayButton from '../PlayButton';
 import Style from './card.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 export interface CardProps extends HtmlHTMLAttributes<HTMLLIElement> {
   center?: boolean;
@@ -20,14 +20,14 @@ export interface CardProps extends HtmlHTMLAttributes<HTMLLIElement> {
 
 const CardSkeleton = () => {
   return (
-    <li className={style('card')}>
+    <li className={cx('card')}>
       <CoverImage.Skeleton />
-      <Logo url="" className={style('loading-logo')} fill="skeleton" />
+      <Logo url="" className={cx('loading-logo')} fill="skeleton" />
       <ul>
         <li className="wrap">
-          <span className={style('title-tag', 'skeleton')} />
+          <span className={cx('title-tag', 'skeleton')} />
         </li>
-        <span className={style('content', 'skeleton')} />
+        <span className={cx('content', 'skeleton')} />
       </ul>
     </li>
   );
@@ -44,20 +44,20 @@ const Card = ({
   externalUrls,
 }: CardProps) => {
   return (
-    <li className={style('card', { center })}>
+    <li className={cx('card', { center })}>
       <CoverImage
         imgUrl={coverImage === undefined ? PLACEHOLDER_IMAGE : coverImage}
         url={externalUrls}
       />
       <ul>
         <li>
-          <span className={style('title')}>{title}</span>
+          <span className={cx('title')}>{title}</span>
         </li>
 
-        <li className={style('wrap')}>
+        <li className={cx('wrap')}>
           {isPlayable ? <PlayButton context_uris={contextUri} /> : null}
 
-          <span className={style('title-tag')}>{titleTag}</span>
+          <span className={cx('title-tag')}>{titleTag}</span>
         </li>
         {children}
       </ul>

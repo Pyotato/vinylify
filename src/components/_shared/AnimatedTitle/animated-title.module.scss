@@ -1,24 +1,11 @@
-@use '@/utils/variables';
-
-@keyframes neon-lights {
-  from {
-    color: #fff;
-    text-shadow: variables.$neon-shadow;
-  }
-  to {
-    text-shadow:
-      0 0 4px #fff,
-      0 0 20px #fff,
-      0 0 40px #fff;
-  }
-}
+@use '@/utils/variables' as *;
 
 .animated-title {
   font-size: 2rem;
-  animation: neon-lights 10s linear infinite;
+
   margin: 1.5rem 0;
   display: inline-block;
 
   color: #fff;
-  text-shadow: variables.$neon-shadow;
+  text-shadow: $neon-shadow;
 }

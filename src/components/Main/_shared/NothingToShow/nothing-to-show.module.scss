@@ -1,4 +1,4 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 
 .content-body {
   width: 100%;
@@ -13,9 +13,9 @@
   text-decoration: none;
   display: inline-block;
   margin: 0 auto;
-  color: variables.$white-grey;
+  color: $white-grey;
   &:hover {
-    color: variables.$pale-white-grey;
+    color: $pale-white-grey;
   }
 }
 .message {

@@ -9,7 +9,7 @@ export interface BadgeProps extends HtmlHTMLAttributes<HTMLLIElement> {
   badgeNumber: number;
 }
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const Badge = ({ badgeTag, badgeNumber }: BadgeProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,8 +24,8 @@ const Badge = ({ badgeTag, badgeNumber }: BadgeProps) => {
   });
 
   return (
-    <li className={style('badge', `badge-${badgeNumber % 5}`)}>
-      <button className={style('badge-button')} onClick={debouncedRequest}>
+    <li className={cx('badge', `badge-${badgeNumber % 5}`)}>
+      <button className={cx('badge-button')} onClick={debouncedRequest}>
         {badgeTag}
       </button>
     </li>

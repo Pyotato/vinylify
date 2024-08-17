@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { DEFAULT_TAB, SCOPE, TAB } from '../../constants';
 import Style from './tab-selection-list.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const TAB_ITEMS = Object.values(TAB);
 
@@ -38,15 +38,15 @@ export default function TabSelection() {
   );
 
   return (
-    <ul className={style('tab-selection-list')}>
+    <ul className={cx('tab-selection-list')}>
       {tabs.map(tab => {
         return (
           <li
             key={tab}
-            className={style({ submenu: true, focused: tab === currentTab })}
+            className={cx({ submenu: true, focused: tab === currentTab })}
           >
             <button
-              className={style('unstyled-button')}
+              className={cx('unstyled-button')}
               onClick={() => handleSelectMenu(tab)}
             >
               {tab}

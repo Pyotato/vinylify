@@ -14,12 +14,12 @@ import NothingToShow from '../Main/_shared/NothingToShow/NothingToShow';
 import AnimatedTitle from '../_shared/AnimatedTitle';
 import Vinyl from './Vinyl/Vinyl';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const NoCurrentMusicInfo = () => {
   const { data, isLoading } = useRecommendations();
   return (
-    <div className={style('nothing-wrap')}>
+    <div className={cx('nothing-wrap')}>
       <NothingToShow
         message={'재생중인 트랙이 없습니다 😴'}
         redirect={{ text: '트랙 검색하러 가기', path: '/search' }}
@@ -41,7 +41,7 @@ export default function MusicInfo() {
   return !data?.item ? (
     <NoCurrentMusicInfo />
   ) : (
-    <div className={style('wrap')}>
+    <div className={cx('wrap')}>
       <AnimatedTitle>{data.item.name}</AnimatedTitle>
       <Vinyl
         imgUrl={
@@ -50,7 +50,7 @@ export default function MusicInfo() {
             : PLACEHOLDER_IMAGE
         }
       />
-      <div className={style('music-player-wrap')}>
+      <div className={cx('music-player-wrap')}>
         {data?.is_playing ? (
           <PauseButton />
         ) : (

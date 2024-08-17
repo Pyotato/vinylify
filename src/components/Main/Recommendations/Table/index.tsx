@@ -9,7 +9,7 @@ import { HHMMSSFormat } from '@/utils/time';
 import { Link } from 'react-router-dom';
 import Style from './table.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const Table = ({
   items,
@@ -18,9 +18,9 @@ const Table = ({
 }>) => {
   const { data } = useCurrentPlayingTrack();
   return (
-    <ul className={style('table')}>
+    <ul className={cx('table')}>
       {items.map(item => (
-        <li className={style('table-item')} key={item.id}>
+        <li className={cx('table-item')} key={item.id}>
           <div>
             <img
               src={
@@ -32,14 +32,14 @@ const Table = ({
             />
           </div>
 
-          <div className={style('table-item-description')}>
-            <div className={style('top-track-name')}>{item?.name} </div>
+          <div className={cx('table-item-description')}>
+            <div className={cx('top-track-name')}>{item?.name} </div>
             <div>
               {item?.artists.map((artist, index) => (
                 <span key={artist.id}>
                   <Link
                     to={artist.external_urls?.spotify ?? '#'}
-                    className={style('artist-name', 'description', 'link')}
+                    className={cx('artist-name', 'description', 'link')}
                   >
                     {artist.name}
                   </Link>
@@ -48,7 +48,7 @@ const Table = ({
               ))}
             </div>
 
-            <div className={style('bottom-content')}>
+            <div className={cx('bottom-content')}>
               {data?.is_playing && data?.item?.id === item?.id ? (
                 <PauseButton />
               ) : (
@@ -58,7 +58,7 @@ const Table = ({
                   position_ms={0}
                 />
               )}
-              <div className={style('description')}>
+              <div className={cx('description')}>
                 {HHMMSSFormat({ utcTime: item.duration_ms })}
               </div>
             </div>
@@ -71,17 +71,17 @@ const Table = ({
 
 const TableSkeleton = () => {
   return (
-    <div className={style('table')}>
+    <div className={cx('table')}>
       {Array.from({ length: 20 }).map((_, index) => (
-        <div className={style('table-item')} key={`skeleton-${index + 1}`}>
-          <div className={style('skeleton-image', 'skeleton')}></div>
+        <div className={cx('table-item')} key={`skeleton-${index + 1}`}>
+          <div className={cx('skeleton-image', 'skeleton')}></div>
 
-          <div className={style('table-item-description')}>
-            <span className={style('skeleton', 'track-name')}></span>
-            <span className={style('skeleton', 'artist-name-skeleton')} />
-            <div className={style('bottom-content')}>
+          <div className={cx('table-item-description')}>
+            <span className={cx('skeleton', 'track-name')}></span>
+            <span className={cx('skeleton', 'artist-name-skeleton')} />
+            <div className={cx('bottom-content')}>
               <PlayButton context="" position_ms={0} aria-disabled={true} />
-              <span className={style('skeleton', 'description-skeleton')} />
+              <span className={cx('skeleton', 'description-skeleton')} />
             </div>
           </div>
         </div>

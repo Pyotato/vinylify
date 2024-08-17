@@ -4,7 +4,7 @@ import Card from '../_shared/Card';
 
 import Style from './playlist-item.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const PlaylistItem = ({ item }: { item: Playlist }) => {
   return (
@@ -18,7 +18,7 @@ const PlaylistItem = ({ item }: { item: Playlist }) => {
     >
       <li>total tracks : {item.tracks.total}</li>
 
-      <li className={style('playlist-description')}>
+      <li className={cx('playlist-description')}>
         <div dangerouslySetInnerHTML={{ __html: item?.description }} />
       </li>
     </Card>

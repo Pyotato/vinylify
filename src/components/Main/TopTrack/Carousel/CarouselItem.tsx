@@ -8,7 +8,7 @@ import PauseButton from '@/components/_shared/Button/PauseButton';
 import PlayButton from '@/components/_shared/Button/PlayButton';
 import Style from './carousel.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const CarouselItem = ({
   item,
@@ -19,13 +19,13 @@ const CarouselItem = ({
 }) => {
   const { data } = useCurrentPlayingTrack();
   return (
-    <div className={style('carousel-item')} key={item?.id}>
-      <div key={item?.uri} className={style('top-track')}>
+    <div className={cx('carousel-item')} key={item?.id}>
+      <div key={item?.uri} className={cx('top-track')}>
         <CoverImage
           imgUrl={item?.album?.images && item?.album?.images[0]?.url}
           url={item?.external_urls?.spotify}
         />
-        <div className={style('top-track-name')}>
+        <div className={cx('top-track-name')}>
           {data?.is_playing && data?.item?.id === item?.id ? (
             <PauseButton />
           ) : (
@@ -44,11 +44,11 @@ const CarouselItem = ({
 
 const CarouselItemSkelton = () => {
   return (
-    <div className={style('carousel-item')}>
-      <div className={style('top-track')}>
+    <div className={cx('carousel-item')}>
+      <div className={cx('top-track')}>
         <CoverImage.Skeleton />
 
-        <div className={style('top-track-name')}>
+        <div className={cx('top-track-name')}>
           <PlayButton
             aria-disabled={true}
             context={''}
@@ -56,7 +56,7 @@ const CarouselItemSkelton = () => {
             position_ms={0}
           />
 
-          <div className={style('skeleton', 'title')}></div>
+          <div className={cx('skeleton', 'title')}></div>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ export interface ImgUrlProps extends SVGProps<SVGImageElement> {
   url?: string;
 }
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const CoverImage = ({ imgUrl, url }: ImgUrlProps) => {
   return (
@@ -17,18 +17,18 @@ const CoverImage = ({ imgUrl, url }: ImgUrlProps) => {
         src={imgUrl ?? PLACEHOLDER_IMAGE}
         alt={imgUrl}
         loading="lazy"
-        className={style('cover-image')}
+        className={cx('cover-image')}
       />
       <Logo
         url={url ?? '#'}
-        className={style({ 'logo-skeleton': url == null ? 'skeleton' : '' })}
+        className={cx({ 'logo-skeleton': url == null ? 'skeleton' : '' })}
       />
     </>
   );
 };
 
 const CoverImageSkeleton = () => {
-  return <span className={style('cover-image', 'skeleton')} />;
+  return <span className={cx('cover-image', 'skeleton')} />;
 };
 
 CoverImage.Skeleton = CoverImageSkeleton;

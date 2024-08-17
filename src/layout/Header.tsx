@@ -11,13 +11,13 @@ import AuthButton from './AuthButton';
 import Style from './header.module.scss';
 import VinylifyIcon from './VInylifyIcon';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const Header = () => {
   const { data } = useAuth();
 
   return (
-    <header className={style('header')}>
+    <header className={cx('header')}>
       <VinylifyIcon />
       <Icon svg={<HomeIcon />} url={PAGE.MAIN} />
 

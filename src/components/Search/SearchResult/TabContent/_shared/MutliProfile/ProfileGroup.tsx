@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import Style from './ellipses.module.scss';
 import Profile, { ProfileInfo } from './Profile';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const ProfileGroup = ({ profile }: { profile: ProfileInfo[] }) => {
   return (
@@ -12,7 +12,7 @@ const ProfileGroup = ({ profile }: { profile: ProfileInfo[] }) => {
       ))}
       {profile.length < 4 ? null : (
         <>
-          <span className={style('ellipses', 'wrap')}>
+          <span className={cx('ellipses', 'wrap')}>
             <span>...</span>
           </span>
         </>

@@ -9,12 +9,12 @@ export interface CurrentlyPlayingTrackLyrics {
   artist: string;
 }
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const randomLengthsList = Array.from({ length: 6 }, () => (
-  <div className={style('wrap')}>
+  <div className={cx('wrap')}>
     <div
-      className={style(
+      className={cx(
         'skeleton',
         'content',
         `size${Math.floor(Math.random() * 10) % 5}`,
@@ -25,12 +25,12 @@ const randomLengthsList = Array.from({ length: 6 }, () => (
 
 const LyricsSkeleton = () => {
   return (
-    <div className={style('lyrics-body')}>
-      <div className={style('skeleton', 'title')}></div>
+    <div className={cx('lyrics-body')}>
+      <div className={cx('skeleton', 'title')}></div>
       <br />
       <br />
       {Array.from({ length: 6 }, (_, i) => (
-        <div key={i} className={style('verse-wrap')}>
+        <div key={i} className={cx('verse-wrap')}>
           {randomLengthsList}
         </div>
       ))}
@@ -49,9 +49,9 @@ const Lyrics = ({ term, artist }: CurrentlyPlayingTrackLyrics) => {
     return <NothingToShow message={`"${term}"에 해당하는 가사가 없습니다.`} />;
   return (
     <>
-      <div className={style('lyrics-body')}>
+      <div className={cx('lyrics-body')}>
         {data?.result}
-        <div className={style('lyrics-credit')}>lyrics from Genius</div>
+        <div className={cx('lyrics-credit')}>lyrics from Genius</div>
       </div>
     </>
   );

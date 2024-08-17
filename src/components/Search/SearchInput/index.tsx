@@ -11,7 +11,7 @@ import { useSearchParams } from 'react-router-dom';
 import Input from './Input';
 import Style from './search-input.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 export default function SearchInput() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -51,7 +51,7 @@ export default function SearchInput() {
   };
 
   return (
-    <div className={style('search-input')}>
+    <div className={cx('search-input')}>
       <Input
         value={keyword ?? placeHolder}
         placeHolder={placeHolder}

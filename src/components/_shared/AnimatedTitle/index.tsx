@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
 import Style from './animated-title.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
-export default function AnimatedTitle({ children }: { children: string }) {
-  return <span className={style('animated-title')}>{children}</span>;
+export default function AnimatedTitle({
+  children,
+}: Readonly<{ children: string }>) {
+  return <span className={cx('animated-title')}>{children}</span>;
 }

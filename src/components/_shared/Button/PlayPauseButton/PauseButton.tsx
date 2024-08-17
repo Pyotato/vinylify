@@ -4,13 +4,13 @@ import { useDebounce } from '@/hooks/useDebounce';
 import classNames from 'classnames/bind';
 import Style from '../button.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const PauseButton = () => {
   const onPauseDebounceHandler = useDebounce(() => pauseTrack({}));
 
   return (
-    <button className={style('button')} onClick={onPauseDebounceHandler}>
+    <button className={cx('button')} onClick={onPauseDebounceHandler}>
       <PauseIcon />
     </button>
   );

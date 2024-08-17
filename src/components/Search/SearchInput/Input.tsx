@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { FC, InputHTMLAttributes } from 'react';
 import Style from './input.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string;
@@ -20,7 +20,7 @@ const Input: FC<InputProps> = ({
 }) => {
   return (
     <input
-      className={style('input', size)}
+      className={cx('input', size)}
       onKeyUp={onKeyUp}
       onKeyDown={onKeyDown}
       onChange={onChange}

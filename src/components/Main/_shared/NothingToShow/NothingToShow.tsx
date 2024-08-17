@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Style from './nothing-to-show.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 interface NothingToShowProps {
   message: string;
@@ -12,13 +12,13 @@ interface NothingToShowProps {
 export default function NothingToShow({
   message,
   redirect,
-}: NothingToShowProps) {
+}: Readonly<NothingToShowProps>) {
   return (
-    <div className={style('content-body')}>
-      <div className={style('content-wrap')}>
-        <span className={style('message')}>{message}</span>
+    <div className={cx('content-body')}>
+      <div className={cx('content-wrap')}>
+        <span className={cx('message')}>{message}</span>
         {redirect?.path ? (
-          <Link className={style('link')} to={redirect.path}>
+          <Link className={cx('link')} to={redirect.path}>
             {redirect.text}
           </Link>
         ) : null}

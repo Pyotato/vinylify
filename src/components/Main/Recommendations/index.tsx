@@ -1,6 +1,7 @@
 import { PAGE } from '@/constants/url';
 import { useRecommendations } from '@/hooks/query/useRecommendations';
-import AnimatedTitle from '../_shared/AnimatedTitle';
+
+import AnimatedTitle from '@/components/_shared/AnimatedTitle';
 import NothingToShow from '../_shared/NothingToShow/NothingToShow';
 import Table from './Table';
 

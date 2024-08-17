@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import TopTrackList from '../TopTrackList';
 import Style from './artist-info-card.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 export default function ArtistInfoCard({
   artist,
@@ -17,7 +17,7 @@ export default function ArtistInfoCard({
   const { data } = useArtistTopTracks({ artistId: artist.id });
 
   return (
-    <ul className={style('artist-info-wrap')}>
+    <ul className={cx('artist-info-wrap')}>
       <Suspense fallback={<img src={PLACEHOLDER_IMAGE} alt="loading" />}>
         <Link to={artist?.external_urls?.spotify || ''}>
           <img
@@ -25,15 +25,15 @@ export default function ArtistInfoCard({
               artist?.images != null ? artist?.images[0].url : PLACEHOLDER_IMAGE
             }
             alt={artist.name}
-            className={style('artist-profile')}
+            className={cx('artist-profile')}
           ></img>
         </Link>
       </Suspense>
       <ul>
         <>
-          <h2 className={style('artist-name')}>
+          <h2 className={cx('artist-name')}>
             {artist?.name}{' '}
-            <span className={style('followers')}>
+            <span className={cx('followers')}>
               followers : {artist?.followers?.total}
             </span>
           </h2>

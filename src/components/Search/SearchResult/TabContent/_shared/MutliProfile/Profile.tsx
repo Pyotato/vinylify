@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Image from '../Image';
 import Style from './ellipses.module.scss';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 export interface ProfileInfo {
   img: string;
@@ -16,11 +16,11 @@ export interface ProfileInfo {
 
 const ProfileSkeleton = () => {
   return (
-    <div className={style('profile-container')}>
-      <div className={style('single')} data-collaborators="2">
-        <Link className={style('account-photo', 'skeleton')} to={'#'}>
-          <div className={style('mask')}>
-            <img className={style('photo')} src={LOADING_IMAGE} alt="loading" />
+    <div className={cx('profile-container')}>
+      <div className={cx('single')} data-collaborators="2">
+        <Link className={cx('account-photo', 'skeleton')} to={'#'}>
+          <div className={cx('mask')}>
+            <img className={cx('photo')} src={LOADING_IMAGE} alt="loading" />
           </div>
         </Link>
       </div>
@@ -32,13 +32,13 @@ const Profile = ({ profile }: { profile: ProfileInfo }) => {
   const link = (profile?.link ?? '#') as unknown as ExternalUrls['spotify'];
 
   return (
-    <div className={style('profile')}>
+    <div className={cx('profile')}>
       <Link
-        className={style('account-photo')}
+        className={cx('account-photo')}
         to={link}
         aria-disabled={profile?.link == null}
       >
-        <div className={style('mask')}>
+        <div className={cx('mask')}>
           <Image url={profile.img} classNameArr={[]} />
         </div>
       </Link>

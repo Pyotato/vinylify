@@ -1,4 +1,4 @@
-@use '@/utils/variables';
+@use '@/utils/variables' as *;
 @use '@/utils/skeleton';
 
 .lyrics-body {
@@ -6,8 +6,8 @@
   margin: 0 1rem 3rem;
   padding: 1.5rem;
   border-radius: 4px;
-  color: variables.$white;
-  background-color: variables.$tan-black;
+  color: $white;
+  background-color: $tan-black;
   line-height: 1.6;
   max-height: 60rem;
   overflow-y: scroll;
@@ -17,7 +17,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 0.8rem;
-  color: variables.$text-skeleton-greyish-white;
+  color: $text-skeleton-greyish-white;
   text-align: right;
   clear: both;
 }
@@ -25,14 +25,14 @@
   width: 50%;
   height: 1.5rem;
 
-  background-color: variables.$text-skeleton-greyish-white;
+  background-color: $text-skeleton-greyish-white;
 }
 
 .content {
   width: 80%;
 
   height: 1rem;
-  background-color: variables.$text-skeleton-greyish-white;
+  background-color: $text-skeleton-greyish-white;
 }
 
 .verse-wrap {

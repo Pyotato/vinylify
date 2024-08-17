@@ -4,15 +4,15 @@ import { TrackSearchResult } from '@/models/Spotify';
 import Style from './carousel.module.scss';
 import CarouselItem from './CarouselItem';
 
-const style = classNames.bind(Style);
+const cx = classNames.bind(Style);
 
 const CAROUSEL_ITEM_COUNT = 20;
 
 const CarouselSkeleton = () => {
   return (
-    <div className={style('wrap')}>
-      <div className={style('carousel-wrap')}>
-        <section className={style('carousel-group-wrap')}>
+    <div className={cx('wrap')}>
+      <div className={cx('carousel-wrap')}>
+        <section className={cx('carousel-group-wrap')}>
           {Array.from({ length: CAROUSEL_ITEM_COUNT * 2 }).map((_, index) => (
             <CarouselItem.Skeleton
               key={`skeleton-carousel-item-${index + 1}`}
@@ -26,9 +26,9 @@ const CarouselSkeleton = () => {
 
 const Carousel = ({ items }: { items: TrackSearchResult['items'] }) => {
   return (
-    <div className={style('wrap')}>
-      <div className={style('carousel-wrap')}>
-        <section className={style('carousel-group-wrap')}>
+    <div className={cx('wrap')}>
+      <div className={cx('carousel-wrap')}>
+        <section className={cx('carousel-group-wrap')}>
           {[...items, ...items].map((item, index) => (
             <CarouselItem
               item={item}
