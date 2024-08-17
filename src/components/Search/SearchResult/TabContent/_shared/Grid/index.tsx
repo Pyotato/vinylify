@@ -1,10 +1,12 @@
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 import Card from '../Card';
-import './grid.scss';
+import Style from './grid.module.scss';
+
+const cx = classNames.bind(Style);
 
 const Grid = ({ children }: { children: ReactNode }) => {
-  return <ul className={classNames('grid')}>{children}</ul>;
+  return <ul className={cx('grid')}>{children}</ul>;
 };
 
 const GridSkeleton = () => (

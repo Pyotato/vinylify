@@ -3,18 +3,20 @@ import PlayIcon from '@/assets/playIcon.svg';
 import { MetaInfo } from '@/models/MetaInfo';
 import classNames from 'classnames/bind';
 import { HtmlHTMLAttributes } from 'react';
-import './play-button.scss';
+import Style from './play-button.module.scss';
 
 export interface PlayableProps extends HtmlHTMLAttributes<HTMLDivElement> {
   context_uris: MetaInfo['uri'];
 }
+
+const cx = classNames.bind(Style);
 
 const PlayButton = ({ context_uris }: PlayableProps) => {
   const handlePlayCurrent = () => {
     playTrack({ context_uris });
   };
   return (
-    <button className={classNames('play-button')} onClick={handlePlayCurrent}>
+    <button className={cx('play-button')} onClick={handlePlayCurrent}>
       <PlayIcon />
     </button>
   );
