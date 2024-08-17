@@ -24,6 +24,7 @@ const AlbumItem = ({
 
   return (
     <Card
+      id={item.id}
       title={item.name}
       contextUri={item.uri}
       titleTag={[item.album_type, item.release_date].join(' ')}

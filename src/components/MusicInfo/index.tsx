@@ -1,9 +1,8 @@
 import { PLACEHOLDER_IMAGE } from '@/constants/image';
 import { useCurrentPlayingTrack } from '@/hooks/query/useCurrentPlayingTrack';
 import classNames from 'classnames/bind';
+
 import ArtistInfo from './ArtistInfo';
-import { default as PauseButton } from './Button/PauseButton';
-import PlayButton from './Button/PlayButton';
 import Lyrics from './Lyrics';
 import ProgressBar from './ProgressBar';
 import Style from './music-info.module.scss';
@@ -12,6 +11,8 @@ import { useRecommendations } from '@/hooks/query/useRecommendations';
 import Table from '../Main/Recommendations/Table';
 import NothingToShow from '../Main/_shared/NothingToShow/NothingToShow';
 import AnimatedTitle from '../_shared/AnimatedTitle';
+import PauseButton from '../_shared/Button/PauseButton';
+import PlayButton from '../_shared/Button/PlayButton';
 import Vinyl from './Vinyl/Vinyl/Vinyl';
 
 const cx = classNames.bind(Style);
@@ -52,12 +53,13 @@ export default function MusicInfo() {
       />
       <div className={cx('music-player-wrap')}>
         {data?.is_playing ? (
-          <PauseButton />
+          <PauseButton name={data.item.name} variant="simple" />
         ) : (
           <PlayButton
+            variant="simple"
             context={data.item.album.uri}
             uri={data?.item.uri}
-            position_ms={data?.progress_ms || 0}
+            name={data.item.name}
           />
         )}
         <ProgressBar

@@ -1,31 +1,53 @@
 import { playTrack } from '@/api/spotify';
 import PlayIcon from '@/assets/playIcon.svg';
-import { useDebounce } from '@/hooks/useDebounce';
+import { useCurrentPlayingTrack } from '@/hooks/query/useCurrentPlayingTrack';
 import { MetaInfo } from '@/models/MetaInfo';
 import { CurrentlyPlayingTrack } from '@/models/Track';
 import classNames from 'classnames/bind';
 import { HtmlHTMLAttributes } from 'react';
 import Style from './button.module.scss';
+import PauseButton from './PauseButton';
 
 const cx = classNames.bind(Style);
 
 export interface PlayButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
-  context: MetaInfo['uri'];
+  context?: MetaInfo['uri'];
   uri?: CurrentlyPlayingTrack['item']['uri'];
-  position_ms: CurrentlyPlayingTrack['progress_ms'];
+  name?: MetaInfo['name'];
+  variant?: 'default' | 'simple';
+  _tag?: 'track';
+  id?: string;
+  position?: number;
 }
 
-const PlayButton = ({ context, uri, position_ms }: PlayButtonProps) => {
-  const onPlayDebounceHandler = useDebounce(() => {
+const PlayButton = ({
+  name,
+  context,
+  uri,
+  variant = 'default',
+  _tag,
+  id,
+}: PlayButtonProps) => {
+  const { data } = useCurrentPlayingTrack();
+  const handlePlayCurrent = () => {
+    if (_tag == 'track') {
+      playTrack({ uri });
+      return;
+    }
     playTrack({
-      offset: { uri },
-      position_ms,
       context_uris: context,
     });
-  });
+  };
 
+  if (id === data?.item?.id) {
+    return <PauseButton name={name} variant={variant} />;
+  }
   return (
-    <button className={cx('button')} onClick={onPlayDebounceHandler}>
+    <button
+      className={cx('button', variant)}
+      onClick={handlePlayCurrent}
+      aria-label={`play music name ${name}`}
+    >
       <PlayIcon />
     </button>
   );

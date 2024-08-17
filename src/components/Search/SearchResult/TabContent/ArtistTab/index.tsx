@@ -10,6 +10,7 @@ const ArtistItem = ({ item }: { item: Artist }) => {
   }
   return (
     <Card
+      id={item.id}
       title={item.name}
       contextUri={item.uri}
       titleTag={

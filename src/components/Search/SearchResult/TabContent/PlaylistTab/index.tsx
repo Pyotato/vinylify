@@ -9,6 +9,7 @@ const cx = classNames.bind(Style);
 const PlaylistItem = ({ item }: { item: Playlist }) => {
   return (
     <Card
+      id={item.id}
       title={item.name}
       titleTag={`by. ${item.owner.display_name}`}
       coverImage={item.images?.[0].url}

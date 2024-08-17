@@ -71,24 +71,36 @@ export async function getTopTracks(limit = 5) {
 export async function playTrack({
   context_uris = DEFAULT_PLAY_TRACK,
   active_device,
+  uri,
   offset = { position: 0 },
   position_ms = 0,
 }: {
-  context_uris: string;
+  context_uris?: string;
   offset?: { uri?: string; position?: number };
   active_device?: string;
   position_ms?: number;
+  uri?: string;
 }) {
+  const data =
+    uri == null
+      ? {
+          json: {
+            context_uri: context_uris,
+            offset,
+            position_ms,
+          },
+        }
+      : {
+          json: {
+            offset,
+            uris: [uri],
+            position_ms,
+          },
+        };
   return api
     .put(
       `me/player/play?device_id=${active_device ?? (await getActiveDevice())}`,
-      {
-        json: {
-          context_uri: context_uris,
-          offset,
-          position_ms,
-        },
-      },
+      { ...data },
     )
     .json();
 }

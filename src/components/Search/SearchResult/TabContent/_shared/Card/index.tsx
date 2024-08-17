@@ -1,9 +1,9 @@
+import PlayButton from '@/components/_shared/Button/PlayButton';
 import { PLACEHOLDER_IMAGE } from '@/constants/image';
 import classNames from 'classnames/bind';
 import { HtmlHTMLAttributes } from 'react';
 import CoverImage from '../CoverImage';
 import Logo from '../Logo';
-import PlayButton from '../PlayButton';
 import Style from './card.module.scss';
 
 const cx = classNames.bind(Style);
@@ -14,8 +14,11 @@ export interface CardProps extends HtmlHTMLAttributes<HTMLLIElement> {
   titleTag?: string | null;
   coverImage?: string;
   isPlayable?: boolean;
-  contextUri: string;
+  contextUri?: string;
   externalUrls?: string;
+  uri?: string;
+  _tag?: 'track';
+  id?: string;
 }
 
 const CardSkeleton = () => {
@@ -40,6 +43,9 @@ const Card = ({
   title,
   isPlayable,
   coverImage,
+  uri,
+  id,
+  _tag,
   contextUri,
   externalUrls,
 }: CardProps) => {
@@ -55,7 +61,15 @@ const Card = ({
         </li>
 
         <li className={cx('wrap')}>
-          {isPlayable ? <PlayButton context_uris={contextUri} /> : null}
+          {isPlayable ? (
+            <PlayButton
+              variant="simple"
+              context={contextUri}
+              uri={uri}
+              _tag={_tag}
+              id={id}
+            />
+          ) : null}
 
           <span className={cx('title-tag')}>{titleTag}</span>
         </li>

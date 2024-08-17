@@ -10,8 +10,8 @@ export interface CurrentlyPlayingTrackLyrics {
 
 const cx = classNames.bind(Style);
 
-const randomLengthsList = Array.from({ length: 6 }, () => (
-  <div className={cx('wrap')}>
+const randomLengthsList = Array.from({ length: 6 }, (_, index) => (
+  <div className={cx('wrap')} key={`skeleton-list-${index}`}>
     <div
       className={cx(
         'skeleton',
@@ -47,12 +47,10 @@ const Lyrics = ({ term, artist }: CurrentlyPlayingTrackLyrics) => {
   if (!data?.result)
     return <NothingToShow message={`"${term}"에 해당하는 가사가 없습니다.`} />;
   return (
-    <>
-      <div className={cx('lyrics-body')}>
-        {data?.result}
-        <div className={cx('lyrics-credit')}>lyrics from Genius</div>
-      </div>
-    </>
+    <div className={cx('lyrics-body')}>
+      {data?.result}
+      <div className={cx('lyrics-credit')}>lyrics from Genius</div>
+    </div>
   );
 };
 export default Lyrics;

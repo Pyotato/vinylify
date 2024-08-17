@@ -30,8 +30,10 @@ const TrackItem = ({
 
   return (
     <Card
+      id={item.id}
       title={item.name}
-      contextUri={item.uri}
+      uri={item.uri}
+      _tag={'track'}
       titleTag={`${item.album.name} #${item.track_number}`}
       coverImage={item.album.images?.[0]?.url}
       externalUrls={item.external_urls?.spotify}

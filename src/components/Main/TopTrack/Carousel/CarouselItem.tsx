@@ -26,13 +26,14 @@ const CarouselItem = ({
           url={item?.external_urls?.spotify}
         />
         <div className={cx('top-track-name')}>
-          {data?.is_playing && data?.item?.id === item?.id ? (
-            <PauseButton />
+          {item.id === data?.item?.id ? (
+            <PauseButton name={item?.name} />
           ) : (
             <PlayButton
-              context={item.album.uri}
+              id={item?.id}
+              name={item?.name}
               uri={item.uri}
-              position_ms={0}
+              _tag="track"
             />
           )}
           {index + 1}. {item?.name}
@@ -49,13 +50,7 @@ const CarouselItemSkelton = () => {
         <CoverImage.Skeleton />
 
         <div className={cx('top-track-name')}>
-          <PlayButton
-            aria-disabled={true}
-            context={''}
-            uri={''}
-            position_ms={0}
-          />
-
+          <PlayButton aria-disabled={true} context={''} uri={''} />
           <div className={cx('skeleton', 'title')}></div>
         </div>
       </div>

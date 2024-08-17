@@ -49,15 +49,17 @@ const Table = ({
             </div>
 
             <div className={cx('bottom-content')}>
-              {data?.is_playing && data?.item?.id === item?.id ? (
-                <PauseButton />
+              {item.id === data?.item?.id ? (
+                <PauseButton name={item?.name} />
               ) : (
                 <PlayButton
-                  context={item.album.uri}
+                  id={item?.id}
+                  name={item?.name}
                   uri={item.uri}
-                  position_ms={0}
+                  _tag="track"
                 />
               )}
+
               <div className={cx('description')}>
                 {HHMMSSFormat({ utcTime: item.duration_ms })}
               </div>
@@ -80,7 +82,7 @@ const TableSkeleton = () => {
             <span className={cx('skeleton', 'track-name')}></span>
             <span className={cx('skeleton', 'artist-name-skeleton')} />
             <div className={cx('bottom-content')}>
-              <PlayButton context="" position_ms={0} aria-disabled={true} />
+              <PlayButton context="" aria-disabled={true} />
               <span className={cx('skeleton', 'description-skeleton')} />
             </div>
           </div>
