@@ -1,3 +1,8 @@
+$neon-shadow:
+  0 0 2px #fff,
+  0 0 18px #fff,
+  0 0 40px #fff;
+
 .animated-title {
   font-size: 2rem;
 
@@ -5,4 +10,5 @@
   display: inline-block;
 
   color: #fff;
+  text-shadow: $neon-shadow;
 }
