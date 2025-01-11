@@ -12,6 +12,10 @@ import { chunks } from '@/utils/array';
 
 import ky, { HTTPError } from 'ky';
 
+SPOTIFY_WEB_API.setAccessToken(
+  localStorage.getItem(VINYLIFY_TOKEN) ?? SPOTIFY_WEB_API.getAccessToken(),
+);
+
 const api = ky.extend({
   prefixUrl: API.SPOTIFY,
   hooks: {
@@ -36,10 +40,6 @@ const api = ky.extend({
     ],
   },
 });
-
-SPOTIFY_WEB_API.setAccessToken(
-  localStorage.getItem(VINYLIFY_TOKEN) ?? SPOTIFY_WEB_API.getAccessToken(),
-);
 
 /**
  *  활성화된 기기 ID 찾기
