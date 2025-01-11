@@ -11,8 +11,9 @@ export default function Recommendations() {
   return (
     <>
       <AnimatedTitle>Recommendations</AnimatedTitle>
-      {isLoading ? <Table.Skeleton /> : null}
-      {data?.tracks == null ? (
+      {isLoading ? (
+        <Table.Skeleton />
+      ) : data?.tracks == null ? (
         <NothingToShow
           message={'추천 트랙이 없습니다😢'}
           redirect={{ text: '검색하러 가기', path: PAGE.SEARCH }}
