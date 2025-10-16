@@ -40,3 +40,4 @@
 //   term,
 //   artist,
 // }: CurrentlyPlayingTrackLyrics) => ['genius', 'lyrics', term, artist];
+export {};
