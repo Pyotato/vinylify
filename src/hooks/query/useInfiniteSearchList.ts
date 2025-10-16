@@ -49,6 +49,7 @@ export const useInfiniteSearchList = (url?: string, limit = 20, offset = 0) => {
     queryKey: useInfiniteSearchList.queryKey(defaultUrl),
     initialPageParam: defaultUrl,
     refetchOnWindowFocus: false,
+    enabled: currentSearchKeyword != null,
     queryFn: async ({ pageParam }) => {
       if (currentSearchKeyword == null) {
         const topArtistName = await getMyTopItems({})?.then(
@@ -84,6 +85,7 @@ export const useInfiniteSearchList = (url?: string, limit = 20, offset = 0) => {
     getPreviousPageParam: firstPage => firstPage?.[currentScope]?.previous,
     placeholderData: prev => prev,
     staleTime: 60_000 * 60 * 3,
+
     // throwOnError: error => {
     //   return (
     //     error?.message == ERROR_MESSAGES[401] ||
