@@ -27,9 +27,9 @@
     "noFallthroughCasesInSwitch": true,
 
     /* absolute path */
-    // "baseUrl": "src",
+    // "baseUrl": "src", // deprecated
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     }
   },
