@@ -57,7 +57,6 @@ export default function SearchBar() {
       searchParams.set(URL_PARAMS.KEYWORD, placeHolder);
       setSearchParams(searchParams);
     }
-    console.log('placeHolder', placeHolder, 'keyword', keyword);
   }, [placeHolder, keyword, searchParams]);
 
   const onChange: ChangeEventHandler<HTMLInputElement> = e => {

@@ -68,7 +68,6 @@ export const useInfiniteSearchList = (url?: string, limit = 20, offset = 0) => {
         const url = new URL(pageParam);
         const offset = +(url.searchParams.get('offset') as string);
         const itemLimit = +(url.searchParams.get('limit') ?? limit);
-        // console.log('pageParam', pageParam);
         if (itemLimit + offset > +total) {
           pageParam = pageParam.replace(
             `limit=${itemLimit}`,
