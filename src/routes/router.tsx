@@ -20,12 +20,6 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: PAGE.LOGGED_IN,
-        element: <MainPage />,
-        children: [{ path: PAGE.LOGGED_IN, element: <MainPage /> }],
-        errorElement: <ErrorPage />,
-      },
-      {
         element: <ProtectedRoute />,
         children: [
           {

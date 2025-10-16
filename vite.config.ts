@@ -37,6 +37,7 @@ const config: ViteConfig = {
       '@': resolve(__dirname, 'src'),
     },
   },
+
   test: {
     globals: true,
     environment: 'jsdom',

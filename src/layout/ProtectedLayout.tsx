@@ -1,10 +1,10 @@
 import { PAGE } from '@/constants/url';
 import { useAuth } from '@/hooks/useAuth';
 
-import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { Navigate, Outlet } from 'react-router-dom';
 
 import KeycapButton from '@/components/_shared/Button/KeycapButton';
+import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import FullBackground from './FullBackground';
 
