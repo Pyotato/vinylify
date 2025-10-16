@@ -94,6 +94,14 @@ export const useAuth = () => {
         // window.location.replace(API.LOGIN);
       }
     } else {
+      if (
+        location.pathname == PAGE.LOGGED_IN &&
+        searchParams.has(ACCESS_TOKEN)
+      ) {
+        const access_token = `${searchParams.get(ACCESS_TOKEN)}`;
+        localStorage.setItem(VINYLIFY_TOKEN, access_token);
+        SPOTIFY_WEB_API.setAccessToken(access_token);
+      }
       return SPOTIFY_WEB_API.getAccessToken();
     }
   }, [searchParams, navigate]);
