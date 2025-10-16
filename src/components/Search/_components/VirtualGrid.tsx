@@ -135,7 +135,7 @@ const VirtualGrid = ({
   return (
     <div
       ref={scrollRef}
-      className="relative h-[78%] overflow-auto"
+      className="relative h-[100%] overflow-auto scrollbar-hide"
       key={'virtual-grid-id' + id}
     >
       <div className="relative m-4 will-change-transform">
