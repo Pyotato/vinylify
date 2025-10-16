@@ -1,14 +1,13 @@
-import { playTrack } from '@/services/spotify/spotify';
-
 import PlayIcon from '@/components/_shared/Icons/Play';
 import { useDebounce } from '@/hooks/useDebounce';
 import { MetaInfo } from '@/models/MetaInfo';
 import { CurrentlyPlayingTrack } from '@/models/Track';
+import { playTrack } from '@/services/spotify/playerSevices';
 import classNames from 'classnames';
 import { HtmlHTMLAttributes } from 'react';
 
 export interface PlayButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
-  imgUrl?: string;
+  // imgUrl?: string;
   context: MetaInfo['uri'];
   uri?: CurrentlyPlayingTrack['item']['uri'];
   position_ms: CurrentlyPlayingTrack['progress_ms'];

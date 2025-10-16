@@ -110,7 +110,7 @@ export const useAuth = () => {
     if (isFetching || window == null) {
       return;
     }
-    const redirectUri = encodeURIComponent(window.location.href);
+    // const redirectUri = encodeURIComponent(window.location.href);
     // window.location.replace(
     //   `https://vinylify-tau.vercel.app/me?...&redirect_uri=${redirectUri}`,
     // );
