@@ -1,6 +1,7 @@
-import { MAX_ARTIST_COUNT } from '@/constants/count';
 import splitLengthyList from '@/utils/array/splitLengthyList';
 import api from '../instance';
+
+const MAX_ARTIST_COUNT = 50;
 
 /* 다수 아티스트 검색 */
 export default async function getArtistList(artists: string[]) {
