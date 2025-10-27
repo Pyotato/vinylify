@@ -1,7 +1,9 @@
+import useNetworkStatus from '@/hooks/toasts/useNetworkStatus';
 import router from '@/routes/router';
 import { RouterProvider } from 'react-router-dom';
 
 const Router = () => {
+  useNetworkStatus();
   return (
     <RouterProvider
       router={router}
