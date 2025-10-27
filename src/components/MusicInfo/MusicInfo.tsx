@@ -2,17 +2,30 @@ import { LOADING_IMAGE, PLACEHOLDER_IMAGE } from '@/constants/image';
 import { useCurrentPlayingTrack } from '@/hooks/query/track/useCurrentPlayingTrack';
 
 import { formatHHMMSS } from '@/utils/string/formatHHMMSS';
-import { Suspense, useMemo } from 'react';
-import AnimatedTitle from '../../ui/AnimatedTitle';
-import PauseButton from '../../ui/Button/PlayPauseButton/PauseButton';
-import PlayButton from '../../ui/Button/PlayPauseButton/PlayButton';
-import { MemoizedVinyl } from '../../ui/Vinyl/Vinyl';
-import ArtistInfo from './ArtistInfo/ArtistInfo';
-import ArtistInfoSection from './ArtistInfoSection';
+import { lazy, Suspense, useMemo } from 'react';
+// import AnimatedTitle from '../../ui/AnimatedTitle';
+// import PauseButton from '../../ui/Button/PlayPauseButton/PauseButton';
+// import PlayButton from '../../ui/Button/PlayPauseButton/PlayButton';
+// import { MemoizedVinyl } from '../../ui/Vinyl/Vinyl';
+// import ArtistInfo from './ArtistInfo/ArtistInfo';
+// import ArtistInfoSection from './ArtistInfoSection';
 import Empty from './Empty';
 import Loading from './Loading';
-import Lyrics from './Lyrics';
-import ProgressBar from './ProgressBar';
+// import Lyrics from './Lyrics';
+// import ProgressBar from './ProgressBar';
+
+const MemoizedVinyl = lazy(() => import('../../ui/Vinyl/Vinyl'));
+const AnimatedTitle = lazy(() => import('../../ui/AnimatedTitle'));
+const ArtistInfo = lazy(() => import('./ArtistInfo/ArtistInfo'));
+const ArtistInfoSection = lazy(() => import('./ArtistInfoSection'));
+const ProgressBar = lazy(() => import('./ProgressBar'));
+const Lyrics = lazy(() => import('./Lyrics'));
+const PlayButton = lazy(
+  () => import('../../ui/Button/PlayPauseButton/PlayButton'),
+);
+const PauseButton = lazy(
+  () => import('../../ui/Button/PlayPauseButton/PauseButton'),
+);
 
 export default function MusicInfo() {
   const { data, isLoading } = useCurrentPlayingTrack({
