@@ -19,14 +19,14 @@ export type TabList = ({ tabItem }: { tabItem: TabItem }) => ReactNode[];
 export default function TabSearchList({
   currentTabPagingInfo,
   currentTab = DEFAULT_TAB,
-  keyword,
+  // keyword,
   handleSearchParam,
   isError,
   error,
 }: Omit<SearchProps, 'refetch'> & {
   currentTab?: keyof SearchResult;
   currentTabPagingInfo?: string;
-  keyword: string;
+  // keyword: string;
 }) {
   const {
     gridCols,
@@ -43,7 +43,7 @@ export default function TabSearchList({
     currentTabPagingInfo,
     currentTab,
     handleSearchParam,
-    keyword,
+    // keyword,
   });
   const { showErrorToast } = useErrorNotifications({
     isError,

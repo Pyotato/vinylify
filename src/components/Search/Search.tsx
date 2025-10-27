@@ -50,7 +50,7 @@ export default function Search() {
         />
         <TabSearchList
           isFetched={isFetched}
-          keyword={urlData.keyword}
+          // keyword={urlData.keyword}
           currentTab={currentTab}
           currentTabPagingInfo={currentTabPagingInfo}
           isLoading={isLoading}
