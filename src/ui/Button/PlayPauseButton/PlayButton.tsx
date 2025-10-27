@@ -26,7 +26,7 @@ const PlayButton = ({ context, uri, position_ms = 0 }: PlayButtonProps) => {
   );
 
   return (
-    <Button onClick={onPlayDebounceHandler}>
+    <Button onClick={onPlayDebounceHandler} name={'play track'}>
       <PlayIcon />
     </Button>
   );

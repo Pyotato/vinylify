@@ -31,6 +31,7 @@ const PlayButton = ({
 
   return (
     <button
+      name={'play button'}
       className={classNames(
         `border-none hover:cursor-pointer ${VARIANTS[variant]} p-0 w-4 mr-1`,
       )}

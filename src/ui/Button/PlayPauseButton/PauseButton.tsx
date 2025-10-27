@@ -7,7 +7,7 @@ const PauseButton = () => {
   const onPauseDebounceHandler = useDebounce(() => pauseTrack({}));
 
   return (
-    <Button onClick={onPauseDebounceHandler}>
+    <Button onClick={onPauseDebounceHandler} name={'pause track'}>
       <PauseIcon />
     </Button>
   );

@@ -19,6 +19,7 @@ const AuthButton = ({ action }: { action: 'LOGIN' | 'LOGOUT' }) => {
 
   return (
     <KeycapButton
+      name={'auth button'}
       onClick={action === 'LOGIN' ? () => handleLogin : handleLogout}
     >
       <span className="pl-0.5 pr-0.5 inline-block">

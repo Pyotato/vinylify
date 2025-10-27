@@ -2,7 +2,7 @@ import KeycapButton from '@/ui/Button/KeycapButton';
 
 import { useNavigate } from 'react-router-dom';
 
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 
 const NavigationButton = ({
   url,
@@ -21,9 +21,15 @@ const NavigationButton = ({
     }
     navigate(url);
   };
+
+  const buttonName = useMemo(() => {
+    return url.replace('/', '') + 'navigation button';
+  }, [url]);
+
   return (
     <KeycapButton
       onClick={handleNavigation}
+      name={buttonName}
       className={isCurrentPage ? 'bg-(--grey-900)! text-(--grey-100)!' : ''}
     >
       {icon}

@@ -16,6 +16,7 @@ const PauseButton = ({
     <button
       className={`border-none hover:cursor-pointer ${VARIANTS[variant]} p-0 w-4 mr-1`}
       disabled={disabled}
+      name={'pause button'}
       onClick={onPauseDebounceHandler}
     >
       <PauseIcon />
