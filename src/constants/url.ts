@@ -1,9 +1,9 @@
 export const API = {
   LOGIN: 'https://vinylify-express.vercel.app/',
   SPOTIFY: 'https://api.spotify.com/v1/',
-  RECCOBEATS: '/reccobeats/api',
-  GENIUS: '/genius/api',
-  LYRICS: 'lyrics/api',
+  RECCOBEATS: 'api/reccobeats',
+  GENIUS: 'api/genius',
+  LYRICS: 'api/lyrics',
   EXPRESS: 'https://vinylify-express.vercel.app/',
 } as const;
 
