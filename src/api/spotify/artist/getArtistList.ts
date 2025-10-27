@@ -1,0 +1,20 @@
+import { MAX_ARTIST_COUNT } from '@/constants/count';
+import splitLengthyList from '@/utils/array/splitLengthyList';
+import api from '../instance';
+
+/* 다수 아티스트 검색 */
+export default async function getArtistList(artists: string[]) {
+  if (artists.length > MAX_ARTIST_COUNT) {
+    const results = await Promise.all(
+      splitLengthyList(artists).map(list =>
+        api.get(`artists?ids=${list.join(',')}`),
+      ),
+    );
+    return results;
+  } else {
+    const res: SpotifyApi.MultipleArtistsResponse = await api
+      .get(`artists?ids=${artists.join(',')}`)
+      .json();
+    return res.artists;
+  }
+}
