@@ -2,10 +2,10 @@ import { useSearchKeyword } from '@/hooks/query/search/useSearchKeyword';
 import useSearchTab from '@/hooks/useSearchTab';
 import { SearchResult } from '@/models/Spotify';
 import { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import SearchBar from './SearchBar';
-import TabSearchList from './Tab/TabSearchList';
 import TabSelection from './Tab/TabSelection';
+import GridSkeleton from './_shared/GridSkeleton';
 
 type Refetch = (
   options?: RefetchOptions,
@@ -23,7 +23,9 @@ export type SearchProps = Readonly<{
     value: string,
   ) => void;
 }>;
+
 const SEARCH_LIMIT_COUNT = 4 * 2 * 2;
+const TabSearchList = lazy(() => import('./Tab/TabSearchList'));
 
 export default function Search() {
   const { urlData, currentTab, handleSearchParam } = useSearchTab({
@@ -48,16 +50,17 @@ export default function Search() {
           currentTab={currentTab}
           handleSearchParam={handleSearchParam}
         />
-        <TabSearchList
-          isFetched={isFetched}
-          // keyword={urlData.keyword}
-          currentTab={currentTab}
-          currentTabPagingInfo={currentTabPagingInfo}
-          isLoading={isLoading}
-          isError={isError}
-          error={error}
-          handleSearchParam={handleSearchParam}
-        />
+        <Suspense fallback={<GridSkeleton />}>
+          <TabSearchList
+            isFetched={isFetched}
+            currentTab={currentTab}
+            currentTabPagingInfo={currentTabPagingInfo}
+            isLoading={isLoading}
+            isError={isError}
+            error={error}
+            handleSearchParam={handleSearchParam}
+          />
+        </Suspense>
       </div>
     </>
   );

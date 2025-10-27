@@ -6,8 +6,7 @@ import { Artist } from '@/models/Profile';
 import { SearchResult } from '@/models/Spotify';
 import { Track } from '@/models/Track';
 import { DEFAULT_TAB } from '@/services/options';
-import { ReactNode, Suspense } from 'react';
-import GridSkeleton from '../_shared/GridSkeleton';
+import { ReactNode } from 'react';
 import VirtualGrid from '../_shared/VirtualGrid';
 import { SearchProps } from '../Search';
 
@@ -56,21 +55,19 @@ export default function TabSearchList({
   }
 
   return (
-    <Suspense fallback={<GridSkeleton />}>
-      <VirtualGrid
-        id={DEFAULT_GRID_ID}
-        gridCols={gridCols}
-        scrollRef={scrollRef}
-        columns={columns}
-        columnVirtualizer={columnVirtualizer}
-        virtualColumns={virtualColumns}
-        currentTab={currentTab}
-        virtualizer={virtualizer}
-        virtualRows={virtualRows}
-        infiniteItems={infiniteItems}
-        hasNextPage={hasNextPage}
-        isFetchingNextPage={isFetchingNextPage}
-      />
-    </Suspense>
+    <VirtualGrid
+      id={DEFAULT_GRID_ID}
+      gridCols={gridCols}
+      scrollRef={scrollRef}
+      columns={columns}
+      columnVirtualizer={columnVirtualizer}
+      virtualColumns={virtualColumns}
+      currentTab={currentTab}
+      virtualizer={virtualizer}
+      virtualRows={virtualRows}
+      infiniteItems={infiniteItems}
+      hasNextPage={hasNextPage}
+      isFetchingNextPage={isFetchingNextPage}
+    />
   );
 }
