@@ -29,7 +29,7 @@ export const MeasuredImageBase = ({
       className={`relative w-full aspect-square rounded-[4px] overflow-hidden shadow-(--shadow-basic) ${className}`}
     >
       <div
-        className={`absolute inset-0 bg-(--grey-600) transition-opacity duration-500
+        className={`absolute inset-0 bg-(--grey-600) transition-opacity duration-500 ${!loaded ? 'animate-pulse' : ''}
         `}
       />
       <img
@@ -40,7 +40,7 @@ export const MeasuredImageBase = ({
         loading={loading}
         onLoad={handleLoad}
         className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500
-          `}
+         `}
         {...props}
       />
     </div>
