@@ -1,4 +1,4 @@
-import roundToDecimalPoint from '@/utils/roundToDecimalPoint';
+import roundToDecimalPoint from '@/utils/number/roundToDecimalPoint';
 import { RefObject, useEffect, useRef, useState } from 'react';
 
 export function useThrottleResize({
@@ -18,7 +18,7 @@ export function useThrottleResize({
       for (let entry of entries) {
         const now = Date.now();
         if (now - lastRanRef.current < throttleMs) {
-          return; // ⏸ skip until throttle window passes
+          return;
         }
         lastRanRef.current = now;
 

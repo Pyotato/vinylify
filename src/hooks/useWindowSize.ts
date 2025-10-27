@@ -21,7 +21,6 @@ export function useThrottledWindowSize(throttleMs: number = 200): WindowSize {
 
     window.addEventListener('resize', handleResize);
 
-    // initial set
     setSize({ width: window.innerWidth, height: window.innerHeight });
 
     return () => {
