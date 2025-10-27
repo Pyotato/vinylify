@@ -1,11 +1,14 @@
 export const API = {
   LOGIN: 'https://vinylify-express.vercel.app/',
   SPOTIFY: 'https://api.spotify.com/v1/',
-
-  GENIUS:
-    '/genius/api' /** proxy vite.config.ts 설정 (https://api.genius.com) */,
+  RECCOBEATS: '/reccobeats/api',
+  GENIUS: '/genius/api',
+  LYRICS: 'lyrics/api',
   EXPRESS: 'https://vinylify-express.vercel.app/',
-};
+} as const;
+
+export const API_TEST = 'api/test' as const;
+
 export const PAGE = {
   MAIN: '/',
   ERROR: '/error',
@@ -14,9 +17,9 @@ export const PAGE = {
   MUSIC_INFO: '/music-info',
   LOGGED_IN: '/me',
   SPOTIFY: 'https://open.spotify.com/',
-};
+} as const;
 
 export const URL_PARAMS = {
   KEYWORD: 'keyword',
   SCOPE: 'scope',
-};
+} as const;
