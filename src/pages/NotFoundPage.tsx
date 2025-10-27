@@ -1,6 +1,6 @@
-import KeycapButton from '@/components/_shared/Button/KeycapButton';
-import NotFoundIcon from '@/components/_shared/Icons/NotFound';
 import { PAGE } from '@/constants/url';
+import KeycapButton from '@/ui/Button/KeycapButton';
+import NotFoundIcon from '@/ui/Icons/NotFound';
 import { useNavigate } from 'react-router-dom';
 
 const NotFoundPage = () => {
