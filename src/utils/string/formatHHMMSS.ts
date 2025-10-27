@@ -1,7 +1,7 @@
 /**
  * 밀리초로 되어 있는 UTC 시간을 HH:MM:SS 형식으로 변환
  */
-export function HHMMSSFormat({ utcTime }: { utcTime: number }) {
+export function formatHHMMSS({ utcTime }: { utcTime: number }) {
   const time = new Date(utcTime);
   const MMSS = [
     `${time.getUTCMinutes()}`.padStart(2, '0'),
