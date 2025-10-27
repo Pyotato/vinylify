@@ -49,6 +49,16 @@ const config: ViteConfig = {
         changeOrigin: true,
         rewrite: path => path.replace(/^\/genius\/api/, ''),
       },
+      '/reccobeats/api': {
+        target: 'https://api.reccobeats.com/v1',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/reccobeats\/api/, ''),
+      },
+      '/lyrics/api': {
+        target: 'https://api.lyrics.ovh/v1',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/lyrics\/api/, ''),
+      },
     },
   },
   build: {
