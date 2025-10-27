@@ -21,22 +21,20 @@ const router = createBrowserRouter([
       },
       {
         element: <ProtectedRoute />,
+        errorElement: <ErrorPage />,
         children: [
           {
             path: PAGE.LOGGED_IN,
             element: <MainPage />,
             children: [{ path: PAGE.LOGGED_IN, element: <MainPage /> }],
-            errorElement: <ErrorPage />,
           },
           {
             path: PAGE.MUSIC_INFO,
             element: <MusicInfoPage />,
-            errorElement: <ErrorPage />,
           },
           {
             path: PAGE.SEARCH,
             element: <SearchPage />,
-            ErrorBoundary: error => <>{error}</>,
           },
         ],
       },
