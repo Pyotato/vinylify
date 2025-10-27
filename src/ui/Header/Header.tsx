@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import { PAGE } from '@/constants/url';
 import { useAuth } from '@/hooks/useAuth';
-import { HeaderNavigationMenu } from '@/services/Options';
+import { NavigationMenu } from '@/services/options';
 import VinylifyIcon from '../Icons/Vinylify';
 import AuthButton from './AuthButton';
 import NavigationButton from './NavigationButton';
@@ -20,7 +20,7 @@ const Header = () => {
       />
 
       <div className="w-full items-center gap-1.5 inline-flex justify-end-safe">
-        {HeaderNavigationMenu.map(path =>
+        {NavigationMenu.map(path =>
           !path.protected || token ? (
             <NavigationButton
               url={path.url}
