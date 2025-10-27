@@ -1,8 +1,10 @@
 import { useCurrentPlayingTrack } from '@/hooks/query/track/useCurrentPlayingTrack';
-import PlayButton from '@/ui/Button/PlayPauseButton/PlayButton';
+
 import { useQueryClient } from '@tanstack/react-query';
 import { HtmlHTMLAttributes, useEffect, useMemo } from 'react';
-import PauseButton from '../components/MusicInfo/_shared/Button/PauseButton';
+
+import PauseButton from './Button/PlayPauseButton/PauseButton';
+import PlayButton from './Button/PlayPauseButton/PlayButton';
 import LoadingIcon from './Icons/Loading';
 
 export interface PlayerProps extends HtmlHTMLAttributes<HTMLLIElement> {

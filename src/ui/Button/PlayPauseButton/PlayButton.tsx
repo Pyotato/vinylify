@@ -1,4 +1,5 @@
 import playTrack from '@/api/spotify/player/playTrack';
+import { SECOND } from '@/constants/time';
 import { useDebounce } from '@/hooks/useDebounce';
 import { MetaInfo } from '@/models/MetaInfo';
 import { CurrentlyPlayingTrack } from '@/models/Track';
@@ -22,7 +23,7 @@ const PlayButton = ({ context, uri, position_ms = 0 }: PlayButtonProps) => {
       });
     },
     [],
-    3_000,
+    3 * SECOND,
   );
 
   return (
