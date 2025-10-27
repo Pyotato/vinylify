@@ -1,7 +1,9 @@
 import { Album } from '@/models/Album';
-import Card from '@/ui/Card';
-import { CSSProperties, useMemo } from 'react';
-import ArtistProfile from '../../_shared/Profile/ArtistProfile';
+
+import { CSSProperties, lazy, useMemo } from 'react';
+
+const Card = lazy(() => import('@/ui/Card'));
+const ArtistProfile = lazy(() => import('../../_shared/Profile/ArtistProfile'));
 
 const AlbumCard = ({ item, style }: { item: Album; style?: CSSProperties }) => {
   const artists = useMemo(() => {

@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { useState } from 'react';
 
 export type MeasuredImageProps = {
   src: string;
@@ -9,7 +9,7 @@ export type MeasuredImageProps = {
   height?: number;
 };
 
-export const MeasuredImageBase = ({
+export const MeasuredImage = ({
   src,
   alt,
   className = '',
@@ -46,6 +46,3 @@ export const MeasuredImageBase = ({
     </div>
   );
 };
-
-const MeasuredImage = memo(MeasuredImageBase);
-export default MeasuredImage;

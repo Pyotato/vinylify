@@ -1,31 +1,16 @@
 import { LOADING_IMAGE, PLACEHOLDER_IMAGE } from '@/constants/image';
 import { useCurrentPlayingTrack } from '@/hooks/query/track/useCurrentPlayingTrack';
 
-import { formatHHMMSS } from '@/utils/string/formatHHMMSS';
 import { lazy, Suspense, useMemo } from 'react';
-// import AnimatedTitle from '../../ui/AnimatedTitle';
-// import PauseButton from '../../ui/Button/PlayPauseButton/PauseButton';
-// import PlayButton from '../../ui/Button/PlayPauseButton/PlayButton';
-// import { MemoizedVinyl } from '../../ui/Vinyl/Vinyl';
-// import ArtistInfo from './ArtistInfo/ArtistInfo';
-// import ArtistInfoSection from './ArtistInfoSection';
+import AnimatedTitle from '../../ui/AnimatedTitle';
+import { MemoizedVinyl } from '../../ui/Vinyl/Vinyl';
 import Empty from './Empty';
 import Loading from './Loading';
-// import Lyrics from './Lyrics';
-// import ProgressBar from './ProgressBar';
 
-const MemoizedVinyl = lazy(() => import('../../ui/Vinyl/Vinyl'));
-const AnimatedTitle = lazy(() => import('../../ui/AnimatedTitle'));
+const MusicPlayer = lazy(() => import('./MusicPlayer'));
+const Lyrics = lazy(() => import('./Lyrics'));
 const ArtistInfo = lazy(() => import('./ArtistInfo/ArtistInfo'));
 const ArtistInfoSection = lazy(() => import('./ArtistInfoSection'));
-const ProgressBar = lazy(() => import('./ProgressBar'));
-const Lyrics = lazy(() => import('./Lyrics'));
-const PlayButton = lazy(
-  () => import('../../ui/Button/PlayPauseButton/PlayButton'),
-);
-const PauseButton = lazy(
-  () => import('../../ui/Button/PlayPauseButton/PauseButton'),
-);
 
 export default function MusicInfo() {
   const { data, isLoading } = useCurrentPlayingTrack({
@@ -46,7 +31,7 @@ export default function MusicInfo() {
     return data.item?.album?.images[0].url;
   }, [isLoading, data]);
 
-  if (!data?.item && !isLoading) {
+  if (data?.item?.id == null && !isLoading) {
     return <Empty />;
   }
 
@@ -55,49 +40,45 @@ export default function MusicInfo() {
   }
 
   return (
-    <Suspense fallback={<>what's going on??</>}>
-      <div
-        className={
-          'w-full h-full -ms-overflow-style:none scrollbar-hide overflow-scroll text-(--color-white) bg-(--light-grey-400) p-5 inline-flex justify-center-safe'
-        }
-      >
-        <div className="w-full mb-8 h-fit lg:w-[60%] inline-flex flex-col gap-4">
+    <div
+      className={
+        'w-full h-full -ms-overflow-style:none scrollbar-hide overflow-scroll text-(--color-white) bg-(--light-grey-400) p-5 inline-flex justify-center-safe'
+      }
+    >
+      <div className="w-full mb-8 h-fit lg:w-[60%] inline-flex flex-col gap-4">
+        <Suspense>
           <AnimatedTitle>{data.item.name}</AnimatedTitle>
-          <div className="w-full">
-            <div className="inline-flex justify-center align-middle w-full">
-              <div className="relative">
+        </Suspense>
+        <div className="w-full">
+          <div className="inline-flex justify-center align-middle w-full">
+            <div className="relative">
+              <Suspense>
                 <MemoizedVinyl imgUrl={vinylImage} loading="eager" />
-              </div>
-            </div>
-            <div className="inline-flex w-full relative justify-center-safe align-middle">
-              {data?.is_playing ? (
-                <PauseButton />
-              ) : (
-                <PlayButton
-                  context={data.item.album.uri}
-                  uri={{ uri: data?.item.uri }}
-                  position_ms={data?.progress_ms || 0}
-                />
-              )}
-              <ProgressBar
-                progress={data?.progress_ms ?? 0}
-                duration={data?.item?.duration_ms}
-              />
-              <div className="ml-2 py-1.5">
-                {formatHHMMSS({ utcTime: data?.item?.duration_ms })}
-              </div>
+              </Suspense>
             </div>
           </div>
-
+          <Suspense>
+            <MusicPlayer
+              isPlaying={data?.is_playing}
+              uri={data.item.uri}
+              contextUri={data.item.album.uri}
+              progressMs={data?.progress_ms || 0}
+              durationMs={data?.item?.duration_ms}
+            />
+          </Suspense>
+        </div>
+        <Suspense>
           <Lyrics
             artist={data.item.artists[0].name}
             songTitle={data.item.name}
           />
+        </Suspense>
+        <Suspense>
           <ArtistInfo>
             <ArtistInfoSection artistId={artistId} />
           </ArtistInfo>
-        </div>
+        </Suspense>
       </div>
-    </Suspense>
+    </div>
   );
 }

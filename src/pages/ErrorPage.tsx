@@ -1,9 +1,10 @@
 import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
 import { BLACK_TEXTURE } from '@/constants/image';
-import Vinyl from '@/ui/Vinyl/Vinyl';
-
-import AccountError from '@/components/Error/AccountError';
+import { lazy } from 'react';
 import { useRouteError } from 'react-router-dom';
+
+const AccountError = lazy(() => import('@/components/Error/AccountError'));
+const Vinyl = lazy(() => import('@/ui/Vinyl/Vinyl'));
 
 export default function ErrorPage() {
   const { message } = useRouteError() as Error;

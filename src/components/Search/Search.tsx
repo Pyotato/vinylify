@@ -3,9 +3,11 @@ import useSearchTab from '@/hooks/useSearchTab';
 import { SearchResult } from '@/models/Spotify';
 import { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
 import { lazy, Suspense, useMemo } from 'react';
-import SearchBar from './SearchBar';
 import TabSelection from './Tab/TabSelection';
 import GridSkeleton from './_shared/GridSkeleton';
+
+const SearchBar = lazy(() => import('./SearchBar'));
+const TabSearchList = lazy(() => import('./Tab/TabSearchList'));
 
 type Refetch = (
   options?: RefetchOptions,
@@ -25,7 +27,6 @@ export type SearchProps = Readonly<{
 }>;
 
 const SEARCH_LIMIT_COUNT = 4 * 2 * 2;
-const TabSearchList = lazy(() => import('./Tab/TabSearchList'));
 
 export default function Search() {
   const { urlData, currentTab, handleSearchParam } = useSearchTab({
@@ -44,7 +45,9 @@ export default function Search() {
 
   return (
     <>
-      <SearchBar handleSearchParam={handleSearchParam} urlData={urlData} />
+      <Suspense>
+        <SearchBar handleSearchParam={handleSearchParam} urlData={urlData} />
+      </Suspense>
       <div className="h-full w-full inline-flex flex-col">
         <TabSelection
           currentTab={currentTab}

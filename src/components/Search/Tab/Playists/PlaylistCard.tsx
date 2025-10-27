@@ -1,6 +1,8 @@
 import { Playlist } from '@/models/Playlist';
-import Card from '../../../../ui/Card';
-import PlaylistDescription from './PlaylistDescription';
+import { lazy } from 'react';
+
+const Card = lazy(() => import('@/ui/Card'));
+const PlaylistDescription = lazy(() => import('./PlaylistDescription'));
 
 const PlaylistCard = ({ item }: { item: Playlist }) => {
   return (

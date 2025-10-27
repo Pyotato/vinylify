@@ -3,9 +3,10 @@ import { SECOND } from '@/constants/time';
 import { useDebounce } from '@/hooks/useDebounce';
 import { MetaInfo } from '@/models/MetaInfo';
 import { CurrentlyPlayingTrack } from '@/models/Track';
-import { HtmlHTMLAttributes } from 'react';
-import PlayIcon from '../../Icons/Play';
+import { HtmlHTMLAttributes, lazy } from 'react';
 import Button from '../Button';
+
+const PlayIcon = lazy(() => import('../../Icons/Play'));
 
 export interface PlayButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
   context: MetaInfo['uri'];

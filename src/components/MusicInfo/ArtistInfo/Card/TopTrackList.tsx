@@ -30,7 +30,6 @@ export default function TopTrackList({
   return (
     <span className="inline-block">
       <span className={'text-(length:--text-fluid-lg)'}> Top tracks</span>
-
       <ul className={''}>
         {topTracks?.map((track, index) => (
           <TopTrack

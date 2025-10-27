@@ -1,12 +1,12 @@
 import { useCurrentPlayingTrack } from '@/hooks/query/track/useCurrentPlayingTrack';
 
 import { useQueryClient } from '@tanstack/react-query';
-import { HtmlHTMLAttributes, useEffect, useMemo } from 'react';
+import { HtmlHTMLAttributes, lazy, useEffect, useMemo } from 'react';
 
 import PauseButton from './Button/PlayPauseButton/PauseButton';
 import PlayButton from './Button/PlayPauseButton/PlayButton';
-import LoadingIcon from './Icons/Loading';
 
+const LoadingIcon = lazy(() => import('./Icons/Loading'));
 export interface PlayerProps extends HtmlHTMLAttributes<HTMLLIElement> {
   contextUri: string;
   id?: string;

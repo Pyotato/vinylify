@@ -2,65 +2,15 @@ import { LOADING_IMAGE, PLACEHOLDER_IMAGE } from '@/constants/image';
 import { useArtistTopTracks } from '@/hooks/query/track/useArtistTopTracks';
 import { useErrorNotifications } from '@/hooks/toasts/useErrorNotifications';
 import { Artist } from '@/models/Profile';
-import { MeasuredImageProps } from '@/ui/CoverImage/MeasuredImage';
-import SpotifyIcon from '@/ui/Icons/Spotify';
-import { memo, Suspense, useMemo } from 'react';
+import { MeasuredImage } from '@/ui/CoverImage/MeasuredImage';
+import { lazy, Suspense, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import ArtistName from './ArtistName';
-import Followers from './Followers';
-import GenreList from './GentreList';
-import TopTrackList from './TopTrackList';
 
-export const MeasuredImage = ({
-  src,
-  alt,
-  width,
-  height,
-  className = '',
-  ...props
-}: Readonly<MeasuredImageProps>) => {
-  if (src == LOADING_IMAGE) {
-    return (
-      <div
-        className={`relative w-full aspect-square rounded-[4px] overflow-hidden shadow-(--shadow-basic) `}
-      >
-        <div
-          className={`absolute inset-0 bg-(--grey-600) transition-opacity duration-500`}
-        />
-
-        <img
-          src={src}
-          width={width ?? 30}
-          height={height ?? 30}
-          alt={alt || src}
-          loading="eager"
-          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 animate-pulse`}
-        />
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={`relative w-full aspect-square rounded-[4px] overflow-hidden shadow-(--shadow-basic) ${className}`}
-    >
-      <div
-        className={`absolute inset-0 bg-(--grey-600) transition-opacity duration-500
-        `}
-      />
-
-      <img
-        src={src}
-        alt={alt || src}
-        className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500
-  `}
-        {...props}
-      />
-    </div>
-  );
-};
-
-const MemoizedMeasuredImage = memo(MeasuredImage);
+const SpotifyIcon = lazy(() => import('@/ui/Icons/Spotify'));
+const ArtistName = lazy(() => import('./ArtistName'));
+const Followers = lazy(() => import('./Followers'));
+const GenreList = lazy(() => import('./GenreList'));
+const TopTrackList = lazy(() => import('./TopTrackList'));
 
 export default function ArtistInfoCard({
   artist,
@@ -103,7 +53,7 @@ export default function ArtistInfoCard({
             className="relative inline-block w-40! h-40!"
             aria-disabled={artist.external_urls?.spotify == null}
           >
-            <MemoizedMeasuredImage
+            <MeasuredImage
               src={coverImageImgUrl.url}
               alt={coverImageImgUrl.url}
               width={coverImageImgUrl.width}
@@ -116,16 +66,20 @@ export default function ArtistInfoCard({
           </Link>
         </Suspense>
         <span className="inline-flex flex-col w-full">
-          <span className="inline-block w-full pb-3">
-            <ArtistName artistName={artist?.name} />
-            <Followers followers={artist?.followers?.total} />
-          </span>
-          {artist?.genres && artist?.genres?.length > 0 ? (
-            <GenreList genres={artist.genres} />
-          ) : null}
+          <Suspense>
+            <span className="inline-block w-full pb-3">
+              <ArtistName artistName={artist?.name} />
+              <Followers followers={artist?.followers?.total} />
+            </span>
+            {artist?.genres && artist?.genres?.length > 0 ? (
+              <GenreList genres={artist.genres} />
+            ) : null}
+          </Suspense>
         </span>
       </span>
-      <TopTrackList topTracks={data?.tracks} />
+      <Suspense>
+        <TopTrackList topTracks={data?.tracks} />
+      </Suspense>
     </li>
   );
 }

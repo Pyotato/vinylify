@@ -1,10 +1,13 @@
 import AnimatedTitle from '@/ui/AnimatedTitle';
-import PlayIcon from '@/ui/Icons/Play';
+
 import { MemoizedVinyl } from '@/ui/Vinyl/Vinyl';
 import { formatHHMMSS } from '@/utils/string/formatHHMMSS';
+import { lazy } from 'react';
 import ArtistInfo from './ArtistInfo/ArtistInfo';
 import ArtistInfoSection from './ArtistInfoSection';
 import ProgressBar from './ProgressBar';
+
+const PlayIcon = lazy(() => import('@/ui/Icons/Play'));
 
 function Loading({
   vinylImage,

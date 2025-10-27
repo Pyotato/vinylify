@@ -1,8 +1,11 @@
 import { useSearchKeyword } from '@/hooks/query/search/useSearchKeyword';
 import { useErrorNotifications } from '@/hooks/toasts/useErrorNotifications';
 import useSearchBar from '@/hooks/useSearchBar';
-import LoadingIcon from '../../ui/Icons/Loading';
+
+import { lazy } from 'react';
 import { SearchProps } from './Search';
+
+const LoadingIcon = lazy(() => import('@/ui/Icons/Loading'));
 
 export default function SearchBar({
   urlData,

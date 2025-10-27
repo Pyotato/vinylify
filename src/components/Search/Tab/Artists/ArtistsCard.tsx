@@ -1,8 +1,11 @@
 import { Artist } from '@/models/Profile';
 
 import compactNumberFormat from '@/utils/string/compactNumberFormat';
-import Card from '../../../../ui/Card';
-import GenreList from './GenreList';
+
+import { lazy } from 'react';
+
+const Card = lazy(() => import('@/ui/Card'));
+const GenreList = lazy(() => import('./GenreList'));
 
 const ArtistCard = ({ item }: { item: Artist }) => {
   return (

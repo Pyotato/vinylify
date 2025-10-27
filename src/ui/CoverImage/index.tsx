@@ -1,9 +1,9 @@
 import { PLACEHOLDER_IMAGE } from '@/constants/image';
-import { DetailedHTMLProps } from 'react';
-
-import SpotifyIcon from '@/ui/Icons/Spotify';
+import { MeasuredImage } from '@/ui/CoverImage/MeasuredImage';
+import { DetailedHTMLProps, lazy } from 'react';
 import { Link } from 'react-router-dom';
-import MeasuredImage from './MeasuredImage';
+
+const SpotifyIcon = lazy(() => import('@/ui/Icons/Spotify'));
 export interface ImgUrlProps
   extends DetailedHTMLProps<
     React.ImgHTMLAttributes<HTMLImageElement>,

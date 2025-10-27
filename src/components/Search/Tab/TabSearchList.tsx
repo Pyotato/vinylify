@@ -6,11 +6,12 @@ import { Artist } from '@/models/Profile';
 import { SearchResult } from '@/models/Spotify';
 import { Track } from '@/models/Track';
 import { DEFAULT_TAB } from '@/services/options';
-import { ReactNode } from 'react';
-import VirtualGrid from '../_shared/VirtualGrid';
+import { lazy, ReactNode } from 'react';
 import { SearchProps } from '../Search';
 
 export const DEFAULT_GRID_ID = 'vinylify';
+
+const VirtualGrid = lazy(() => import('../_shared/VirtualGrid'));
 
 export type TabItem = Album[] | Artist[] | Track[] | Playlist[];
 export type TabList = ({ tabItem }: { tabItem: TabItem }) => ReactNode[];
@@ -18,7 +19,6 @@ export type TabList = ({ tabItem }: { tabItem: TabItem }) => ReactNode[];
 export default function TabSearchList({
   currentTabPagingInfo,
   currentTab = DEFAULT_TAB,
-  // keyword,
   handleSearchParam,
   isError,
   error,

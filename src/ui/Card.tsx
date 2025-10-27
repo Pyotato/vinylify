@@ -1,10 +1,11 @@
 import { PLACEHOLDER_IMAGE } from '@/constants/image';
 import CoverImage from '@/ui/CoverImage';
-import { CSSProperties, HtmlHTMLAttributes, RefObject } from 'react';
+import { CSSProperties, HtmlHTMLAttributes, lazy, RefObject } from 'react';
 import { InView } from 'react-intersection-observer';
-import Player from './Player';
 
 const DEFAULT_IMAGE_SIZE = 400;
+
+const Player = lazy(() => import('./Player'));
 
 export interface CardProps extends HtmlHTMLAttributes<HTMLLIElement> {
   title?: string;
@@ -18,20 +19,6 @@ export interface CardProps extends HtmlHTMLAttributes<HTMLLIElement> {
   imgHeight?: number | null;
   offset?: { uri: string } | { position: number };
 }
-
-const CardSkeleton = () => {
-  return (
-    <li className={`list-none w-full inline-flex flex-col gap-2 m-0 p-0`}>
-      <CoverImage.Skeleton />
-      <ul>
-        <li className="wrap">
-          <span className={`inline-block w-full h-4 animate-pulse`} />
-        </li>
-        <span className={`inline-block w-full h-8  animate-pulse`} />
-      </ul>
-    </li>
-  );
-};
 
 const Card = ({
   titleTag,
@@ -103,7 +90,5 @@ const Card = ({
     </ul>
   );
 };
-
-Card.Skeleton = CardSkeleton;
 
 export default Card;

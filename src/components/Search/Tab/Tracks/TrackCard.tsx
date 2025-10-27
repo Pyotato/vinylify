@@ -1,8 +1,9 @@
 import { Track } from '@/models/Track';
 import { formatHHMMSS } from '@/utils/string/formatHHMMSS';
-import { useMemo } from 'react';
-import Card from '../../../../ui/Card';
-import ArtistProfile from '../../_shared/Profile/ArtistProfile';
+import { lazy, useMemo } from 'react';
+
+const Card = lazy(() => import('@/ui/Card'));
+const ArtistProfile = lazy(() => import('../../_shared/Profile/ArtistProfile'));
 
 export const TrackCard = ({ item }: { item: Track }) => {
   const artists = useMemo(() => {

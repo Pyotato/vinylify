@@ -1,23 +1,16 @@
-import { Album } from '@/models/Album';
-import { Playlist } from '@/models/Playlist';
-import { Artist } from '@/models/Profile';
-import { SearchResult } from '@/models/Spotify';
-import { Track } from '@/models/Track';
-import { DEFAULT_TAB, Tabs } from '@/services/options';
-import { ReactNode } from 'react';
+import { DEFAULT_TAB, Tabs, type TabKey } from '@/services/options';
 import { SearchProps } from '../Search';
 
 export const DEFAULT_GRID_ID = 'vinylify';
 
-export type TabItem = Album[] | Artist[] | Track[] | Playlist[];
-export type TabList = ({ tabItem }: { tabItem: TabItem }) => ReactNode[];
+type TabSelectionProps = Pick<SearchProps, 'handleSearchParam'> & {
+  currentTab?: TabKey;
+};
 
 export default function TabSelection({
   currentTab = DEFAULT_TAB,
   handleSearchParam,
-}: Pick<SearchProps, 'handleSearchParam'> & {
-  currentTab?: keyof SearchResult;
-}) {
+}: TabSelectionProps) {
   return (
     <ul className="bg-(--light-grey-100) inline-flex flex-row align-middle list-none w-full h-12">
       {Object.entries(Tabs).map(([key]) => {

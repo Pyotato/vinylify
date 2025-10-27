@@ -1,9 +1,9 @@
 import pauseTrack from '@/api/spotify/player/pauseTrack';
 import { useDebounce } from '@/hooks/useDebounce';
-import PauseIcon from '@/ui/Icons/Pause';
-import { HtmlHTMLAttributes } from 'react';
+import { HtmlHTMLAttributes, lazy } from 'react';
 import { VARIANTS } from './VARIANTS';
 
+const PauseIcon = lazy(() => import('@/ui/Icons/Pause'));
 export interface PauseButtonProps
   extends HtmlHTMLAttributes<HTMLButtonElement> {
   variant?: 'white' | 'grey';

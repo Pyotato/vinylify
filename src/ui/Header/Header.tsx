@@ -3,13 +3,16 @@ import { useLocation } from 'react-router-dom';
 import { PAGE } from '@/constants/url';
 import { useAuth } from '@/hooks/useAuth';
 import { NavigationMenu } from '@/services/options';
-import VinylifyIcon from '../Icons/Vinylify';
-import AuthButton from './AuthButton';
-import NavigationButton from './NavigationButton';
+import { lazy } from 'react';
+
+const VinylifyIcon = lazy(() => import('../Icons/Vinylify'));
+const AuthButton = lazy(() => import('./AuthButton'));
+const NavigationButton = lazy(() => import('./NavigationButton'));
 
 const Header = () => {
   const currentPage = useLocation();
   const { token } = useAuth();
+  console.log('token', token);
 
   return (
     <header className="w-full inline-flex pl-3 pr-3 pt-1">

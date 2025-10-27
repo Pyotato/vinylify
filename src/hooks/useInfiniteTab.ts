@@ -1,12 +1,11 @@
 import { SearchProps } from '@/components/Search/Search';
-import { TabItem } from '@/components/Search/Tab/TabSelection';
-import { SearchResult } from '@/models/Spotify';
-import { DEFAULT_TAB } from '@/services/options';
+
+import { DEFAULT_TAB, type TabItem, type TabKey } from '@/services/options';
 import { useEffect, useMemo } from 'react';
 import { useInfiniteSearchList } from './query/search/useInfiniteSearchList';
 
 export type UseInfiniteTabProps = Pick<SearchProps, 'handleSearchParam'> & {
-  currentTab?: keyof SearchResult;
+  currentTab?: TabKey;
   currentTabPagingInfo?: string;
 };
 
@@ -39,11 +38,9 @@ function useInfiniteTab({
   }, [total]);
 
   const infiniteItems = useMemo(() => {
-    return (
-      infiniteData?.pages.reduce((acc, page) => {
-        return [...acc, ...(page?.[currentTab]?.items ?? [])].filter(v => v);
-      }, [] as TabItem) ?? []
-    );
+    return (infiniteData?.pages.flatMap(page =>
+      (page?.[currentTab]?.items ?? []).filter(Boolean),
+    ) ?? []) as TabItem;
   }, [infiniteData, currentTab]);
 
   const rowCount = useMemo(() => {

@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 import tailwindcss from '@tailwindcss/vite';
+import { visualizer } from 'rollup-plugin-visualizer';
 import type { UserConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 import type { InlineConfig } from 'vitest';
@@ -15,6 +16,12 @@ const config: ViteConfig = {
     react(),
     tsconfigPaths(),
     tailwindcss(),
+    visualizer({
+      filename: 'stats.html',
+      gzipSize: true,
+      brotliSize: true,
+      open: true, // automatically open report
+    }),
     svgr({
       // svgr options: https://react-svgr.com/docs/options/
       svgrOptions: {

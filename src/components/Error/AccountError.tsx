@@ -1,8 +1,10 @@
 import { BLACK_TEXTURE } from '@/constants/image';
 import { useAuth } from '@/hooks/useAuth';
 import KeycapButton from '@/ui/Button/KeycapButton';
-import Vinyl from '@/ui/Vinyl/Vinyl';
-import { startTransition } from 'react';
+
+import { lazy, startTransition } from 'react';
+
+const Vinyl = lazy(() => import('@/ui/Vinyl/Vinyl'));
 
 function AccountError() {
   const { logIn, signUp } = useAuth();

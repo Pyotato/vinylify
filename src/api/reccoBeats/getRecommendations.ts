@@ -1,13 +1,14 @@
+import { MetaInfo } from '@/models/MetaInfo';
 import getTracks from '../spotify/track/getTracks';
 import getTopTracks from '../spotify/user/getTopTracks';
 
 import api from './instance';
 
-export type Artist = {
+export interface Artist extends MetaInfo {
   id: string;
   name: string;
   href: string;
-};
+}
 
 export type Recommendation = {
   id: string;

@@ -1,7 +1,9 @@
 import { TrackSearchResult } from '@/models/Spotify';
 
-import Card from '@/ui/Card';
 import { splitLengthyText } from '@/utils/string/splitLengthyText';
+import { lazy } from 'react';
+
+const Card = lazy(() => import('@/ui/Card'));
 
 const TopTrackCard = ({
   item,

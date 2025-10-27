@@ -6,9 +6,8 @@
   font-display: swap;
   src:
     local('Jua'),
-    url('../fonts/Jua-Regular.eot') format('woff2'),
-    url('../fonts/Jua-Regular.woff') format('woff'),
-    url('../fonts/Jua-Regular.otf') format('opentype');
+    url('../fonts/Jua-Regular.woff2') format('woff2'),
+    url('../fonts/Jua-Regular.woff') format('woff');
 }
 
 @theme {
