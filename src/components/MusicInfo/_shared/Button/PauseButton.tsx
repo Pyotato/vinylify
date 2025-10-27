@@ -1,15 +1,20 @@
-import PauseIcon from '@/components/_shared/Icons/Pause';
+import pauseTrack from '@/api/spotify/player/pauseTrack';
 import { useDebounce } from '@/hooks/useDebounce';
-import { pauseTrack } from '@/services/spotify/playerSevices';
+import PauseIcon from '@/ui/Icons/Pause';
+import { VARIANTS } from './VARIANTS';
 
-const PauseButton = ({ disabled = false }: { disabled?: boolean }) => {
+const PauseButton = ({
+  disabled = false,
+  variant = 'white',
+}: {
+  disabled?: boolean;
+  variant?: 'white' | 'grey';
+}) => {
   const onPauseDebounceHandler = useDebounce(() => pauseTrack({}));
 
   return (
     <button
-      className={
-        'border-none hover:cursor-pointer fill-(--color-white) hover:fill-(--grey-100) p-0 w-4 mr-1'
-      }
+      className={`border-none hover:cursor-pointer ${VARIANTS[variant]} p-0 w-4 mr-1`}
       disabled={disabled}
       onClick={onPauseDebounceHandler}
     >

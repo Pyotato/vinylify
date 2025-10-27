@@ -1,12 +1,9 @@
+import { LOADING_IMAGE } from '@/constants/image';
 import { useArtistProfileLink } from '@/hooks/query/artist/useArtistProfileLink';
 import { useErrorNotifications } from '@/hooks/toasts/useErrorNotifications';
-import ArtistInfoCard from './Card/ArtistInfoCard';
+import Profile from './Profile';
 
-export default function SingleArtist({
-  artistId,
-}: Readonly<{
-  artistId: string;
-}>) {
+const SingleArtistProfile = ({ artistId }: { artistId: string }) => {
   const { data, isError, isSuccess, error, isLoading } = useArtistProfileLink({
     artistId,
   });
@@ -16,7 +13,7 @@ export default function SingleArtist({
     toastId: error?.message,
   });
   if (isLoading) {
-    return <>loading...</>;
+    return <Profile profile={{ imgUrl: LOADING_IMAGE }} />;
   }
   if (isSuccess && data == null) {
     return null;
@@ -25,11 +22,17 @@ export default function SingleArtist({
   if (error) {
     showErrorToast();
   }
+
   return (
-    <span
-      className={`inline-grid grid-cols-1 gap-x-4 mx-auto col-span-full gap-4  w-full`}
-    >
-      {data?.id == null ? <>id is null</> : <ArtistInfoCard artist={data} />}
-    </span>
+    <div>
+      <Profile
+        profile={{
+          externalUrl: data?.external_urls?.spotify,
+          imgUrl: data?.images?.[data?.images?.length - 1]?.url,
+        }}
+      />
+    </div>
   );
-}
+};
+
+export default SingleArtistProfile;

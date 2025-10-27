@@ -1,6 +1,7 @@
 import { TrackSearchResult } from '@/models/Spotify';
 
-import Card from '@/components/_shared/Card';
+import Card from '@/ui/Card';
+import { splitLengthyText } from '@/utils/string/splitLengthyText';
 
 const TopTrackCard = ({
   item,
@@ -11,6 +12,8 @@ const TopTrackCard = ({
 }) => {
   return (
     <Card
+      id={item?.id}
+      variant="grey"
       key={item?.id}
       coverImage={item?.album?.images?.[0]?.url ?? '#'}
       contextUri={item.album.uri}
@@ -18,8 +21,8 @@ const TopTrackCard = ({
       externalUrls={item?.external_urls?.spotify}
       cardStyle={{ width: '12rem' }}
       offset={{ position: item.track_number - 1 }}
-      title={`${index + 1}. ${item?.name}`}
-      titleTag={`${item.album.name} #${item.track_number}`}
+      title={`${index + 1}. ${splitLengthyText(item?.name ?? 'No title ', 20)}`}
+      titleTag={`#${item.track_number} ${splitLengthyText(item.album.name ?? 'No name')}`}
     />
   );
 };

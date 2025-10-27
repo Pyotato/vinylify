@@ -1,19 +1,26 @@
-import PlayIcon from '@/components/_shared/Icons/Play';
+import playTrack from '@/api/spotify/player/playTrack';
 import { useDebounce } from '@/hooks/useDebounce';
 import { MetaInfo } from '@/models/MetaInfo';
 import { CurrentlyPlayingTrack } from '@/models/Track';
-import { playTrack } from '@/services/spotify/playerSevices';
+import PlayIcon from '@/ui/Icons/Play';
 import classNames from 'classnames';
 import { HtmlHTMLAttributes } from 'react';
+import { VARIANTS } from './VARIANTS';
 
 export interface PlayButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
   // imgUrl?: string;
   context: MetaInfo['uri'];
   uri?: CurrentlyPlayingTrack['item']['uri'];
   position_ms: CurrentlyPlayingTrack['progress_ms'];
+  variant?: 'white' | 'grey';
 }
 
-const PlayButton = ({ context, uri, position_ms }: PlayButtonProps) => {
+const PlayButton = ({
+  context,
+  uri,
+  position_ms,
+  variant = 'white',
+}: PlayButtonProps) => {
   const onPlayDebounceHandler = useDebounce(() => {
     playTrack({
       offset: { uri },
@@ -25,7 +32,7 @@ const PlayButton = ({ context, uri, position_ms }: PlayButtonProps) => {
   return (
     <button
       className={classNames(
-        'border-none hover:cursor-pointer hover:fill-(--grey-100) p-0 w-4 mr-1',
+        `border-none hover:cursor-pointer ${VARIANTS[variant]} p-0 w-4 mr-1`,
       )}
       onClick={onPlayDebounceHandler}
     >
