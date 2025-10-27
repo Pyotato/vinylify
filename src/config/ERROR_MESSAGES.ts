@@ -1,12 +1,26 @@
 const ERROR_MESSAGES = {
-  400: 'No search query', // SPOTIFY_ERROR_BAD_REQUEST
+  400: '검색어를 입력해 주세요.', // SPOTIFY_ERROR_BAD_REQUEST
   401: '세션이 만료되었습니다. 다시 로그인해 주세요.', // SPOTIFY_ERROR_INVALID_TOKEN
+  403: '접근 권한이 없습니다. 다시 로그인 후 이용해 주세요.', // SPOTIFY_ERROR_BAD_OAUTH_REQUEST
+  408: '네트워크 연결을 확인해 주세요.', // NETWORK_ERROR
   429: '요청 한도를 초과했습니다. 잠시 후 다시 시도해 주세요.', // SPOTIFY_ERROR_TOO_MANY_REQUESTS
-  403: '접속 권한 확인 중 문제가 생겼습니다. 다시 로그인 후 이용해 주세요.', // SPOTIFY_ERROR_BAD_OAUTH_REQUEST
-  500: '예기치 못한 서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', // SPOTIFY_ERROR_INTERNAL_SEVER_ERROR
-  GENERIC_ERROR: 'Something went wrong. Please try again.',
-  NETWORK_ERROR:
-    'Network error, unable to reach the server. Please check your connection.',
-};
+  500: '서버에 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.', // SPOTIFY_ERROR_INTERNAL_SEVER_ERROR
+  // Custom API error mappings
+  4001: '요청에 필요한 정보가 누락되었습니다.',
+  4002: '요청 형식이 올바르지 않습니다.',
+  4003: '잘못된 날짜 형식입니다.',
+  4004: '입력값이 유효하지 않습니다. 다시 확인해 주세요.',
+  404: '요청하신 데이터를 찾을 수 없습니다.',
+  4041: '요청하신 항목을 찾을 수 없습니다.',
+  4042: '잘못된 경로입니다. URL을 확인해 주세요.',
+  4291: '요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.',
+  4031: '비활성화된 계정입니다. 관리자에게 문의해 주세요.',
+  4032: '계정을 찾을 수 없습니다. 회원가입을 진행해 주세요.',
+  4011: '아이디 또는 비밀번호가 올바르지 않습니다.',
+  5001: '서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+  530: '추천 트랙을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.',
+  504: '가사를 불러오는데 문제가 발생했습니다.',
+  GENERIC_ERROR: '문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+} as const;
 
 export default ERROR_MESSAGES;
