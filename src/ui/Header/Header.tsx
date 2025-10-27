@@ -12,7 +12,6 @@ const NavigationButton = lazy(() => import('./NavigationButton'));
 const Header = () => {
   const currentPage = useLocation();
   const { token } = useAuth();
-  console.log('token', token);
 
   return (
     <header className="w-full inline-flex pl-3 pr-3 pt-1">
