@@ -1,10 +1,13 @@
+import { Suspense } from 'react';
 import Router from './router';
 import TanstackQuery from './tanstackQuery';
 
 const Providers = () => {
   return (
     <TanstackQuery>
-      <Router />
+      <Suspense>
+        <Router />
+      </Suspense>
     </TanstackQuery>
   );
 };
