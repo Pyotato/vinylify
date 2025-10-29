@@ -22,6 +22,7 @@ export const handleError = (error: HTTPError): HTTPError => {
       case 530:
         error.name = ERROR_NAMES[response.status];
         error.message = ERROR_MESSAGES[response.status];
+        (error as any).handledSilently = true;
         return error;
       case 401:
       case 403:
@@ -30,10 +31,13 @@ export const handleError = (error: HTTPError): HTTPError => {
         localStorage.removeItem(VINYLIFY_TOKEN); // 스포티파이 인증 관련
         error.name = ERROR_NAMES[response.status];
         error.message = ERROR_MESSAGES[response.status];
+
+        (error as any).handledSilently = true;
         return error;
       default:
         error.name = ERROR_NAMES.GENERIC_ERROR;
         error.message = `${ERROR_MESSAGES.GENERIC_ERROR}: ${error.message}`;
+        (error as any).handledSilently = true;
         return error;
     }
   }
