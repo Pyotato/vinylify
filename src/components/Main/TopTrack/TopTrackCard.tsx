@@ -14,6 +14,7 @@ const TopTrackCard = ({
 }) => {
   return (
     <Card
+      tab={''}
       id={item?.id}
       variant="grey"
       key={item?.id}
@@ -24,7 +25,7 @@ const TopTrackCard = ({
       cardStyle={{ width: '12rem' }}
       offset={{ position: item.track_number - 1 }}
       title={`${index + 1}. ${splitLengthyText(item?.name ?? 'No title ', 20)}`}
-      titleTag={`#${item.track_number} ${splitLengthyText(item.album.name ?? 'No name')}`}
+      titleTag={`#${item.track_number} ${item.album.name ?? 'No name'}`}
     />
   );
 };

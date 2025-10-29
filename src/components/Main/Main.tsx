@@ -2,6 +2,7 @@ import AnimatedTitle from '@/ui/AnimatedTitle';
 
 import { MainLayout } from '@/ui/Layout';
 
+import PlayerList from '@/ui/PlayerList/Player';
 import { lazy, Suspense } from 'react';
 import Skeleton from './Reccomendations/Skeleton';
 
@@ -21,6 +22,7 @@ export default function Main() {
           <Recommendations />
         </Suspense>
       </div>
+      <PlayerList />
     </MainLayout>
   );
 }
