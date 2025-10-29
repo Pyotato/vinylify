@@ -4,7 +4,7 @@ const LoadingIcon = () => {
       fill="currentColor"
       version="1.1"
       viewBox="-58 -58 116 116"
-      className="animate-spin w-6 mr-2"
+      className="animate-spin w-3 mr-2"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g strokeLinecap="round" strokeWidth="15">
