@@ -10,6 +10,7 @@ const GenreList = lazy(() => import('./GenreList'));
 const ArtistCard = ({ item }: { item: Artist }) => {
   return (
     <Card
+      tab={item.type ?? 'artist'}
       id={item.id}
       variant="grey"
       title={item.name}
