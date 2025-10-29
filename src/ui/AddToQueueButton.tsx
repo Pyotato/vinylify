@@ -7,10 +7,10 @@ import { useToast } from '@/hooks/toasts/useToast';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useQueryClient } from '@tanstack/react-query';
 import { lazy, useEffect, useState } from 'react';
+import PlayQueue from './PlayerList/PlayerQueue';
 
 const AddIcon = lazy(() => import('./Icons/Add'));
 const LoadingIcon = lazy(() => import('./Icons/Loading'));
-const PlayQueue = lazy(() => import('./PlayerList/PlayerQueue'));
 
 const Notification = ({ title }: { title: string }) => {
   return <>{title}를 다음 재생할 곡으로 추가했습니다.</>;
