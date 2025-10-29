@@ -41,7 +41,7 @@ function usePlayer({
       uri,
       id,
     }),
-    id,
+    factoryId: id,
     isError: false,
     icon: false,
     stack: false,
