@@ -1,13 +1,14 @@
 import { PAGE } from '@/constants/url';
-import { BaseLayout } from '@/layout/BaseLayout';
-import ProtectedRoute from '@/layout/ProtectedLayout';
-import ErrorPage from '@/pages/ErrorPage';
-import MainPage from '@/pages/MainPage';
-import MusicInfoPage from '@/pages/MusicInfoPage';
-
-import NotFoundPage from '@/pages/NotFoundPage';
-import SearchPage from '@/pages/SearchPage';
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+
+const BaseLayout = lazy(() => import('@/layout/BaseLayout'));
+const MainPage = lazy(() => import('@/pages/MainPage'));
+const MusicInfoPage = lazy(() => import('@/pages/MusicInfoPage'));
+const SearchPage = lazy(() => import('@/pages/SearchPage'));
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
+const ErrorPage = lazy(() => import('@/pages/ErrorPage'));
+const ProtectedRoute = lazy(() => import('@/layout/ProtectedLayout'));
 
 const router = createBrowserRouter([
   {

@@ -1,4 +1,4 @@
-import CoverImage from '@/ui/CoverImage';
+import CoverImageSkeleton from '@/ui/CoverImage/Skeleton';
 import Grid from '@/ui/Grid';
 
 function GridSkeleton() {
@@ -9,7 +9,7 @@ function GridSkeleton() {
           className={`list-none w-full inline-flex flex-col gap-2 m-0 p-0`}
           key={index + '-skeleton'}
         >
-          <CoverImage.Skeleton />
+          <CoverImageSkeleton />
           <ul>
             <li className="wrap">
               <span className={`inline-block w-full h-4 animate-pulse`} />

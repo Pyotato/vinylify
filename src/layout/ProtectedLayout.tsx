@@ -1,12 +1,12 @@
+import { PAGE } from '@/constants/url';
+import useToastFactory from '@/hooks/toasts/useToastFactory';
+import { useAuth } from '@/hooks/useAuth';
+import { useQueryErrorResetBoundary } from '@tanstack/react-query';
+import { lazy } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-import { PAGE } from '@/constants/url';
-import { useAuth } from '@/hooks/useAuth';
-
-import useToastFactory from '@/hooks/toasts/useToastFactory';
-import { useQueryErrorResetBoundary } from '@tanstack/react-query';
-import { ErrorBoundary } from 'react-error-boundary';
-import { FallbackRender } from './BaseLayout';
+const FallbackRender = lazy(() => import('./FallbackRender'));
 
 export default function ProtectedRoute() {
   const { isLoading, token } = useAuth();
