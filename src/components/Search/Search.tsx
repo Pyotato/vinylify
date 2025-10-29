@@ -1,6 +1,7 @@
 import { useSearchKeyword } from '@/hooks/query/search/useSearchKeyword';
 import useSearchTab from '@/hooks/useSearchTab';
 import { SearchResult } from '@/models/Spotify';
+import PlayerList from '@/ui/PlayerList/Player';
 import { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
 import { lazy, Suspense, useMemo } from 'react';
 import TabSelection from './Tab/TabSelection';
@@ -65,6 +66,9 @@ export default function Search() {
           />
         </Suspense>
       </div>
+      <Suspense>
+        <PlayerList />
+      </Suspense>
     </>
   );
 }

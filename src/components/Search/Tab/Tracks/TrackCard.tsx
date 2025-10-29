@@ -16,6 +16,7 @@ export const TrackCard = ({ item }: { item: Track }) => {
 
   return (
     <Card
+      tab={item.type!}
       id={item.id}
       variant="grey"
       title={item.name}

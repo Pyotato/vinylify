@@ -1,4 +1,3 @@
-import { useErrorNotifications } from '@/hooks/toasts/useErrorNotifications';
 import useGridVirtualizer from '@/hooks/useGridVirtualizer';
 import { Album } from '@/models/Album';
 import { Playlist } from '@/models/Playlist';
@@ -7,6 +6,8 @@ import { SearchResult } from '@/models/Spotify';
 import { Track } from '@/models/Track';
 import { DEFAULT_TAB } from '@/services/options';
 import { lazy, ReactNode } from 'react';
+
+import { useToast } from '@/hooks/toasts/useToast';
 import { SearchProps } from '../Search';
 
 export const DEFAULT_GRID_ID = 'vinylify';
@@ -25,7 +26,6 @@ export default function TabSearchList({
 }: Omit<SearchProps, 'refetch'> & {
   currentTab?: keyof SearchResult;
   currentTabPagingInfo?: string;
-  // keyword: string;
 }) {
   const {
     gridCols,
@@ -42,16 +42,15 @@ export default function TabSearchList({
     currentTabPagingInfo,
     currentTab,
     handleSearchParam,
-    // keyword,
   });
-  const { showErrorToast } = useErrorNotifications({
+  const { showToast } = useToast({
     isError,
-    errorMsg: error?.message,
+    msg: error?.message,
     toastId: error?.name,
   });
 
   if (isError) {
-    showErrorToast();
+    showToast();
   }
 
   return (

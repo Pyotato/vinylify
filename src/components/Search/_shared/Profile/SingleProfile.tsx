@@ -1,26 +1,17 @@
 import { LOADING_IMAGE } from '@/constants/image';
 import { useArtistProfileLink } from '@/hooks/query/artist/useArtistProfileLink';
-import { useErrorNotifications } from '@/hooks/toasts/useErrorNotifications';
 import Profile from './Profile';
 
 const SingleArtistProfile = ({ artistId }: { artistId: string }) => {
-  const { data, isError, isSuccess, error, isLoading } = useArtistProfileLink({
+  const { data, isSuccess, isLoading } = useArtistProfileLink({
     artistId,
   });
-  const { showErrorToast } = useErrorNotifications({
-    isError,
-    errorMsg: error?.name,
-    toastId: error?.message,
-  });
+
   if (isLoading) {
     return <Profile profile={{ imgUrl: LOADING_IMAGE }} />;
   }
   if (isSuccess && data == null) {
     return null;
-  }
-
-  if (error) {
-    showErrorToast();
   }
 
   return (

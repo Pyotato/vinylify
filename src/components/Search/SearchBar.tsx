@@ -1,7 +1,7 @@
 import { useSearchKeyword } from '@/hooks/query/search/useSearchKeyword';
-import { useErrorNotifications } from '@/hooks/toasts/useErrorNotifications';
 import useSearchBar from '@/hooks/useSearchBar';
 
+import { useToast } from '@/hooks/toasts/useToast';
 import { lazy } from 'react';
 import { SearchProps } from './Search';
 
@@ -28,13 +28,13 @@ export default function SearchBar({
     data,
   });
 
-  const { showErrorToast } = useErrorNotifications({
-    errorMsg: error?.message,
+  const { showToast } = useToast({
+    msg: error?.message,
     isError,
     toastId: error?.name,
   });
   if (isError) {
-    showErrorToast();
+    showToast();
   }
 
   return (

@@ -12,6 +12,7 @@ const AlbumCard = ({ item, style }: { item: Album; style?: CSSProperties }) => {
 
   return (
     <Card
+      tab={item.type!}
       id={item.id}
       variant="grey"
       cardStyle={{ ...style }}

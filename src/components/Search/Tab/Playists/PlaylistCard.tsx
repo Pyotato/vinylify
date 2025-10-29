@@ -8,6 +8,7 @@ const PlaylistCard = ({ item }: { item: Playlist }) => {
   return (
     <Card
       id={item.id}
+      tab={item.type!}
       variant="grey"
       title={item.name}
       titleTag={`by. ${item.owner.display_name}`}
