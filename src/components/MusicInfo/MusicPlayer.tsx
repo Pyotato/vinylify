@@ -9,12 +9,14 @@ function MusicPlayer({
   contextUri,
   durationMs,
   progressMs,
+  title,
 }: Readonly<{
   isPlaying: boolean;
   progressMs: number;
   durationMs: number;
   contextUri: string;
   uri: string;
+  title?: string;
 }>) {
   return (
     <div className="inline-flex w-full relative justify-center-safe align-middle">
@@ -25,6 +27,7 @@ function MusicPlayer({
           context={contextUri}
           uri={{ uri: uri }}
           position_ms={progressMs}
+          title={title}
         />
       )}
       <ProgressBar progress={progressMs} duration={durationMs} />

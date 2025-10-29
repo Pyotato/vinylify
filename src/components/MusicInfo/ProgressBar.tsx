@@ -1,15 +1,15 @@
 const ProgressBar = ({
   progress,
   duration,
+  className = '',
 }: {
   progress: number;
   duration: number;
+  className?: string;
 }) => {
   return (
     <div
-      className={
-        'h-2 w-[60%] shadow-(--shadow-basic) bg-(--grey-700) rounded-md mx-0 my-4'
-      }
+      className={`h-2 w-[60%] shadow-(--shadow-basic) bg-(--grey-700) rounded-md mx-0 my-4 ${className}`}
     >
       <div
         className={

@@ -14,6 +14,7 @@ function SearchReccomendations() {
         {(myTopArtists as SpotifyApi.UsersTopArtistsResponse)?.items.map(
           item => (
             <Card
+              tab={item.type}
               variant="grey"
               className="bg-(--light-grey-200) rounded-[4px] p-4 mb-4 m-1 shadow-(--shadow-basic)"
               titleTag={`팔로워 : ${item?.followers.total}`}

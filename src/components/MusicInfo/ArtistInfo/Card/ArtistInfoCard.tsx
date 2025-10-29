@@ -1,6 +1,6 @@
 import { LOADING_IMAGE, PLACEHOLDER_IMAGE } from '@/constants/image';
 import { useArtistTopTracks } from '@/hooks/query/track/useArtistTopTracks';
-import { useErrorNotifications } from '@/hooks/toasts/useErrorNotifications';
+import { useToast } from '@/hooks/toasts/useToast';
 import { Artist } from '@/models/Profile';
 import { MeasuredImage } from '@/ui/CoverImage/MeasuredImage';
 import { lazy, Suspense, useMemo } from 'react';
@@ -20,9 +20,9 @@ export default function ArtistInfoCard({
   const { data, isError, error, isLoading } = useArtistTopTracks({
     artistId: artist.id,
   });
-  const { showErrorToast } = useErrorNotifications({
+  const { showToast } = useToast({
     isError,
-    errorMsg: error?.message,
+    msg: error?.message,
     toastId: error?.name,
   });
 
@@ -41,7 +41,7 @@ export default function ArtistInfoCard({
   }, [artist, isLoading]);
 
   if (isError) {
-    showErrorToast();
+    showToast();
   }
 
   return (
