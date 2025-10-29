@@ -182,3 +182,7 @@ img.loaded {
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
+
+.Toastify__toast-container.Toastify__toast-container--bottom-right {
+  margin-bottom: 3rem;
+}
