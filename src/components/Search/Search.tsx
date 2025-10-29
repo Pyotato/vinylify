@@ -1,14 +1,14 @@
-import { useSearchKeyword } from '@/hooks/query/search/useSearchKeyword';
+import useSearchKeyword from '@/hooks/query/search/useSearchKeyword';
 import useSearchTab from '@/hooks/useSearchTab';
 import { SearchResult } from '@/models/Spotify';
 import PlayerList from '@/ui/PlayerList/Player';
 import { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
 import { lazy, Suspense, useMemo } from 'react';
 import TabSelection from './Tab/TabSelection';
-import GridSkeleton from './_shared/GridSkeleton';
 
 const SearchBar = lazy(() => import('./SearchBar'));
 const TabSearchList = lazy(() => import('./Tab/TabSearchList'));
+const GridSkeleton = lazy(() => import('./_shared/GridSkeleton'));
 
 type Refetch = (
   options?: RefetchOptions,

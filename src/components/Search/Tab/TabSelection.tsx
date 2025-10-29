@@ -1,4 +1,5 @@
-import { DEFAULT_TAB, Tabs, type TabKey } from '@/services/options';
+import { DEFAULT_TAB } from '@/constants/tab';
+import { Tabs, type TabKey } from '@/services/tabs';
 import { SearchProps } from '../Search';
 
 export const DEFAULT_GRID_ID = 'vinylify';

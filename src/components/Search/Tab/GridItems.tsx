@@ -1,4 +1,4 @@
-import { Tabs } from '@/services/options';
+import { Tabs } from '@/services/tabs';
 import { memo } from 'react';
 
 const GridItems = memo(

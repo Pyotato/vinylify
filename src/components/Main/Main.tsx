@@ -1,13 +1,11 @@
-import AnimatedTitle from '@/ui/AnimatedTitle';
-
-import { MainLayout } from '@/ui/Layout';
-
-import PlayerList from '@/ui/PlayerList/Player';
 import { lazy, Suspense } from 'react';
-import Skeleton from './Reccomendations/Skeleton';
 
 const TopTrack = lazy(() => import('@/components/Main/TopTrack/TopTrack'));
 const Recommendations = lazy(() => import('./Reccomendations/Recommendations'));
+const MainLayout = lazy(() => import('@/ui/layout/MainLayout'));
+const AnimatedTitle = lazy(() => import('@/ui/AnimatedTitle'));
+const PlayerList = lazy(() => import('@/ui/PlayerList/Player'));
+const Skeleton = lazy(() => import('./Reccomendations/Skeleton'));
 
 export default function Main() {
   return (

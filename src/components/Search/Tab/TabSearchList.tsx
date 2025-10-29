@@ -1,12 +1,8 @@
 import useGridVirtualizer from '@/hooks/useGridVirtualizer';
-import { Album } from '@/models/Album';
-import { Playlist } from '@/models/Playlist';
-import { Artist } from '@/models/Profile';
-import { SearchResult } from '@/models/Spotify';
-import { Track } from '@/models/Track';
-import { DEFAULT_TAB } from '@/services/options';
-import { lazy, ReactNode } from 'react';
+import { TabKey } from '@/services/tabs';
+import { lazy } from 'react';
 
+import { DEFAULT_TAB } from '@/constants/tab';
 import { useToast } from '@/hooks/toasts/useToast';
 import { SearchProps } from '../Search';
 
@@ -14,8 +10,10 @@ export const DEFAULT_GRID_ID = 'vinylify';
 
 const VirtualGrid = lazy(() => import('../_shared/VirtualGrid'));
 
-export type TabItem = Album[] | Artist[] | Track[] | Playlist[];
-export type TabList = ({ tabItem }: { tabItem: TabItem }) => ReactNode[];
+export type TabSEarchListProps = Omit<SearchProps, 'refetch'> & {
+  currentTab?: TabKey;
+  currentTabPagingInfo?: string;
+};
 
 export default function TabSearchList({
   currentTabPagingInfo,
@@ -23,10 +21,7 @@ export default function TabSearchList({
   handleSearchParam,
   isError,
   error,
-}: Omit<SearchProps, 'refetch'> & {
-  currentTab?: keyof SearchResult;
-  currentTabPagingInfo?: string;
-}) {
+}: TabSEarchListProps) {
   const {
     gridCols,
     scrollRef,

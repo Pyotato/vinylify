@@ -1,5 +1,4 @@
 import { useTopTracks } from '@/hooks/query/track/useTopTracks';
-
 import Carousel from '@/ui/Carousel';
 import { ErrorBoundary } from '@sentry/react';
 import Skeleton from './Skeleton';

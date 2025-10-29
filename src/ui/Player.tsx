@@ -8,6 +8,7 @@ import PauseButton from './Button/PlayPauseButton/PauseButton';
 import PlayButton from './Button/PlayPauseButton/PlayButton';
 
 const LoadingIcon = lazy(() => import('./Icons/Loading'));
+
 export interface PlayerProps extends HtmlHTMLAttributes<HTMLLIElement> {
   contextUri: string;
   id?: string;

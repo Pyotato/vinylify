@@ -1,9 +1,9 @@
 import { PAGE } from '@/constants/url';
-import KeycapButton from '@/ui/Button/KeycapButton';
 import { lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const NotFoundIcon = lazy(() => import('@/ui/Icons/NotFound'));
+const KeycapButton = lazy(() => import('@/ui/Button/KeycapButton'));
 
 const NotFoundPage = () => {
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
 import { SearchProps } from '@/components/Search/Search';
 
-import { DEFAULT_TAB, type TabItem, type TabKey } from '@/services/options';
+import { DEFAULT_TAB } from '@/constants/tab';
+import { type TabItem, type TabKey } from '@/services/tabs';
 import { useEffect, useMemo } from 'react';
 import { useInfiniteSearchList } from './query/search/useInfiniteSearchList';
 

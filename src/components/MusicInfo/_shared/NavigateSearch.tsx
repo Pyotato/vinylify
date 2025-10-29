@@ -1,7 +1,7 @@
 import { PAGE } from '@/constants/url';
 import { useNavigate } from 'react-router-dom';
 
-import { Tabs } from '@/services/options';
+import { Tabs } from '@/services/tabs';
 import KeycapButton from '../../../ui/Button/KeycapButton';
 
 export default function NavigateSearch() {

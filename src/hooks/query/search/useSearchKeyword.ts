@@ -4,7 +4,7 @@ import { MINUTE } from '@/constants/time';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import CONFIG from '../CONFIG';
 
-export const useSearchKeyword = (keyword?: string) => {
+const useSearchKeyword = (keyword?: string) => {
   const res = useQuery({
     queryKey: useSearchKeyword.queryKey(keyword),
     queryFn: async ({ signal }) => {
@@ -31,3 +31,5 @@ useSearchKeyword.queryKey = (keyword?: string | null) => {
   }
   return [...default_querykeys, keyword];
 };
+
+export default useSearchKeyword;

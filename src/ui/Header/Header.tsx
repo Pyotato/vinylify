@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import { PAGE } from '@/constants/url';
 import { useAuth } from '@/hooks/useAuth';
-import { NavigationMenu } from '@/services/options';
+import NavigationMenu from '@/services/navigation';
 import { lazy } from 'react';
 
 const VinylifyIcon = lazy(() => import('../Icons/Vinylify'));

@@ -1,23 +1,8 @@
 import { Artist } from '@/api/reccoBeats/getRecommendations';
-import { PAGE } from '@/constants/url';
 import { Album } from '@/models/Album';
 import { Playlist } from '@/models/Playlist';
 import { Track } from '@/models/Track';
 import { lazy } from 'react';
-
-const HomeIcon = lazy(() => import('@/ui/Icons/Home'));
-const MusicIcon = lazy(() => import('@/ui/Icons/Music'));
-const SearchIcon = lazy(() => import('@/ui/Icons/Search'));
-
-export const NavigationMenu = [
-  { url: PAGE.MAIN, Icon: <HomeIcon />, protected: false },
-  { url: PAGE.SEARCH, Icon: <SearchIcon />, protected: true },
-  {
-    url: PAGE.MUSIC_INFO,
-    Icon: <MusicIcon />,
-    protected: true,
-  },
-] as const;
 
 export const Tabs = {
   albums: {
@@ -41,8 +26,6 @@ export const Tabs = {
     label: '플레이리스트',
   },
 } as const;
-
-export const DEFAULT_TAB = 'albums' as const;
 
 export type TabKey = keyof typeof Tabs;
 

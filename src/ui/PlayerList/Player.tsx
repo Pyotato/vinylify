@@ -1,13 +1,14 @@
-import ProgressBar from '@/components/MusicInfo/ProgressBar';
 import { LOADING_IMAGE } from '@/constants/image';
 import { useCurrentPlayingTrack } from '@/hooks/query/track/useCurrentPlayingTrack';
 import useUserPlayQueue from '@/hooks/query/useUserPlayQueue';
 import { PLAYER_LIST_TOAST_ID } from '@/hooks/toasts/CONFIG';
 import { useToast } from '@/hooks/toasts/useToast';
-import { useEffect, useState } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import KeycapButton from '../Button/KeycapButton';
-import QueueIcon from '../Icons/Queue';
 import PlayQueue from './PlayerQueue';
+
+const QueueIcon = lazy(() => import('../Icons/Queue'));
+const ProgressBar = lazy(() => import('@/components/MusicInfo/ProgressBar'));
 
 function PlayerList() {
   const [open, setOpen] = useState(false);

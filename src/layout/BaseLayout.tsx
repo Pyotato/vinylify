@@ -1,14 +1,15 @@
-import KeycapButton from '@/ui/Button/KeycapButton';
-
-import AccountError from '@/components/Error/AccountError';
 import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
 import useToastFactory from '@/hooks/toasts/useToastFactory';
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
+import { lazy, Suspense } from 'react';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import Header from '../ui/Header/Header';
-import { FullBackground } from '../ui/Layout';
+
+const AccountError = lazy(() => import('@/components/Error/AccountError'));
+const FullBackground = lazy(() => import('../ui/layout/FullBackground'));
+const KeycapButton = lazy(() => import('@/ui/Button/KeycapButton'));
+const Header = lazy(() => import('../ui/Header/Header'));
 
 export function FallbackRender({
   error,
@@ -45,7 +46,9 @@ export const BaseLayout = () => {
     <ErrorBoundary fallbackRender={FallbackRender} onReset={reset}>
       <div className="w-full h-[100vh] overflow-hidden">
         <Header />
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
         <ToastContainer />
       </div>
     </ErrorBoundary>

@@ -1,5 +1,6 @@
+import { DEFAULT_TAB } from '@/constants/tab';
 import { SearchResult } from '@/models/Spotify';
-import { DEFAULT_TAB, Tabs } from '@/services/options';
+import { Tabs } from '@/services/tabs';
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 

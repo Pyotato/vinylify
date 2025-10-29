@@ -1,5 +1,5 @@
 import Grid from '@/ui/Grid';
-import { FullBackground } from '@/ui/Layout';
+import FullBackground from '@/ui/layout/FullBackground';
 import { lazy, Suspense } from 'react';
 import NavigateSearch from './_shared/NavigateSearch';
 
