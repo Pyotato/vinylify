@@ -31,7 +31,7 @@ function AddToQueueButton({
     msg: <Notification title={title} />,
     toastId: `add-${tab}-${title}`,
     isError: false,
-    factoryId: uri,
+    factoryId: tab,
     autoClose: 2 * SECOND,
     stack: true,
     persist: true,
