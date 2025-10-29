@@ -8,14 +8,10 @@ const controller = new AbortController();
 const extendedApi = api.extend({
   hooks: {
     beforeRequest: [
-      (
-        req,
-        //options
-      ) => {
+      req => {
         const url = new URL(req.url);
 
         if (!url.searchParams.get('query')) {
-          // console.log(url.searchParams.get('query'), options.signal);
           controller.abort();
           return;
         }

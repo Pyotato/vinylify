@@ -17,6 +17,7 @@ export default async function playTrack({
   position_ms?: number;
 }) {
   const id = await getActiveDevice();
+
   return await api
     .put(`me/player/play?device_id=${active_device ?? id}`, {
       json: {
