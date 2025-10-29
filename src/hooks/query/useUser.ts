@@ -10,7 +10,12 @@ const useUser = () => {
   const query = useQuery({
     queryKey: useUser.queryKey(accessToken ?? null),
     queryFn: async () => {
-      return { ...(await getUserInfo()), accessToken };
+      const myInfo = await getUserInfo();
+      return {
+        ...myInfo,
+
+        accessToken,
+      };
     },
     staleTime: 1 * HOUR,
     throwOnError,

@@ -37,8 +37,6 @@ function useSearchTab({ offset, limit }: { offset?: number; limit?: number }) {
     if (isValidScope(scope)) {
       return scope;
     }
-    searchParam.set('scope', DEFAULT_TAB);
-    setSearchParams(searchParam);
     return DEFAULT_TAB;
   }, [searchParam, setSearchParams]) as keyof SearchResult;
 

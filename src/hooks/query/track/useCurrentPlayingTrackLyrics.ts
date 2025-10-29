@@ -20,11 +20,10 @@ export const useCurrentPlayingTrackLyrics = ({
     queryFn: () => getLyrics({ artist, songTitle }),
     ...CONFIG,
     retry: (failureCount: number, error: Error) => {
-      if (error?.message == ERROR_MESSAGES[404]) {
+      if (error?.message == ERROR_MESSAGES['404']) {
         return false;
       }
-
-      if (failureCount < 3 || error?.message == ERROR_MESSAGES[408]) {
+      if (failureCount < 3 || error?.message == ERROR_MESSAGES['408']) {
         return true;
       } else return false;
     },

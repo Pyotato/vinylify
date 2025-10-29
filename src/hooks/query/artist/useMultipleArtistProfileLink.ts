@@ -1,8 +1,9 @@
 import getArtistList from '@/api/spotify/artist/getArtistList';
+import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
 import { Artist } from '@/models/Profile';
 import { useQueries, useQueryClient } from '@tanstack/react-query';
 import { HTTPError } from 'ky';
-import { throwOnError } from '../CONFIG';
+import { retry, throwOnError } from '../CONFIG';
 
 export const useMultipleArtistProfileLink = ({
   artistId,
@@ -37,22 +38,32 @@ export const useMultipleArtistProfileLink = ({
           return undefined;
         } catch (err: unknown) {
           if (err instanceof HTTPError) {
-            const text = await err.response.text().catch(() => '');
-            throw new Error(
-              `Spotify API error ${err.response.status}: ${text || err.message}`,
-            );
+            throw new Error(ERROR_MESSAGES['429']);
           }
-          throw new Error((err as Error).message ?? 'Failed to fetch artist');
+          throw new Error((err as Error).message ?? ERROR_MESSAGES['429']);
         }
       },
       staleTime: Infinity,
       throwOnError,
+      retry,
     })),
 
     combine: results => {
+      const isLoading = results.some(r => r.isLoading);
+      const isFetching = results.some(r => r.isFetching);
+      const isError = results.some(r => r.isError);
+      const isSuccess = results.every(r => r.isSuccess);
+      const error = results.find(r => r.error)?.error;
+      const data = results.map(r => r.data);
+      const pending = results.some(result => result.isPending);
       return {
-        data: results.map(result => result.data),
-        pending: results.some(result => result.isPending),
+        data,
+        pending: pending,
+        isLoading,
+        isFetching,
+        isError,
+        isSuccess,
+        error,
       };
     },
   });
