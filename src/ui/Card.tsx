@@ -33,10 +33,12 @@ const Card = ({
   externalUrls,
   cardStyle,
   id,
+  tab,
   className = '',
   imgWidth = DEFAULT_IMAGE_SIZE,
   imgHeight = DEFAULT_IMAGE_SIZE,
 }: CardProps & {
+  tab: string;
   cardStyle?: CSSProperties;
   variant?: 'white' | 'grey';
   refs?: RefObject<HTMLUListElement | null>;
@@ -71,8 +73,10 @@ const Card = ({
                 className="inline-flex align-middle justify-center"
               >
                 <Player
+                  tab={tab}
                   variant={variant}
                   id={id}
+                  title={title ?? 'no title'}
                   offset={offset}
                   contextUri={contextUri}
                   enabled={inView}
@@ -81,8 +85,15 @@ const Card = ({
             )}
           </InView>
         ) : null}
-        <span className={`inline-block text-(--light-grey-500)`}>
-          {titleTag}
+        <span className="overflow-hidden whitespace-nowrap w-full">
+          <span
+            style={{
+              ['--scroll-speed' as any]: `${Math.max(titleTag!.length / 10, 1.5)}s`,
+            }}
+            className={`inline-block text-(--light-grey-500) ${tab === 'artist' ? '' : '[animation-duration:var(--scroll-speed)] hover:animate-carousel'}`}
+          >
+            {titleTag}
+          </span>
         </span>
       </li>
 
