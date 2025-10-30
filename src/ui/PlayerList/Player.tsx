@@ -1,9 +1,8 @@
 import { LOADING_IMAGE } from '@/constants/image';
 import { useCurrentPlayingTrack } from '@/hooks/query/track/useCurrentPlayingTrack';
 import useUserPlayQueue from '@/hooks/query/useUserPlayQueue';
-import { PLAYER_LIST_TOAST_ID } from '@/hooks/toasts/CONFIG';
 import { useToast } from '@/hooks/toasts/useToast';
-import { lazy, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import KeycapButton from '../Button/KeycapButton';
 import PlayQueue from './PlayerQueue';
 
@@ -11,7 +10,6 @@ const QueueIcon = lazy(() => import('../Icons/Queue'));
 const ProgressBar = lazy(() => import('@/components/MusicInfo/ProgressBar'));
 
 function PlayerList() {
-  const [open, setOpen] = useState(false);
   const { data, isLoading } = useUserPlayQueue();
 
   const {
@@ -25,22 +23,22 @@ function PlayerList() {
     isError: false,
     icon: false,
     autoClose: false,
-    toastId: data?.queue?.map(item => item.id).join(','),
+    toastId: 'currently-playing',
     stack: false,
     factoryId: 'play-device',
   });
 
   const openQueue = () => {
-    setOpen(prev => !prev);
+    if (isFetched) {
+      showToast();
+    }
   };
 
   useEffect(() => {
-    if (open && isFetched) {
-      showToast();
-    } else {
-      dismissToast('play-device');
+    if (data?.currently_playing?.id == null) {
+      dismissToast('currently-playing');
     }
-  }, [open, isFetched]);
+  }, [data]);
 
   if (isLoadingCurrentPlayingData) {
     return (
@@ -51,7 +49,6 @@ function PlayerList() {
   }
 
   if (!currentlyPlayingdata?.is_playing) {
-    dismissToast(PLAYER_LIST_TOAST_ID);
     return null;
   }
 
@@ -86,21 +83,25 @@ function PlayerList() {
                   ))}
                 </span>
               </div>
-              <ProgressBar
-                className={'mt-0 mb-0'}
-                progress={currentlyPlayingdata?.progress_ms ?? 0}
-                duration={data?.currently_playing?.duration_ms}
-              />
+              <Suspense>
+                <ProgressBar
+                  className={'mt-0 mb-0'}
+                  progress={currentlyPlayingdata?.progress_ms ?? 0}
+                  duration={data?.currently_playing?.duration_ms}
+                />
+              </Suspense>
             </div>
           </div>
           <div>
-            <KeycapButton
-              className="bg-(--light-grey-300) hover:bg-(--light-grey-500) mr-3"
-              onClick={openQueue}
-              disabled={isLoading}
-            >
-              <QueueIcon />
-            </KeycapButton>
+            <Suspense>
+              <KeycapButton
+                className="bg-(--light-grey-300) hover:bg-(--light-grey-500) mr-3"
+                onClick={openQueue}
+                disabled={isLoading}
+              >
+                <QueueIcon />
+              </KeycapButton>
+            </Suspense>
           </div>
         </div>
       )}
