@@ -67,24 +67,24 @@ const config: ViteConfig = {
         rewrite: path => path.replace(/^\/api\/lyrics/, ''),
       },
 
-      '/api/test': {
-        target: '',
-        bypass(req, res) {
-          if (req.url?.includes('/api/offline')) {
-            res.statusCode = 408;
-            res.end(JSON.stringify({ message: 'Request timeout — offline' }));
-            return res.statusCode + '';
-          }
-          if (req.url?.search) {
-            res.statusCode = 408;
-            res.end(JSON.stringify({ message: 'Request timeout — offline' }));
-            return res.statusCode + '';
-          }
-          res.statusCode = 429;
-          res.end(JSON.stringify({ error: 'Rate limited' }));
-          return res.statusCode + '';
-        },
-      },
+      // '/api/test': {
+      //   target: '',
+      //   bypass(req, res) {
+      //     if (req.url?.includes('/api/offline')) {
+      //       res.statusCode = 408;
+      //       res.end(JSON.stringify({ message: 'Request timeout — offline' }));
+      //       return res.statusCode + '';
+      //     }
+      //     if (req.url?.search) {
+      //       res.statusCode = 408;
+      //       res.end(JSON.stringify({ message: 'Request timeout — offline' }));
+      //       return res.statusCode + '';
+      //     }
+      //     res.statusCode = 429;
+      //     res.end(JSON.stringify({ error: 'Rate limited' }));
+      //     return res.statusCode + '';
+      //   },
+      // },
     },
   },
   build: {

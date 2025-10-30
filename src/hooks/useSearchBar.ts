@@ -1,4 +1,5 @@
-import { SearchProps } from '@/components/Search/Search';
+import { SearchResponse } from '@/models/Response';
+import { SearchProps } from '@/models/Search';
 import {
   ChangeEventHandler,
   KeyboardEventHandler,
@@ -30,7 +31,6 @@ import { useDebounce } from './useDebounce';
 function useSearchBar({
   urlData,
   data,
-
   handleSearchParam,
 }: {
   urlData: {
@@ -41,7 +41,7 @@ function useSearchBar({
     limit: string | number | undefined;
   };
   handleSearchParam: SearchProps['handleSearchParam'];
-  data?: SpotifyApi.SearchResponse;
+  data?: SearchResponse;
 }) {
   const [keyword, setKeyword] = useState('');
   const [placeHolder, setPlaceHolder] = useState(() => {

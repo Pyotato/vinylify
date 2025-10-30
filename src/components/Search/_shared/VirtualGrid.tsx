@@ -1,4 +1,8 @@
+import { AlbumObjectFull } from '@/models/Album';
+import { ArtistObjectFull } from '@/models/Artist';
+import { PlaylistObjectFull } from '@/models/Playlist';
 import { SearchResult } from '@/models/Spotify';
+import { TrackObjectFull } from '@/models/Track';
 import CoverImageSkeleton from '@/ui/CoverImage/Skeleton';
 import Grid from '@/ui/Grid';
 import { VirtualItem, Virtualizer } from '@tanstack/react-virtual';
@@ -98,7 +102,15 @@ const VirtualGrid = ({
                       data-index={itemIndex}
                       key={item.id}
                     >
-                      <GridItems item={item} tab={currentTab} />
+                      <GridItems
+                        item={
+                          item as AlbumObjectFull &
+                            ArtistObjectFull &
+                            TrackObjectFull &
+                            PlaylistObjectFull
+                        }
+                        tab={currentTab}
+                      />
                     </div>
                   );
                 })}

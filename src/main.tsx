@@ -2,25 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 
-import * as Sentry from '@sentry/react';
+// import * as Sentry from '@sentry/react';
 
-Sentry.init({
+import {
+  browserTracingIntegration,
+  init,
+  replayIntegration,
+} from '@sentry/react';
+
+init({
   dsn: undefined,
   enabled: false,
   // dsn: __DEV__
   //   ? undefined
   //   :  'https://eca5db58ce49f449f514711ad97da51a@o4507496262860800.ingest.us.sentry.io/4507496266661888',
-  integrations: [
-    Sentry.browserTracingIntegration(),
-    Sentry.replayIntegration(),
-  ],
+  integrations: [browserTracingIntegration(), replayIntegration()],
   // Performance Monitoring
   tracesSampleRate: 1.0, //  Capture 100% of the transactions
   // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
   tracePropagationTargets: [
     'localhost',
-    /^https:\/\/yourserver\.io\/api/,
     /^https:\/\/vinylify-express.vercel.app/,
+    /^https:\/\/api.reccobeats.com/,
+    /^https:\/\/api.lyrics.ovh/,
+    /^https:\/\/api.genius.com/,
     // /^https:\/\/api.spotify.com/,
   ],
   // Session Replay

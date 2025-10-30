@@ -5185,13 +5185,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"spotify-web-api-js@npm:^1.5.2":
-  version: 1.5.2
-  resolution: "spotify-web-api-js@npm:1.5.2"
-  checksum: 10c0/871103caac0daea4c42d368396ae1c54759859fe9dad5775d699641ebf3862bd098eb0dc580b0554dbdc801ec3e8600040cee07bef3d9d301aa6f05eb3767c10
-  languageName: node
-  linkType: hard
-
 "ssri@npm:^12.0.0":
   version: 12.0.0
   resolution: "ssri@npm:12.0.0"
@@ -5612,7 +5605,6 @@ __metadata:
     react-toastify: "npm:^11.0.5"
     rollup-plugin-visualizer: "npm:^6.0.5"
     sass: "npm:^1.77.4"
-    spotify-web-api-js: "npm:^1.5.2"
     tailwindcss: "npm:^4.1.12"
     typescript: "npm:^5.2.2"
     vite: "npm:^5.2.0"

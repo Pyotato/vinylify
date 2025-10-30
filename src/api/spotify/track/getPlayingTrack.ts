@@ -1,8 +1,9 @@
+import { CurrentlyPlayingObject } from '@/models/CurrentPlayingObject';
 import api from '../instance';
 
 /**
  * 현제 제셍 노래 정보 : SPOTIFY_WEB_API.getMyCurrentPlayingTrack()
  */
-export default function getPlayingTrack(): Promise<SpotifyApi.CurrentlyPlayingResponse> {
+export default function getPlayingTrack(): Promise<CurrentlyPlayingObject> {
   return api.get('me/player/currently-playing').json();
 }

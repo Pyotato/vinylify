@@ -1,6 +1,6 @@
 import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
 import ERROR_NAMES from '@/config/ERROR_NAMES';
-import { SPOTIFY_WEB_API, VINYLIFY_TOKEN } from '@/constants';
+import { VINYLIFY_TOKEN } from '@/constants';
 
 import type { HTTPError } from 'ky';
 
@@ -27,7 +27,6 @@ export const handleError = (error: HTTPError): HTTPError => {
       case 401:
       case 403:
       case 4032:
-        SPOTIFY_WEB_API.setAccessToken(null);
         localStorage.removeItem(VINYLIFY_TOKEN); // 스포티파이 인증 관련
         error.name = ERROR_NAMES[response.status];
         error.message = ERROR_MESSAGES[response.status];

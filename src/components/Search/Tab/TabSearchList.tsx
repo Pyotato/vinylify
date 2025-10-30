@@ -4,13 +4,13 @@ import { lazy } from 'react';
 
 import { DEFAULT_TAB } from '@/constants/tab';
 import { useToast } from '@/hooks/toasts/useToast';
-import { SearchProps } from '../Search';
+import { SearchProps } from '@/models/Search';
 
 export const DEFAULT_GRID_ID = 'vinylify';
 
 const VirtualGrid = lazy(() => import('../_shared/VirtualGrid'));
 
-export type TabSEarchListProps = Omit<SearchProps, 'refetch'> & {
+export type TabSearchListProps = Omit<SearchProps, 'refetch'> & {
   currentTab?: TabKey;
   currentTabPagingInfo?: string;
 };
@@ -21,7 +21,7 @@ export default function TabSearchList({
   handleSearchParam,
   isError,
   error,
-}: TabSEarchListProps) {
+}: TabSearchListProps) {
   const {
     gridCols,
     scrollRef,

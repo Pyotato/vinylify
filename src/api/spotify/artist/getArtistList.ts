@@ -1,7 +1,12 @@
+import { Artist } from '@/models/Profile';
 import splitLengthyList from '@/utils/array/splitLengthyList';
 import api from '../instance';
 
 const MAX_ARTIST_COUNT = 50;
+
+interface MultipleArtistsResponse {
+  artists: Artist[];
+}
 
 /* 다수 아티스트 검색 */
 export default async function getArtistList(artists: string[]) {
@@ -13,7 +18,7 @@ export default async function getArtistList(artists: string[]) {
     );
     return results;
   } else {
-    const res: SpotifyApi.MultipleArtistsResponse = await api
+    const res: MultipleArtistsResponse = await api
       .get(`artists?ids=${artists.join(',')}`)
       .json();
     return res.artists;

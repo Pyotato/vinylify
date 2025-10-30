@@ -102,7 +102,7 @@ function useGridVirtualizer({
   useEffect(() => {
     virtualRows.forEach(vRow => {
       const item = infiniteItems[vRow.index];
-      if (item?.images) {
+      if ('images' in item) {
         const img = new Image();
         img.src = item.images?.[0]?.url;
       }

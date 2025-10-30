@@ -1,18 +1,23 @@
-import { Album } from '@/models/Album';
-
+import { AlbumObjectFull } from '@/models/Album';
 import { CSSProperties, lazy, useMemo } from 'react';
 
 const Card = lazy(() => import('@/ui/Card'));
 const ArtistProfile = lazy(() => import('../../_shared/Profile/ArtistProfile'));
 
-const AlbumCard = ({ item, style }: { item: Album; style?: CSSProperties }) => {
+const AlbumCard = ({
+  item,
+  style,
+}: {
+  item: AlbumObjectFull;
+  style?: CSSProperties;
+}) => {
   const artists = useMemo(() => {
     return [...new Set(item.artists.map(artist => artist.id))];
   }, [item]);
 
   return (
     <Card
-      tab={item.type!}
+      tab={item.type}
       id={item.id}
       variant="grey"
       cardStyle={{ ...style }}

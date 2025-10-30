@@ -1,7 +1,7 @@
-import { Artist } from '@/api/reccoBeats/getRecommendations';
-import { Album } from '@/models/Album';
-import { Playlist } from '@/models/Playlist';
-import { Track } from '@/models/Track';
+import { AlbumObjectFull } from '@/models/Album';
+import { ArtistObjectFull } from '@/models/Artist';
+import { PlaylistObjectFull } from '@/models/Playlist';
+import { TrackObjectFull } from '@/models/Track';
 import { lazy } from 'react';
 
 export const Tabs = {
@@ -29,4 +29,8 @@ export const Tabs = {
 
 export type TabKey = keyof typeof Tabs;
 
-export type TabItem = Album[] | Artist[] | Track[] | Playlist[];
+export type TabItem =
+  | AlbumObjectFull[]
+  | ArtistObjectFull[]
+  | TrackObjectFull[]
+  | PlaylistObjectFull[];

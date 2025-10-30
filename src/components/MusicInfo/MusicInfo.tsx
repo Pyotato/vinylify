@@ -48,7 +48,7 @@ export default function MusicInfo() {
     >
       <div className="w-full mb-18 h-fit lg:w-[60%] inline-flex flex-col gap-4">
         <Suspense>
-          <AnimatedTitle>{data.item.name}</AnimatedTitle>
+          <AnimatedTitle>{data.item.name!}</AnimatedTitle>
         </Suspense>
         <div className="w-full">
           <div className="inline-flex justify-center align-middle w-full">
@@ -70,8 +70,8 @@ export default function MusicInfo() {
         </div>
         <Suspense>
           <Lyrics
-            artist={data.item.artists[0].name}
-            songTitle={data.item.name}
+            artist={data.item.artists[0].name!}
+            songTitle={data.item.name!}
           />
         </Suspense>
         <Suspense>

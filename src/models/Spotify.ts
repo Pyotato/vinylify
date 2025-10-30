@@ -1,4 +1,4 @@
-import { Album } from '@/models/Album';
+import { AlbumObjectFull } from '@/models/Album';
 import { MetaInfo } from '@/models/MetaInfo';
 import { Pagination } from '@/models/Pagination';
 import { Artist, UserProfile } from '@/models/Profile';
@@ -19,7 +19,7 @@ export interface PlaylistItem extends MetaInfo {
 }
 
 export interface AlbumSearchResult extends Pagination {
-  items: Album[];
+  items: AlbumObjectFull[];
 }
 
 export interface ArtistSearchResult extends Pagination {

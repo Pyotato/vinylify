@@ -1,8 +1,8 @@
 import useSearchKeyword from '@/hooks/query/search/useSearchKeyword';
 import { useToast } from '@/hooks/toasts/useToast';
 import useSearchBar from '@/hooks/useSearchBar';
+import { SearchProps } from '@/models/Search';
 import { lazy } from 'react';
-import { SearchProps } from './Search';
 
 const LoadingIcon = lazy(() => import('@/ui/Icons/Loading'));
 

@@ -1,9 +1,10 @@
+import { TrackObjectFull } from '@/models/Track';
 import { Link } from 'react-router-dom';
 
 function RecommendationList({
   tracks,
 }: Readonly<{
-  tracks: SpotifyApi.TrackObjectFull[];
+  tracks: TrackObjectFull[];
 }>) {
   return (
     <div

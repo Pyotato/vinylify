@@ -1,3 +1,4 @@
+import { MultipleTracksResponse } from '@/models/Response';
 import api from '../instance';
 
 /**
@@ -7,6 +8,6 @@ export default function getTracks({
   tracks,
 }: {
   tracks: string[];
-}): Promise<SpotifyApi.MultipleTracksResponse> {
+}): Promise<MultipleTracksResponse> {
   return api.get(`tracks?ids=${tracks.join(',')}`, {}).json();
 }

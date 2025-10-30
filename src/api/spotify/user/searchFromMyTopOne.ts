@@ -1,3 +1,4 @@
+import { SearchResponse } from '@/models/Response';
 import searchKeyword from '../search/searchKeyword';
 import getTopTracks from './getTopTracks';
 
@@ -10,7 +11,7 @@ export default async function searchFromMyTopOne({
   signal?: AbortSignal;
 }): Promise<{
   keyword: string;
-  response: SpotifyApi.SearchResponse;
+  response: SearchResponse;
 }> {
   const topArtistName = (await getTopTracks(1)).items[0]?.artists[0]?.name;
   if (!topArtistName) {

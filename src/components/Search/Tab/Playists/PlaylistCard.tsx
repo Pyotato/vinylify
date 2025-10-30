@@ -1,14 +1,14 @@
-import { Playlist } from '@/models/Playlist';
+import { PlaylistObjectFull } from '@/models/Playlist';
 import { lazy } from 'react';
 
 const Card = lazy(() => import('@/ui/Card'));
 const PlaylistDescription = lazy(() => import('./PlaylistDescription'));
 
-const PlaylistCard = ({ item }: { item: Playlist }) => {
+const PlaylistCard = ({ item }: { item: PlaylistObjectFull }) => {
   return (
     <Card
       id={item.id}
-      tab={item.type!}
+      tab={item.type}
       variant="grey"
       title={item.name}
       titleTag={`by. ${item.owner.display_name}`}

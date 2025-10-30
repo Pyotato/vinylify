@@ -31,7 +31,6 @@
     "react-router-dom": "^6.23.1",
     "react-toastify": "^11.0.5",
     "sass": "^1.77.4",
-    "spotify-web-api-js": "^1.5.2",
     "tailwindcss": "^4.1.12",
     "vite-plugin-svgr": "^4.2.0"
   },

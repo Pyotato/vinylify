@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN, SPOTIFY_WEB_API, VINYLIFY_TOKEN } from '@/constants';
+import { ACCESS_TOKEN, VINYLIFY_TOKEN } from '@/constants';
 import { API, PAGE } from '@/constants/url';
 import { useCallback, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -16,10 +16,17 @@ export const useAuth = () => {
     window.location.replace(API.LOGIN);
   }
 
+  // const logOut = useCallback(() => {
+  //   if (SPOTIFY_WEB_API.getAccessToken()) {
+  //     localStorage.removeItem(VINYLIFY_TOKEN);
+  //     SPOTIFY_WEB_API.setAccessToken(null);
+  //     navigate(PAGE.MAIN);
+  //   }
+  // }, [navigate]);
+
   const logOut = useCallback(() => {
-    if (SPOTIFY_WEB_API.getAccessToken()) {
+    if (data?.token) {
       localStorage.removeItem(VINYLIFY_TOKEN);
-      SPOTIFY_WEB_API.setAccessToken(null);
       navigate(PAGE.MAIN);
     }
   }, [navigate]);
@@ -44,9 +51,14 @@ export const useAuth = () => {
     if (location.pathname == PAGE.LOGGED_IN && searchParams.has(ACCESS_TOKEN)) {
       const access_token = `${searchParams.get(ACCESS_TOKEN)}`;
       localStorage.setItem(VINYLIFY_TOKEN, access_token);
-      SPOTIFY_WEB_API.setAccessToken(access_token);
+      // SPOTIFY_WEB_API.setAccessToken(access_token);
     }
-  }, [SPOTIFY_WEB_API, localStorage, searchParams]);
+  }, [
+    ,
+    //SPOTIFY_WEB_API
+    localStorage,
+    searchParams,
+  ]);
 
   return {
     logOut,

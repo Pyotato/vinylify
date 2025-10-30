@@ -1,6 +1,8 @@
 import addToPlayQueue from '@/api/spotify/player/addToPlayQueue';
-import { SPOTIFY_WEB_API } from '@/constants';
+// import { SPOTIFY_WEB_API } from '@/constants';
+import { VINYLIFY_TOKEN } from '@/constants';
 import { SECOND } from '@/constants/time';
+import { useSpotifyAuth } from '@/hooks/query/useSpotifyAuth';
 import useUserPlayQueue from '@/hooks/query/useUserPlayQueue';
 import { PLAYER_LIST_TOAST_ID } from '@/hooks/toasts/CONFIG';
 import { useToast } from '@/hooks/toasts/useToast';
@@ -35,6 +37,9 @@ function AddToQueueButton({
     autoClose: 2 * SECOND,
     stack: true,
   });
+  const { data: authData } = useSpotifyAuth(
+    localStorage.getItem(VINYLIFY_TOKEN),
+  );
   const { data, refetch, isFetchedAfterMount } = useUserPlayQueue();
 
   const { updateToast } = useToast({
@@ -57,7 +62,8 @@ function AddToQueueButton({
         addToPlayQueue({ uri });
         setIsActive(false);
         const queryKey = useUserPlayQueue.queryKey(
-          SPOTIFY_WEB_API.getAccessToken(),
+          // SPOTIFY_WEB_API.getAccessToken(),
+          authData?.token,
         );
         const res = refetch();
         queryClient.setQueryData(queryKey, res);

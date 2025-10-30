@@ -1,4 +1,5 @@
-import { SPOTIFY_WEB_API, VINYLIFY_TOKEN } from '@/constants';
+// import { SPOTIFY_WEB_API, VINYLIFY_TOKEN } from '@/constants';
+import { VINYLIFY_TOKEN } from '@/constants';
 import { API } from '@/constants/url';
 
 import ky from 'ky';
@@ -9,9 +10,8 @@ const api = ky.extend({
   hooks: {
     beforeRequest: [
       req => {
-        const token =
-          localStorage.getItem(VINYLIFY_TOKEN) ??
-          SPOTIFY_WEB_API.getAccessToken();
+        const token = localStorage.getItem(VINYLIFY_TOKEN);
+        // SPOTIFY_WEB_API.getAccessToken();
         return req.headers.set('Authorization', `Bearer ${token}`);
       },
     ],
@@ -19,5 +19,5 @@ const api = ky.extend({
   },
 });
 
-SPOTIFY_WEB_API.setAccessToken(localStorage.getItem(VINYLIFY_TOKEN));
+// SPOTIFY_WEB_API.setAccessToken(localStorage.getItem(VINYLIFY_TOKEN));
 export default api;
