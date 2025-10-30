@@ -1,6 +1,6 @@
 import { BLACK_TEXTURE } from '@/constants/image';
 import { useAuth } from '@/hooks/useAuth';
-import { lazy, startTransition } from 'react';
+import { lazy, startTransition, Suspense } from 'react';
 
 const Vinyl = lazy(() => import('@/ui/Vinyl/Vinyl'));
 const KeycapButton = lazy(() => import('@/ui/Button/KeycapButton'));
@@ -26,10 +26,12 @@ function AccountError() {
         <div className="inline-flex justify-center relative">
           <Vinyl imgUrl={BLACK_TEXTURE} />
         </div>
-        <KeycapButton onClick={handleLogin}>로그인</KeycapButton>
-        <KeycapButton onClick={handleSignUp}>
-          스포티파이 계정 만들기
-        </KeycapButton>
+        <Suspense>
+          <KeycapButton onClick={handleLogin}>로그인</KeycapButton>
+          <KeycapButton onClick={handleSignUp}>
+            스포티파이 계정 만들기
+          </KeycapButton>
+        </Suspense>
       </div>
     </div>
   );

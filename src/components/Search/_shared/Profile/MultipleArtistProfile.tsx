@@ -12,11 +12,12 @@ const MultipleArtistProfile = ({ artistId }: { artistId: string[] }) => {
   const { showToast } = useToast({
     isError,
     msg: error?.message,
-    toastId: error?.name,
+    toastId: error?.message,
   });
 
   if (isError) {
     showToast();
+    return null;
   }
 
   if (pending || isLoading) {

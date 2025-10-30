@@ -20,7 +20,9 @@ export default function Main() {
           <Recommendations />
         </Suspense>
       </div>
-      <PlayerList />
+      <Suspense>
+        <PlayerList />
+      </Suspense>
     </MainLayout>
   );
 }

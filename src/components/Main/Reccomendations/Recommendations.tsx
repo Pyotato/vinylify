@@ -1,6 +1,6 @@
 import { useRecommendations } from '@/hooks/query/useRecommendations';
 import { useToast } from '@/hooks/toasts/useToast';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import Empty from './Empty';
 import Skeleton from './Skeleton';
 
@@ -29,9 +29,15 @@ function Recommendations() {
   }
 
   return (
-    <div className="h-[45vh] overflow-auto scrollbar-hide">
-      {isLoading ? <Skeleton /> : <RecommendationList tracks={data!.tracks} />}
-    </div>
+    <Suspense>
+      <div className="h-[45vh] overflow-auto scrollbar-hide">
+        {isLoading ? (
+          <Skeleton />
+        ) : (
+          <RecommendationList tracks={data!.tracks} />
+        )}
+      </div>
+    </Suspense>
   );
 }
 

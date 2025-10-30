@@ -1,6 +1,6 @@
 import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
-import useToastFactory from '@/hooks/toasts/useToastFactory';
-import { lazy } from 'react';
+// import useToastFactory from '@/hooks/toasts/useToastFactory';
+import { lazy, Suspense } from 'react';
 import { FallbackProps } from 'react-error-boundary';
 
 const AccountError = lazy(() => import('@/components/Error/AccountError'));
@@ -11,13 +11,17 @@ export default function FallbackRender({
   error,
   resetErrorBoundary,
 }: Readonly<FallbackProps>) {
-  const { dismissAll } = useToastFactory({});
+  // const { dismissAll } = useToastFactory({});
   if (
     error?.message === ERROR_MESSAGES['401'] ||
     error?.message === ERROR_MESSAGES['403']
   ) {
-    dismissAll();
-    return <AccountError />;
+    // dismissAll();
+    return (
+      <Suspense>
+        <AccountError />
+      </Suspense>
+    );
   }
 
   return (

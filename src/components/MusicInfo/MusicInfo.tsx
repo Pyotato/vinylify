@@ -79,8 +79,10 @@ export default function MusicInfo() {
             <ArtistInfoSection artistId={artistId} />
           </ArtistInfo>
         </Suspense>
+        <Suspense>
+          <PlayerList />
+        </Suspense>
       </div>
-      <PlayerList />
     </div>
   );
 }

@@ -50,7 +50,7 @@ const VirtualGrid = ({
       <div
         className="relative w-full"
         style={{
-          height: virtualizer.getTotalSize() + 170,
+          height: virtualizer.getTotalSize() + 250,
         }}
       >
         {infiniteItems.length == 0 && (

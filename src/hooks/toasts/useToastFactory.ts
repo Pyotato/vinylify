@@ -1,84 +1,84 @@
-import { useEffect, useMemo, useState } from 'react';
+import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+
+const TOAST_FACTORY_KEY = 'vinylify-notification';
 
 function useToastFactory({ id }: { id?: string }) {
   const [activeToastList, setActiveToastList] = useState<Set<string>>(
-    new Set([]),
+    new Set(),
   );
 
-  const localStorageKey = useMemo(() => useToastFactory.toastId(id), [id]);
+  /** safely parse localStorage */
+  const getStoredToasts = (): Set<string> => {
+    try {
+      const raw = localStorage.getItem(TOAST_FACTORY_KEY);
+      return raw ? new Set(JSON.parse(raw)) : new Set();
+    } catch {
+      return new Set();
+    }
+  };
 
+  const saveStoredToasts = (set: Set<string>) => {
+    localStorage.setItem(TOAST_FACTORY_KEY, JSON.stringify([...set]));
+    setActiveToastList(new Set(set)); // sync local state
+  };
+
+  /** add toast ID to localStorage + state */
   const addActiveToastList = (toastId: string) => {
-    const prev = localStorage.getItem(localStorageKey);
-    if (prev) {
-      const preArr = Array.from(new Set([...prev.split(','), toastId]));
-      localStorage.setItem(localStorageKey, preArr.join(','));
-    } else {
-      localStorage.setItem(
-        localStorageKey,
-        Array.from(activeToastList.add(toastId)).join(','),
-      );
-    }
+    if (!id) return;
+    const newSet = getStoredToasts();
+    newSet.add(toastId);
+    saveStoredToasts(newSet);
   };
 
+  /** remove toast ID from localStorage + state */
   const removeFromActiveToastList = (toastId: string) => {
-    const prev = localStorage.getItem(localStorageKey);
-    activeToastList.delete(toastId);
-    if (prev) {
-      const filtered = prev.split(',').filter(item => item === toastId);
-      localStorage.setItem(localStorageKey, filtered.join(','));
-    } else {
-      localStorage.setItem(
-        localStorageKey,
-        Array.from(activeToastList).join(','),
-      );
-    }
+    const newSet = getStoredToasts();
+    newSet.delete(toastId);
+    saveStoredToasts(newSet);
   };
 
+  /** dismiss a toast and remove it from list */
   const dismissToast = (toastId: string) => {
     toast.dismiss(toastId);
-    const prev = localStorage.getItem(localStorageKey);
-    if (prev) {
-      const filtered = prev.split(',').filter(item => item === toastId);
-      localStorage.setItem(localStorageKey, filtered.join(','));
-    }
+    const newSet = getStoredToasts();
+    newSet.delete(toastId);
+    saveStoredToasts(newSet);
   };
 
+  /** dismiss all except specific ones */
   const dismissAllExcept = (keepIds: string[]) => {
-    const prev = localStorage.getItem(localStorageKey);
-    const newSet: string[] = [];
-    if (prev) {
-      prev.split(',').forEach(toastId => {
-        if (!keepIds.includes(toastId)) {
-          toast.dismiss(toastId);
-        } else {
-          newSet.push(toastId);
-        }
-      });
+    const defaultKeepIds = [
+      ERROR_MESSAGES['GENERIC_ERROR'],
+      ERROR_MESSAGES['429'],
+      ERROR_MESSAGES['408'],
+    ];
+    const totalKeepIds = new Set([...keepIds, ...defaultKeepIds]);
 
-      localStorage.setItem(localStorageKey, newSet.join(','));
-    }
+    const storedToasts = getStoredToasts();
+
+    // dismiss everything *not* in keepIds
+    storedToasts.forEach(toastId => {
+      if (!totalKeepIds.has(toastId)) toast.dismiss(toastId);
+    });
+
+    // only keep the IDs we want
+    const kept = new Set([...storedToasts].filter(id => totalKeepIds.has(id)));
+    saveStoredToasts(kept);
   };
 
+  /** dismiss all toasts and clear storage */
   const dismissAll = () => {
-    const items = localStorage.getItem(localStorageKey);
-    if (items) {
-      items.split(',').forEach(id => toast.dismiss(id));
-    }
-    activeToastList.forEach(id => toast.dismiss(id));
-    activeToastList.clear();
-    localStorage.removeItem(localStorageKey);
+    toast.dismiss();
+    localStorage.removeItem(TOAST_FACTORY_KEY);
+    setActiveToastList(new Set());
   };
 
+  /** load on mount */
   useEffect(() => {
-    if (!id) {
-      return;
-    }
-    const items = localStorage.getItem(localStorageKey);
-    if (items) {
-      setActiveToastList(new Set(items.split(',')));
-    }
-  }, [localStorage.getItem(localStorageKey)]);
+    setActiveToastList(getStoredToasts());
+  }, []);
 
   return {
     activeToastList,
@@ -89,7 +89,5 @@ function useToastFactory({ id }: { id?: string }) {
     dismissAll,
   };
 }
-
-useToastFactory.toastId = (id?: string) => id + '-notifications';
 
 export default useToastFactory;

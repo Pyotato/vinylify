@@ -15,6 +15,7 @@ const PlayerToast = ({
   title,
 }: {
   context: string;
+  deviceId?: string;
   setDeviceId?: Dispatch<SetStateAction<string | null>>;
 } & PlayButtonProps) => {
   const { data, refetch } = useActiveDevice();
