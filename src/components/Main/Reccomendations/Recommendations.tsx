@@ -14,6 +14,7 @@ function Recommendations() {
     msg: error?.message,
     toastId: error?.name,
     hideProgressBar: false,
+    factoryId: error?.message!,
   });
 
   if (isError) {

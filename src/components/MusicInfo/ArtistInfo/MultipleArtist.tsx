@@ -1,4 +1,5 @@
 import { useMultipleArtistProfileLink } from '@/hooks/query/artist/useMultipleArtistProfileLink';
+import { useToast } from '@/hooks/toasts/useToast';
 import { Fragment } from 'react/jsx-runtime';
 import ArtistInfoCard from './Card/ArtistInfoCard';
 import NoArtistToDisplay from './NoArtistToDisplay';
@@ -8,23 +9,20 @@ export default function MultipleArtist({
 }: Readonly<{
   artistId: string[];
 }>) {
-  const {
-    data,
-    // error, isError,
-    isLoading,
-  } = useMultipleArtistProfileLink({
+  const { data, error, isError, isLoading } = useMultipleArtistProfileLink({
     artistId,
   });
 
-  // const { showToast } = useToast({
-  //   isError,
-  //   msg: error?.message,
-  //   toastId: error?.message,
-  //   stack: false,
-  // });
-  // if (error) {
-  //   showToast();
-  // }
+  const { showToast } = useToast({
+    isError,
+    msg: error?.message,
+    toastId: error?.message,
+    stack: false,
+    factoryId: error?.message!,
+  });
+  if (error) {
+    showToast();
+  }
 
   if (isLoading) {
     return (

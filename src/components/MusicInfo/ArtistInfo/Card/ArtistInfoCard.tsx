@@ -24,6 +24,7 @@ export default function ArtistInfoCard({
     isError,
     msg: error?.message,
     toastId: error?.name,
+    factoryId: error?.message!,
   });
 
   const coverImageImgUrl = useMemo(() => {

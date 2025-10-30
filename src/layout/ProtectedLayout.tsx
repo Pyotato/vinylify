@@ -12,7 +12,7 @@ export default function ProtectedRoute() {
   const { isLoading, token } = useAuth();
   const { reset } = useQueryErrorResetBoundary();
   const currentPage = useLocation()?.pathname;
-  const { dismissAll } = useToastFactory({});
+  const { dismissAll } = useToastFactory({ id: 'fallback' });
 
   if (isLoading) {
     return <Navigate to={currentPage} replace={false} />;

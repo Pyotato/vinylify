@@ -1,4 +1,3 @@
-import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
 import { SECOND } from '@/constants/time';
 import TOAST_SETTINGS from '@/hooks/toasts/CONFIG';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
@@ -17,7 +16,6 @@ export function useToast({
   stack = true,
   autoClose = false,
   transition = Slide,
-  persist = false,
   hideProgressBar = false,
 }: {
   msg?: string | ReactNode;
@@ -37,10 +35,9 @@ export function useToast({
     isIn,
     playToast,
   }: ToastTransitionProps) => React.JSX.Element;
-  factoryId?: string;
+  factoryId: string;
   autoClose?: false | number;
   theme?: 'light' | 'dark' | 'colored';
-  persist?: boolean;
 }) {
   const [isActiveToast, setIsActiveToast] = useState(
     toastId ? toast.isActive(toastId) : false,
@@ -52,21 +49,10 @@ export function useToast({
     dismissToast,
     dismissAllExcept,
     dismissAll,
+    dismissStack,
   } = useToastFactory({
     id: factoryId,
   });
-
-  useEffect(() => {
-    return () => {
-      if (!persist) {
-        dismissAllExcept([
-          ERROR_MESSAGES['GENERIC_ERROR'],
-          ERROR_MESSAGES['429'],
-          ERROR_MESSAGES['408'],
-        ]);
-      }
-    };
-  }, []);
 
   const showToast = useCallback(() => {
     if (!msg || !toastId) {
@@ -92,7 +78,9 @@ export function useToast({
       transition,
       onOpen: () => {
         addActiveToastList(toastId);
-        dismissAllExcept([toastId]);
+        if (!stack) {
+          dismissStack(toastId);
+        }
       },
       onClose: () => {
         removeFromActiveToastList(toastId);
@@ -117,5 +105,6 @@ export function useToast({
     updateToast,
     dismissToast,
     dismissAll,
+    dismissStack,
   };
 }

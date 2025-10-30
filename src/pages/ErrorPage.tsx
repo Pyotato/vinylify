@@ -16,7 +16,7 @@ export default function ErrorPage() {
     <div className="h-full w-full align-middle inline-flex justify-center bg-(--grey-100)">
       <div className="text-center align-middle inline-flex flex-col justify-center gap-4">
         <h1 className="text-2xl font-bold">{message}</h1>
-        <div className="inline-flex justify-center relative">
+        <div className="inline-flex w-[50%] items-center justify-center relative">
           <Vinyl imgUrl={BLACK_TEXTURE} />
         </div>
       </div>

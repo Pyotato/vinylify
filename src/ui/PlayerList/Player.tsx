@@ -25,10 +25,9 @@ function PlayerList() {
     isError: false,
     icon: false,
     autoClose: false,
-    persist: true,
-    toastId: PLAYER_LIST_TOAST_ID,
+    toastId: data?.queue?.map(item => item.id).join(','),
     stack: false,
-    factoryId: PLAYER_LIST_TOAST_ID,
+    factoryId: 'play-device',
   });
 
   const openQueue = () => {
@@ -39,7 +38,7 @@ function PlayerList() {
     if (open && isFetched) {
       showToast();
     } else {
-      dismissToast(PLAYER_LIST_TOAST_ID);
+      dismissToast('play-device');
     }
   }, [open, isFetched]);
 

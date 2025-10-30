@@ -31,6 +31,7 @@ export default function SearchBar({
     msg: error?.message,
     isError,
     toastId: error?.name,
+    factoryId: error?.message!,
   });
   if (isError) {
     showToast();

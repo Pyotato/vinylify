@@ -34,7 +34,6 @@ function AddToQueueButton({
     factoryId: tab,
     autoClose: 2 * SECOND,
     stack: true,
-    persist: true,
   });
   const { data, refetch, isFetchedAfterMount } = useUserPlayQueue();
 
@@ -43,7 +42,6 @@ function AddToQueueButton({
     isError: false,
     icon: false,
     autoClose: false,
-    persist: true,
     toastId: PLAYER_LIST_TOAST_ID,
     stack: false,
     factoryId: PLAYER_LIST_TOAST_ID,

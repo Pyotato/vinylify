@@ -13,6 +13,7 @@ const MultipleArtistProfile = ({ artistId }: { artistId: string[] }) => {
     isError,
     msg: error?.message,
     toastId: error?.message,
+    factoryId: error?.message!,
   });
 
   if (isError) {

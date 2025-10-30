@@ -20,7 +20,7 @@ const PlayerToast = ({
 } & PlayButtonProps) => {
   const { data, refetch } = useActiveDevice();
   const onPlayDebounceHandler = useDebounce(
-    async () => {
+    () => {
       playTrack({
         offset: uri,
         position_ms,

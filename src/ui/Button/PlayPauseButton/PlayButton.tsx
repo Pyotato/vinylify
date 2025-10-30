@@ -33,8 +33,7 @@ const PlayButton = ({
   position_ms = 0,
   setDeviceId,
   title,
-  id,
-}: PlayButtonProps & { id?: string }) => {
+}: PlayButtonProps) => {
   const [isActive, setIsActive] = useState(false);
   const { data } = useActiveDevice();
   const onPlayDebounceHandler = useDebounce(
@@ -57,10 +56,8 @@ const PlayButton = ({
       setDeviceId,
       position_ms,
       uri,
-      id,
     }),
-
-    factoryId: id,
+    factoryId: 'play-device-on',
     isError: false,
     icon: false,
     stack: false,
