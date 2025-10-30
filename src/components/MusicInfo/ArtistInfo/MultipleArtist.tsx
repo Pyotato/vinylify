@@ -8,7 +8,11 @@ export default function MultipleArtist({
 }: Readonly<{
   artistId: string[];
 }>) {
-  const { data, error, isError, isLoading } = useMultipleArtistProfileLink({
+  const {
+    data,
+    // error, isError,
+    isLoading,
+  } = useMultipleArtistProfileLink({
     artistId,
   });
 
