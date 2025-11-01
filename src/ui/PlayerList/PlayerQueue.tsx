@@ -42,4 +42,6 @@ const PlayQueue = ({ queue }: { queue?: NewTrack[] | Track[] }) => {
     </div>
   );
 };
+
+PlayQueue.factoryId = `player-list`;
 export default PlayQueue;

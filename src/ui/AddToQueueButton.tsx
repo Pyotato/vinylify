@@ -1,10 +1,8 @@
 import addToPlayQueue from '@/api/spotify/player/addToPlayQueue';
-// import { SPOTIFY_WEB_API } from '@/constants';
 import { VINYLIFY_TOKEN } from '@/constants';
 import { SECOND } from '@/constants/time';
 import { useSpotifyAuth } from '@/hooks/query/useSpotifyAuth';
 import useUserPlayQueue from '@/hooks/query/useUserPlayQueue';
-import { PLAYER_LIST_TOAST_ID } from '@/hooks/toasts/CONFIG';
 import { useToast } from '@/hooks/toasts/useToast';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useQueryClient } from '@tanstack/react-query';
@@ -47,9 +45,9 @@ function AddToQueueButton({
     isError: false,
     icon: false,
     autoClose: false,
-    toastId: PLAYER_LIST_TOAST_ID,
+    toastId: PlayQueue.factoryId,
     stack: false,
-    factoryId: PLAYER_LIST_TOAST_ID,
+    factoryId: PlayQueue.factoryId,
   });
 
   useEffect(() => {
@@ -61,10 +59,7 @@ function AddToQueueButton({
       if (uri != null) {
         addToPlayQueue({ uri });
         setIsActive(false);
-        const queryKey = useUserPlayQueue.queryKey(
-          // SPOTIFY_WEB_API.getAccessToken(),
-          authData?.token,
-        );
+        const queryKey = useUserPlayQueue.queryKey(authData?.token);
         const res = refetch();
         queryClient.setQueryData(queryKey, res);
       }
@@ -74,7 +69,7 @@ function AddToQueueButton({
   );
 
   if (isFetchedAfterMount) {
-    updateToast(PLAYER_LIST_TOAST_ID, PlayQueue({ queue: data?.queue }));
+    updateToast(PlayQueue.factoryId, PlayQueue({ queue: data?.queue }));
   }
 
   return (
