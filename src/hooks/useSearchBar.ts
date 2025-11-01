@@ -1,3 +1,4 @@
+import { SECOND } from '@/constants/time';
 import { SearchResponse } from '@/models/Response';
 import { SearchProps } from '@/models/Search';
 import {
@@ -77,7 +78,7 @@ function useSearchBar({
       }
     },
     [keyword],
-    1_500,
+    2 * SECOND,
   );
 
   const onChange: ChangeEventHandler<HTMLInputElement> = e => {
