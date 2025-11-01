@@ -1,3 +1,4 @@
+import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
 import { SECOND } from '@/constants/time';
 import TOAST_SETTINGS from '@/hooks/toasts/CONFIG';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
@@ -56,6 +57,9 @@ export function useToast({
 
   const showToast = useCallback(() => {
     if (!msg || !toastId) {
+      return;
+    }
+    if (msg === ERROR_MESSAGES['403'] || msg === ERROR_MESSAGES['401']) {
       return;
     }
 

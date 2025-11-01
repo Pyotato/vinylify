@@ -1,6 +1,7 @@
 import playTrack from '@/api/spotify/player/playTrack';
 import { SECOND } from '@/constants/time';
 import useActiveDevice from '@/hooks/query/useActiveDevice';
+import useToastFactory from '@/hooks/toasts/useToastFactory';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { PlayButtonProps } from './Button/PlayPauseButton/PlayButton';
@@ -19,6 +20,8 @@ const PlayerToast = ({
   setDeviceId?: Dispatch<SetStateAction<string | null>>;
 } & PlayButtonProps) => {
   const { data, refetch } = useActiveDevice();
+
+  const { dismissToast } = useToastFactory({ id: PlayerToast.factoryId });
   const onPlayDebounceHandler = useDebounce(
     () => {
       playTrack({
@@ -26,6 +29,8 @@ const PlayerToast = ({
         position_ms,
         context_uris: context,
         active_device: deviceId,
+      }).finally(() => {
+        dismissToast(`select-player-${context}`);
       });
     },
     [],
@@ -46,7 +51,7 @@ const PlayerToast = ({
             "<span className="text-gray-800">{title}</span>"를 재생할 디바이스를
             선택해주세요. 🎧
           </div>
-          {data?.devices.map(device => (
+          {data.devices.map(device => (
             <button
               className="inline-flex items-center gap-2 w-max hover:underline hover:cursor-pointer hover:text-gray-300"
               key={device.id}
@@ -65,5 +70,7 @@ const PlayerToast = ({
     </div>
   );
 };
+
+PlayerToast.factoryId = 'play-device-on';
 
 export default PlayerToast;
