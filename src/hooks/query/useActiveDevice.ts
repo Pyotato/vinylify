@@ -7,7 +7,6 @@ import { retry, throwOnError } from './CONFIG';
 import { useSpotifyAuth } from './useSpotifyAuth';
 
 const useActiveDevice = () => {
-  // const accessToken = SPOTIFY_WEB_API.getAccessToken();
   const { data: authData } = useSpotifyAuth(
     localStorage.getItem(VINYLIFY_TOKEN),
   );

@@ -35,6 +35,7 @@ const PlayButton = ({
   title,
 }: PlayButtonProps) => {
   const [isActive, setIsActive] = useState(false);
+
   const { data } = useActiveDevice();
   const onPlayDebounceHandler = useDebounce(
     async () => {
@@ -57,12 +58,13 @@ const PlayButton = ({
       position_ms,
       uri,
     }),
-    factoryId: 'play-device-on',
+    factoryId: PlayerToast.factoryId,
     isError: false,
     icon: false,
     stack: false,
     toastId: `select-player-${context}`,
   });
+
   const handlePlayer = (currentUri: string) => {
     if (currentUri && title != null) {
       showToast();
@@ -79,7 +81,6 @@ const PlayButton = ({
     <Button
       onClick={() => {
         handlePlayer(context);
-        setIsActive(true);
       }}
       name={'play track'}
     >

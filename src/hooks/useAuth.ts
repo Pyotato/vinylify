@@ -16,14 +16,6 @@ export const useAuth = () => {
     window.location.replace(API.LOGIN);
   }
 
-  // const logOut = useCallback(() => {
-  //   if (SPOTIFY_WEB_API.getAccessToken()) {
-  //     localStorage.removeItem(VINYLIFY_TOKEN);
-  //     SPOTIFY_WEB_API.setAccessToken(null);
-  //     navigate(PAGE.MAIN);
-  //   }
-  // }, [navigate]);
-
   const logOut = useCallback(() => {
     if (data?.token) {
       localStorage.removeItem(VINYLIFY_TOKEN);
@@ -48,17 +40,11 @@ export const useAuth = () => {
 
   // 로그인 경로(/me)에서 (?access_token=XXX)가 있을 경우 등록
   useEffect(() => {
-    if (location.pathname == PAGE.LOGGED_IN && searchParams.has(ACCESS_TOKEN)) {
-      const access_token = `${searchParams.get(ACCESS_TOKEN)}`;
-      localStorage.setItem(VINYLIFY_TOKEN, access_token);
-      // SPOTIFY_WEB_API.setAccessToken(access_token);
+    const accessToken = searchParams.get(ACCESS_TOKEN);
+    if (location.pathname == PAGE.LOGGED_IN && accessToken != null) {
+      localStorage.setItem(VINYLIFY_TOKEN, accessToken);
     }
-  }, [
-    ,
-    //SPOTIFY_WEB_API
-    localStorage,
-    searchParams,
-  ]);
+  }, [localStorage, searchParams]);
 
   return {
     logOut,

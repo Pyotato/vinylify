@@ -9,7 +9,6 @@ const Header = lazy(() => import('../ui/Header/Header'));
 
 const BaseLayout = () => {
   const { reset } = useQueryErrorResetBoundary();
-
   return (
     <ErrorBoundary fallbackRender={FallbackRender} onReset={reset}>
       <div className="w-full h-[100vh] overflow-hidden">
