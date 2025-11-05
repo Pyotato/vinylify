@@ -1,7 +1,7 @@
-import Grid from '@/ui/Grid';
 import FullBackground from '@/ui/layout/FullBackground';
 import { lazy, Suspense } from 'react';
 import NavigateSearch from './_shared/NavigateSearch';
+import Skeleton from './Skeleton';
 
 const SearchReccomendations = lazy(() => import('./SearchReccomendations'));
 
@@ -17,7 +17,7 @@ function Empty() {
 
       <NavigateSearch />
       <div className="w-full h-[80vh] overflow-scroll scrollbar-hide">
-        <Suspense fallback={<Grid className="mb-9">?</Grid>}>
+        <Suspense fallback={<Skeleton />}>
           <SearchReccomendations />
         </Suspense>
       </div>

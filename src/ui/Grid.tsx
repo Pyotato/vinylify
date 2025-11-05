@@ -35,7 +35,9 @@ const GridSkeleton = () => (
           <li className="wrap">
             <span className={`inline-block w-full h-4 animate-pulse`} />
           </li>
-          <span className={`inline-block w-full h-8  animate-pulse`} />
+          <span
+            className={`inline-block bg-(--grey-600) w-full h-8  animate-pulse`}
+          />
         </ul>
       </li>
     ))}

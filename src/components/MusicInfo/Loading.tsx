@@ -3,7 +3,6 @@ import AnimatedTitle from '@/ui/AnimatedTitle';
 import { MemoizedVinyl } from '@/ui/Vinyl/Vinyl';
 import { formatHHMMSS } from '@/utils/string/formatHHMMSS';
 import { lazy } from 'react';
-import ArtistInfo from './ArtistInfo/ArtistInfo';
 import ArtistInfoSection from './ArtistInfoSection';
 import ProgressBar from './ProgressBar';
 
@@ -37,9 +36,10 @@ function Loading({
           </div>
         </div>
 
-        <ArtistInfo>
+        <AnimatedTitle>Artists</AnimatedTitle>
+        <ul className={'p-0 mb-10'}>
           <ArtistInfoSection artistId={artistId} />
-        </ArtistInfo>
+        </ul>
       </div>
     </div>
   );

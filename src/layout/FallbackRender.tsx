@@ -1,27 +1,18 @@
+import AccountError from '@/components/Error/AccountError';
 import ERROR_MESSAGES from '@/config/ERROR_MESSAGES';
-// import useToastFactory from '@/hooks/toasts/useToastFactory';
-import { lazy, Suspense } from 'react';
+import KeycapButton from '@/ui/Button/KeycapButton';
+import FullBackground from '@/ui/layout/FullBackground';
 import { FallbackProps } from 'react-error-boundary';
-
-const AccountError = lazy(() => import('@/components/Error/AccountError'));
-const FullBackground = lazy(() => import('../ui/layout/FullBackground'));
-const KeycapButton = lazy(() => import('@/ui/Button/KeycapButton'));
 
 export default function FallbackRender({
   error,
   resetErrorBoundary,
 }: Readonly<FallbackProps>) {
-  // const { dismissAll } = useToastFactory({});
   if (
     error?.message === ERROR_MESSAGES['401'] ||
     error?.message === ERROR_MESSAGES['403']
   ) {
-    // dismissAll();
-    return (
-      <Suspense>
-        <AccountError />
-      </Suspense>
-    );
+    return <AccountError />;
   }
 
   return (

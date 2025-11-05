@@ -3,6 +3,7 @@ import { ArtistObjectFull } from '@/models/Artist';
 import { PagingObject } from '@/models/PagingObject';
 import { VARIANTS } from '@/ui/Badge';
 import { lazy } from 'react';
+import Skeleton from './Skeleton';
 
 const Card = lazy(() => import('@/ui/Card'));
 const Grid = lazy(() => import('@/ui/Grid'));
@@ -11,7 +12,10 @@ const Badge = lazy(() => import('@/ui/Badge'));
 interface UsersTopArtistsResponse extends PagingObject<ArtistObjectFull> {}
 
 function SearchReccomendations() {
-  const { data: myTopArtists, isFetched } = useMyTopArtists();
+  const { data: myTopArtists, isFetched, isLoading } = useMyTopArtists();
+  if (isLoading) {
+    return <Skeleton />;
+  }
   return (
     isFetched && (
       <Grid className="mb-9">

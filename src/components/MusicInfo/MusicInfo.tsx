@@ -10,7 +10,7 @@ import Loading from './Loading';
 
 const MusicPlayer = lazy(() => import('./MusicPlayer'));
 const Lyrics = lazy(() => import('./Lyrics'));
-const ArtistInfo = lazy(() => import('./ArtistInfo/ArtistInfo'));
+
 const ArtistInfoSection = lazy(() => import('./ArtistInfoSection'));
 
 export default function MusicInfo() {
@@ -75,9 +75,10 @@ export default function MusicInfo() {
           />
         </Suspense>
         <Suspense>
-          <ArtistInfo>
+          <AnimatedTitle>Artists</AnimatedTitle>
+          <ul className={'p-0 mb-10'}>
             <ArtistInfoSection artistId={artistId} />
-          </ArtistInfo>
+          </ul>
         </Suspense>
         <Suspense>
           <PlayerList />

@@ -3,8 +3,8 @@ import { lazy, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import FallbackRender from './FallbackRender';
 
-const FallbackRender = lazy(() => import('./FallbackRender'));
 const Header = lazy(() => import('../ui/Header/Header'));
 
 const BaseLayout = () => {

@@ -10,12 +10,12 @@ function GridSkeleton() {
           key={index + '-skeleton'}
         >
           <CoverImageSkeleton />
-          <ul>
-            <li className="wrap">
-              <span className={`inline-block w-full h-4 animate-pulse`} />
-            </li>
-            <span className={`inline-block w-full h-8  animate-pulse`} />
-          </ul>
+          <span
+            className={`inline-block w-16 h-4 animate-pulse bg-(--grey-600)`}
+          />
+          <span
+            className={`inline-block w-full h-8 bg-(--grey-600) animate-pulse`}
+          />
         </li>
       ))}
     </Grid>

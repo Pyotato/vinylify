@@ -67,9 +67,13 @@ const VirtualGrid = ({
                 <CoverImageSkeleton />
                 <ul>
                   <li className="wrap">
-                    <span className={`inline-block w-full h-4 animate-pulse`} />
+                    <span
+                      className={`inline-block w-full h-4 animate-pulse bg-(--grey-600)`}
+                    />
                   </li>
-                  <span className={`inline-block w-full h-8  animate-pulse`} />
+                  <span
+                    className={`inline-block w-full h-8  animate-pulse bg-(--grey-600)`}
+                  />
                 </ul>
               </li>
             ))}

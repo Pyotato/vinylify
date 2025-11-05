@@ -1,4 +1,6 @@
 import { PAGE } from '@/constants/url';
+import ErrorPage from '@/pages/ErrorPage';
+import NotFoundPage from '@/pages/NotFoundPage';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -6,8 +8,6 @@ const BaseLayout = lazy(() => import('@/layout/BaseLayout'));
 const MainPage = lazy(() => import('@/pages/MainPage'));
 const MusicInfoPage = lazy(() => import('@/pages/MusicInfoPage'));
 const SearchPage = lazy(() => import('@/pages/SearchPage'));
-const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
-const ErrorPage = lazy(() => import('@/pages/ErrorPage'));
 const ProtectedRoute = lazy(() => import('@/layout/ProtectedLayout'));
 
 const router = createBrowserRouter([
