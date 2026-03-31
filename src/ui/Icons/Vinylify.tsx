@@ -8,6 +8,8 @@ const VinylifyIcon = () => {
       height="450.000000pt"
       viewBox="0 0 450.000000 450.000000"
       preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label="Vinylify"
     >
       <g
         transform="translate(0.000000,450.000000) scale(0.100000,-0.100000)"

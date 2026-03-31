@@ -5,6 +5,8 @@ const NotFoundIcon = ({ className = '' }: { className?: string }) => {
       fill="none"
       className={`w-[20rem] ${className}`}
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="페이지를 찾을 수 없음"
     >
       <path
         fillRule="evenodd"

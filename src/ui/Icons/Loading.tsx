@@ -1,4 +1,4 @@
-const LoadingIcon = () => {
+const LoadingIcon = ({ 'aria-hidden': ariaHidden }: { 'aria-hidden'?: boolean } = {}) => {
   return (
     <svg
       fill="currentColor"
@@ -6,6 +6,8 @@ const LoadingIcon = () => {
       viewBox="-58 -58 116 116"
       className="animate-spin w-3 mr-2"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden={ariaHidden}
+      focusable="false"
     >
       <g strokeLinecap="round" strokeWidth="15">
         <path id="a" d="m0 35 0,14" />

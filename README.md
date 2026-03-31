@@ -89,3 +89,26 @@ atomic 패턴 대신 도메인 중심의 폴더 구조를 선택했습니다. �
 ### 커밋 컨벤션 자동화 :
 
 Husky와 commitlint를 연동해 커밋 메시지가 Conventional Commits 규격을 따르지 않으면 커밋이 거부되도록 했습니다. 일관된 커밋 히스토리를 유지함으로써 변경 사항의 맥락을 쉽게 파악할 수 있었습니다.
+
+### 반응형 디자인 :
+
+`clamp()` · `max()` 기반의 유동적 CSS 커스텀 프로퍼티를 정의해 뷰포트에 따라 텍스트 크기·이미지 크기·여백·보더 반경이 자동으로 조정되도록 했습니다. 고정 브레이크포인트 대신 fluid 값을 사용함으로써 중간 뷰포트에서도 레이아웃이 자연스럽게 흐르도록 했습니다.
+
+```css
+/* fluid typography */
+--text-fluid-xl: clamp(var(--text-base), 5vw, var(--text-4xl));
+--text-fluid-xs: clamp(0.3rem, 3vw, var(--text-xs));
+
+/* fluid vinyl album cover */
+--vinyl-album-fluid: clamp(9rem, 26rem, 28vw);
+```
+
+가상화 그리드(`useGridVirtualizer`)는 `useThrottledWindowSize`로 현재 뷰포트 너비를 감지해 컬럼 수를 동적으로 계산합니다. Tailwind의 `sm:` · `md:` · `lg:` 반응형 prefix를 그리드와 레이아웃 컴포넌트 전반에 적용했습니다.
+
+### 웹 접근성 :
+
+- **키보드 탐색** : 모든 버튼과 탭에 `focus-visible` 포커스 인디케이터를 적용해 마우스 없이도 탐색 가능하도록 했습니다.
+- **스크린 리더 지원** : 아이콘 전용 버튼에는 `aria-label`로 목적을 설명하고, 장식용 SVG에는 `aria-hidden` + `focusable="false"`를 적용했습니다. 내비게이션 버튼에는 현재 페이지 여부를 `aria-current="page"`로 전달합니다.
+- **동적 콘텐츠 알림** : 검색 로딩 상태를 `aria-live="polite"`로 선언해 상태 변화를 스크린 리더에 알립니다.
+- **탭 패턴** : 검색 카테고리 탭에 `role="tablist"` · `role="tab"` · `aria-selected`를 적용해 WAI-ARIA 탭 패턴을 준수했습니다.
+- **모션 감소 설정 존중** : `@media (prefers-reduced-motion: reduce)` 로 바이닐 회전·캐러셀·네온 애니메이션을 비활성화해 전정 장애가 있는 사용자를 배려했습니다.

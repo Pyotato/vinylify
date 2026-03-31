@@ -83,8 +83,9 @@ const PlayButton = ({
         handlePlayer(context);
       }}
       name={'play track'}
+      aria-label={title ? `${title} 재생` : '재생'}
     >
-      {isActive ? <LoadingIcon /> : <PlayIcon />}
+      {isActive ? <LoadingIcon aria-hidden={true} /> : <PlayIcon />}
     </Button>
   );
 };

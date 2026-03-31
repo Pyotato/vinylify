@@ -40,10 +40,13 @@ export default function SearchBar({
   return (
     <div className="w-full inline-flex justify-center bg-(--light-grey-100) pt-6 pb-6 pr-4 pl-4">
       <div
+        role="search"
+        aria-busy={isLoading}
         className={`w-full inline-flex justify-center rounded-[4px] ${isLoading ? 'bg-(--grey-600)' : 'bg-(--color-white)'}`}
       >
         <input
           name="song-search-bar"
+          aria-label="음악 검색"
           className="w-full inline-block p-1.5 disabled:bg-(--grey-600) disabled:text-(--grey-100)"
           value={keyword || ''}
           placeholder={placeHolder}
@@ -51,8 +54,11 @@ export default function SearchBar({
           disabled={isLoading}
           onKeyUp={onKeyUp}
         />
-        {isLoading && <LoadingIcon />}
+        {isLoading && <LoadingIcon aria-hidden={true} />}
       </div>
+      <span role="status" aria-live="polite" className="sr-only">
+        {isLoading ? '검색 중...' : ''}
+      </span>
     </div>
   );
 }

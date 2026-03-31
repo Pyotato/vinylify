@@ -11,6 +11,8 @@ function AddIcon() {
       viewBox="0 0 349.03 349.031"
       xmlSpace="preserve"
       className="w-4 h-4 self-center hover:fill-gray-600"
+      aria-hidden={true}
+      focusable="false"
     >
       <g>
         <path

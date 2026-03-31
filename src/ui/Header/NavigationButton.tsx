@@ -26,10 +26,17 @@ const NavigationButton = ({
     return url.replace('/', '') + 'navigation button';
   }, [url]);
 
+  const ariaLabel = useMemo(() => {
+    const page = url.replace('/', '') || 'home';
+    return isCurrentPage ? `${page} 페이지 (현재 페이지)` : `${page} 페이지로 이동`;
+  }, [url, isCurrentPage]);
+
   return (
     <KeycapButton
       onClick={handleNavigation}
       name={buttonName}
+      aria-label={ariaLabel}
+      aria-current={isCurrentPage ? 'page' : undefined}
       className={isCurrentPage ? 'bg-(--grey-900)! text-(--grey-100)!' : ''}
     >
       {icon}
