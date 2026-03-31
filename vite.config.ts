@@ -1,6 +1,6 @@
-// import { sentryVitePlugin } from '@sentry/vite-plugin';
+import { sentryVitePlugin } from '@sentry/vite-plugin';
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -32,12 +32,12 @@ const config: ViteConfig = {
       },
       include: '**/*.svg',
     }),
-    // sentryVitePlugin({
-    //   authToken: process.env.SENTRY_AUTH_TOKEN,
-    //   org: 'pyotato',
-    //   project: 'javascript-react',
-    //   disable: true, //disable
-    // }),
+    sentryVitePlugin({
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      org: 'pyotato',
+      project: 'javascript-react',
+      disable: true, //disable
+    }),
   ],
   resolve: {
     alias: {

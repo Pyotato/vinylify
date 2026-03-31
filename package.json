@@ -30,9 +30,9 @@
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^6.23.1",
     "react-toastify": "^11.0.5",
-    "sass": "^1.77.4",
     "tailwindcss": "^4.1.12",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-plugin-svgr": "^4.2.0",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",

@@ -42,7 +42,7 @@ export default function TabSearchList({
     isError,
     msg: error?.message,
     toastId: error?.name,
-    factoryId: error?.message!,
+    factoryId: error?.message ?? '',
   });
 
   if (isError) {
